@@ -1,0 +1,6 @@
+{
+  "dataset_id": "medications",
+  "dataset_version": "0.1.0",
+  "description": "Medication reference records. Do not provide individualized prescribing.",
+  "records": []
+}

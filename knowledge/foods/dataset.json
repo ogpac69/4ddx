@@ -1,0 +1,6 @@
+{
+  "dataset_id": "foods",
+  "dataset_version": "0.1.0",
+  "description": "Food composition records, prioritizing Indian foods and realistic portions.",
+  "records": []
+}

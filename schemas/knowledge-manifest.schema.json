@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ray-peat-health-tracker/schemas/knowledge-manifest.schema.json",
+  "title": "Knowledge manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_schema_version",
+    "knowledge_version",
+    "application_compatibility",
+    "last_updated",
+    "datasets"
+  ],
+  "properties": {
+    "manifest_schema_version": {
+      "type": "string"
+    },
+    "knowledge_version": {
+      "type": "string"
+    },
+    "application_compatibility": {
+      "type": "object",
+      "required": [
+        "minimum",
+        "maximum"
+      ],
+      "properties": {
+        "minimum": {
+          "type": "string"
+        },
+        "maximum": {
+          "type": "string"
+        }
+      }
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "datasets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "path",
+          "version",
+          "sha256",
+          "record_count"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "record_count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}

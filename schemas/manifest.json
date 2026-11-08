@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1.0",
+  "schemas": [
+    {
+      "id": "knowledge-record",
+      "path": "knowledge-record.schema.json",
+      "version": "0.1.0"
+    },
+    {
+      "id": "knowledge-manifest",
+      "path": "knowledge-manifest.schema.json",
+      "version": "0.1.0"
+    }
+  ]
+}

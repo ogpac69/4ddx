@@ -1,0 +1,6 @@
+{
+  "dataset_id": "clinical-references",
+  "dataset_version": "0.1.0",
+  "description": "Clinical reference values and guidance. Populate only with traceable, population-appropriate sources.",
+  "records": []
+}

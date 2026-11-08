@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ray-peat-health-tracker/schemas/knowledge-record.schema.json",
+  "title": "Knowledge record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "topic",
+    "description",
+    "related_variables",
+    "biological_mechanism",
+    "expected_direction",
+    "supporting_evidence",
+    "contradictory_evidence",
+    "evidence_classification",
+    "confidence",
+    "limitations",
+    "relevant_population",
+    "sources",
+    "publication_date",
+    "last_reviewed"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]+$"
+    },
+    "topic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "related_variables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "biological_mechanism": {
+      "type": "string"
+    },
+    "expected_direction": {
+      "type": "string",
+      "enum": [
+        "increase",
+        "decrease",
+        "mixed",
+        "context_dependent",
+        "unknown",
+        "not_applicable"
+      ]
+    },
+    "supporting_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contradictory_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_classification": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "clinical_guideline",
+          "systematic_review_meta_analysis",
+          "human_clinical_trial",
+          "observational_human",
+          "mechanistic_research",
+          "animal_cellular",
+          "historical_hypothesis",
+          "speculative_interpretation"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "high",
+        "moderate",
+        "low",
+        "very_low",
+        "unrated"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "relevant_population": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "citation_type",
+          "citation"
+        ],
+        "properties": {
+          "citation_type": {
+            "type": "string",
+            "enum": [
+              "doi",
+              "pmid",
+              "url",
+              "book",
+              "article",
+              "guideline",
+              "other"
+            ]
+          },
+          "citation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "doi": {
+            "type": "string"
+          },
+          "pmid": {
+            "type": "string"
+          },
+          "publication_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "publication_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "last_reviewed": {
+      "type": "string",
+      "format": "date"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "dataset_id": "supplements",
+  "dataset_version": "0.1.0",
+  "description": "Supplement ingredient, formulation, dose, kinetics, interaction and safety records.",
+  "records": []
+}

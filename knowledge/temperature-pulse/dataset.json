@@ -1,0 +1,6 @@
+{
+  "dataset_id": "temperature-pulse",
+  "dataset_version": "0.1.0",
+  "description": "Measurement methods, interpretation limitations and personal-baseline context.",
+  "records": []
+}

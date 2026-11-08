@@ -1,0 +1,81 @@
+{
+  "manifest_schema_version": "0.1.0",
+  "knowledge_version": "0.1.0",
+  "application_compatibility": {
+    "minimum": "22.6.0",
+    "maximum": "22.x"
+  },
+  "last_updated": "2026-11-08",
+  "datasets": [
+    {
+      "id": "clinical-references",
+      "path": "clinical-references/dataset.json",
+      "version": "0.1.0",
+      "sha256": "eea6825d92100398aa881a22db3b0d8f59a6bf2825814aff412b35c41531f59d",
+      "record_count": 0
+    },
+    {
+      "id": "physiology",
+      "path": "physiology/dataset.json",
+      "version": "0.1.0",
+      "sha256": "4abade0dc26d16e04f8c31853877fc353cfac04fda990981883b1c3de0a04f33",
+      "record_count": 0
+    },
+    {
+      "id": "bioenergetics",
+      "path": "bioenergetics/dataset.json",
+      "version": "0.1.0",
+      "sha256": "ea274a70b0cee8e889bb0362bec67b884013a1e96deaacfb904e2f407c28ea1c",
+      "record_count": 0
+    },
+    {
+      "id": "nutrition",
+      "path": "nutrition/dataset.json",
+      "version": "0.1.0",
+      "sha256": "2eac392faeb65f8ac7c28475ed6e3fbb4d6a3d3253edae09618ad4ada06b8188",
+      "record_count": 0
+    },
+    {
+      "id": "foods",
+      "path": "foods/dataset.json",
+      "version": "0.1.0",
+      "sha256": "7edf7d43bd40f346d7d060cf6cf59867ee1ae958d67e84f8ecf502f213a70ab9",
+      "record_count": 0
+    },
+    {
+      "id": "supplements",
+      "path": "supplements/dataset.json",
+      "version": "0.1.0",
+      "sha256": "b61f60faab54292dc753e78e32249c311a5dfbfa6a506c8069b39238bc2783d7",
+      "record_count": 0
+    },
+    {
+      "id": "medications",
+      "path": "medications/dataset.json",
+      "version": "0.1.0",
+      "sha256": "99e547fd085690af574c178f4664b9403f545f5d18381fb08531ddfbc55f7934",
+      "record_count": 0
+    },
+    {
+      "id": "sleep",
+      "path": "sleep/dataset.json",
+      "version": "0.1.0",
+      "sha256": "1ab6d0846e3c0dce94ed57a5e75bc2ea261b41b5915cd81bfdc0afc54c6b33dd",
+      "record_count": 0
+    },
+    {
+      "id": "temperature-pulse",
+      "path": "temperature-pulse/dataset.json",
+      "version": "0.1.0",
+      "sha256": "a19a7a35b9b739caa071bd1a4cca803bc019c9c2ad106b1e74ce2a807e2b825c",
+      "record_count": 0
+    },
+    {
+      "id": "research",
+      "path": "research/dataset.json",
+      "version": "0.1.0",
+      "sha256": "d2305ec758efdb61555c2fb08d17f3d665cf02629a3e54b80d323fd371ca3b38",
+      "record_count": 0
+    }
+  ]
+}
