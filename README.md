@@ -72,3 +72,18 @@ Clinical guidelines, systematic reviews, human trials, observational research, m
 ## Privacy
 
 The repository is intentionally public. Public repository status means all source code and documentation are visible to everyone. Do not commit participant records, backups, exports, credentials, or identifiable health data. Public source code does not make local browser data public; however, a separately deployed website and any future synchronization require their own security review. Do not enable public Pages hosting for an app containing or capable of exposing personal health records. Future synchronization requires a separate threat model, authentication, authorization, encryption, consent and audit design.
+
+## Phase C development
+
+Phase C begins with characterization before refactoring. See:
+- `docs/phase-c/plan.md` — staged refactoring plan and non-negotiable constraints.
+- `docs/phase-c/behavior-inventory.md` — current application and data behaviour.
+- `tests/regression/MANUAL-REGRESSION.md` — browser regression checklist.
+
+Run the static source-contract checks with:
+
+```bash
+python3 tests/regression/check_source_contract.py
+```
+
+These checks do not replace interactive browser testing. The application runtime has not yet been changed in Phase C0.
