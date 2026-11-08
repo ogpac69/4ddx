@@ -1,0 +1,142 @@
+{
+  "assessment": {
+    "age": "20",
+    "sleep_duration": "8",
+    "cold_hands": "Sometimes",
+    "unknown_future_question": "user answer"
+  },
+  "logs": {
+    "2026-11-01": {
+      "date": "2026-11-01",
+      "method": "Oral",
+      "measurements": [
+        {
+          "label": "Waking",
+          "time": "07:00",
+          "temp": 97.2,
+          "pulse": 68
+        },
+        {
+          "label": "Pre-meal",
+          "time": "12:00",
+          "temp": 97.8,
+          "pulse": 72
+        },
+        {
+          "label": "Post-meal",
+          "time": "13:00",
+          "temp": 98.1,
+          "pulse": 75
+        },
+        {
+          "label": "Bedtime",
+          "time": "",
+          "temp": null,
+          "pulse": null
+        }
+      ],
+      "contextTags": [
+        "Normal day"
+      ],
+      "notes": ""
+    },
+    "2026-11-02": {
+      "date": "2026-11-02",
+      "method": "Oral",
+      "measurements": [
+        {
+          "label": "Waking",
+          "time": "07:10",
+          "temp": 97.4,
+          "pulse": 70
+        },
+        {
+          "label": "Pre-meal",
+          "time": "12:10",
+          "temp": 97.7,
+          "pulse": 73
+        },
+        {
+          "label": "Post-meal",
+          "time": "13:10",
+          "temp": 98.0,
+          "pulse": 76
+        },
+        {
+          "label": "Bedtime",
+          "time": "22:30",
+          "temp": 97.5,
+          "pulse": 65
+        }
+      ],
+      "contextTags": [],
+      "notes": "synthetic fixture"
+    },
+    "2026-11-03": {
+      "date": "2026-11-03",
+      "method": "Axillary",
+      "measurements": [
+        {
+          "label": "Waking",
+          "time": "07:20",
+          "temp": 96.8,
+          "pulse": 71
+        },
+        {
+          "label": "Pre-meal",
+          "time": "12:20",
+          "temp": 97.1,
+          "pulse": 74
+        },
+        {
+          "label": "Post-meal",
+          "time": "13:20",
+          "temp": 97.6,
+          "pulse": 77
+        },
+        {
+          "label": "Bedtime",
+          "time": "22:20",
+          "temp": 97.0,
+          "pulse": 66
+        }
+      ],
+      "contextTags": [
+        "Exercise"
+      ],
+      "notes": ""
+    }
+  },
+  "healthData": {
+    "daily": {
+      "2026-11-01": {
+        "date": "2026-11-01",
+        "weightKg": 57,
+        "sleepHours": 7.5,
+        "sleepQuality": "Good"
+      },
+      "2026-11-02": {
+        "date": "2026-11-02",
+        "weightKg": 57.2,
+        "sleepHours": 8,
+        "sleepQuality": "Good"
+      },
+      "2026-11-03": {
+        "date": "2026-11-03",
+        "weightKg": 56.9,
+        "sleepHours": 7,
+        "sleepQuality": "Fair"
+      }
+    }
+  },
+  "supplements": {
+    "Magnesium": {
+      "status": "Currently using",
+      "dose": "200 mg",
+      "frequency": "daily",
+      "notes": "synthetic"
+    }
+  },
+  "supplementSchedules": {},
+  "supplementAdherence": {}
+}

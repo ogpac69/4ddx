@@ -1,7 +1,10 @@
-# Phase D3 package
+D3.1.1 Assessment Question Registry
 
-This is the D3.0 design package. It is not executable engine code and does not change the live app.
+Extract this ZIP at the repository root, preserving paths.
 
-Upload all files preserving their relative paths. Do not replace app/index.html, participant data, the existing knowledge manifest, or existing dataset files.
+Files:
+- schemas/assessment-question-registry.v1.json
+- docs/phase-d/D3.1.1-assessment-question-registry.md
 
-D3.0 defines the input fields, processing pipeline, interpretation rules, output contract, test plan, and implementation boundaries. D3.1 will implement pure analysis functions against synthetic fixtures only.
+This is a design/inventory package. It does not modify app/index.html or existing local data.
+Do not implement UI conversions until the registry is enriched with exact live labels, options, units, ranges and recall periods.
