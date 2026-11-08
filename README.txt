@@ -1,4 +1,7 @@
-Phase D1 knowledge foundation package.
-Copy the contents into the root of your 4ddx Git repository, preserving existing files.
-Do not overwrite the existing knowledge datasets or schemas; this adds a versioned v1 schema and documentation only.
-This package does not change the live website.
+# Phase D3 package
+
+This is the D3.0 design package. It is not executable engine code and does not change the live app.
+
+Upload all files preserving their relative paths. Do not replace app/index.html, participant data, the existing knowledge manifest, or existing dataset files.
+
+D3.0 defines the input fields, processing pipeline, interpretation rules, output contract, test plan, and implementation boundaries. D3.1 will implement pure analysis functions against synthetic fixtures only.

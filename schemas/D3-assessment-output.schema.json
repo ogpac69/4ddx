@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ray-peat-health-tracker/schemas/D3-assessment-output.schema.json",
+  "title": "D3 Assessment Output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_version",
+    "generated_at",
+    "period",
+    "observation_summary",
+    "data_quality",
+    "bioenergetic_interpretation",
+    "physiology",
+    "mainstream_comparison",
+    "critical_appraisal",
+    "safety",
+    "next_steps"
+  ],
+  "properties": {
+    "report_version": {
+      "const": "0.1.0"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "period": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_date",
+        "end_date",
+        "days_with_records"
+      ],
+      "properties": {
+        "start_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "end_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "days_with_records": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "observation_summary": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "data_quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "valid_temperature_count",
+        "valid_pulse_count",
+        "missingness_notes",
+        "comparability_notes",
+        "excluded_values"
+      ],
+      "properties": {
+        "valid_temperature_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "valid_pulse_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "missingness_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "comparability_notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excluded_values": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "field",
+              "reason"
+            ],
+            "properties": {
+              "date": {
+                "type": "string"
+              },
+              "field": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "bioenergetic_interpretation": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/interpretation"
+      }
+    },
+    "physiology": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/interpretation"
+      }
+    },
+    "mainstream_comparison": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/interpretation"
+      }
+    },
+    "critical_appraisal": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "issue",
+          "explanation",
+          "related_record_ids"
+        ],
+        "properties": {
+          "issue": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": "string"
+          },
+          "related_record_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "items",
+        "limitations"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "no_trigger_detected",
+            "review_recommended",
+            "urgent_review_recommended",
+            "incomplete_knowledge"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/interpretation"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "next_steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "suggestion",
+          "reason"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "measurement_quality",
+              "context_clarification",
+              "clinician_discussion",
+              "data_review"
+            ]
+          },
+          "suggestion": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "interpretation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim",
+        "explanation",
+        "theoretical_status",
+        "evidence_note",
+        "applicability_note",
+        "knowledge_record_ids",
+        "counterevidence_record_ids"
+      ],
+      "properties": {
+        "claim": {
+          "type": "string"
+        },
+        "explanation": {
+          "type": "string"
+        },
+        "theoretical_status": {
+          "enum": [
+            "established_mechanism",
+            "supported_model",
+            "contested_model",
+            "historical_hypothesis",
+            "speculative_hypothesis",
+            "not_applicable"
+          ]
+        },
+        "evidence_note": {
+          "type": "string"
+        },
+        "applicability_note": {
+          "type": "string"
+        },
+        "knowledge_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "counterevidence_record_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
