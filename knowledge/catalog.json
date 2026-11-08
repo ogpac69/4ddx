@@ -1,0 +1,101 @@
+{
+  "catalog_version": "1.1.0",
+  "schema": "schemas/knowledge-record-v1.1.schema.json",
+  "interpretive_order": [
+    {
+      "framework": "bioenergetic_primary",
+      "display_name": "Bioenergetic interpretation",
+      "priority": 1,
+      "note": "Primary project lens; not a claim of established clinical validity."
+    },
+    {
+      "framework": "physiology",
+      "display_name": "Physiological mechanisms",
+      "priority": 2,
+      "note": "Separate established mechanisms from proposed links."
+    },
+    {
+      "framework": "mainstream_comparative",
+      "display_name": "Mainstream clinical comparison",
+      "priority": 3,
+      "note": "Independent comparison using guidelines and human evidence."
+    },
+    {
+      "framework": "cross_framework",
+      "display_name": "Critical appraisal",
+      "priority": 4,
+      "note": "Counterevidence, conflicts, alternatives, and uncertainty."
+    },
+    {
+      "framework": "safety",
+      "display_name": "Safety and escalation",
+      "priority": 5,
+      "note": "Mandatory; overrides interpretive preference when needed."
+    }
+  ],
+  "theoretical_status": [
+    "established_mechanism",
+    "supported_model",
+    "contested_model",
+    "historical_hypothesis",
+    "speculative_hypothesis",
+    "not_applicable"
+  ],
+  "datasets": [
+    {
+      "id": "clinical-references",
+      "path": "clinical-references/dataset.json",
+      "purpose": "Reference intervals, clinical guidance, and safety-relevant thresholds."
+    },
+    {
+      "id": "physiology",
+      "path": "physiology/dataset.json",
+      "purpose": "Established physiological mechanisms and measurement context."
+    },
+    {
+      "id": "bioenergetics",
+      "path": "bioenergetics/dataset.json",
+      "purpose": "Peat/Ling-inspired models and related historical/theoretical work."
+    },
+    {
+      "id": "nutrition",
+      "path": "nutrition/dataset.json",
+      "purpose": "Nutrient requirements, dietary adequacy, and human nutrition evidence."
+    },
+    {
+      "id": "foods",
+      "path": "foods/dataset.json",
+      "purpose": "Food composition and practical food context; avoid unsupported health claims."
+    },
+    {
+      "id": "supplements",
+      "path": "supplements/dataset.json",
+      "purpose": "Efficacy, safety, interactions, contraindications, and product variability."
+    },
+    {
+      "id": "medications",
+      "path": "medications/dataset.json",
+      "purpose": "Medication context and interaction references; no prescribing."
+    },
+    {
+      "id": "sleep",
+      "path": "sleep/dataset.json",
+      "purpose": "Sleep duration, timing, circadian context, and measurement limitations."
+    },
+    {
+      "id": "temperature-pulse",
+      "path": "temperature-pulse/dataset.json",
+      "purpose": "Measurement protocols, variation, confounders, and personal baselines."
+    },
+    {
+      "id": "research",
+      "path": "research/dataset.json",
+      "purpose": "Cross-domain research queue and synthesis; avoid duplicate canonical records."
+    }
+  ],
+  "compatibility": {
+    "existing_dataset_ids_and_paths_preserved": true,
+    "app_consumption": "not implemented; catalog is not yet consumed by the live app"
+  },
+  "migration_policy": "Do not rename, delete, or silently rewrite existing dataset records. Add framework and theoretical_status only during a deliberate record-by-record migration after source verification."
+}
