@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+"use strict";
+const assert = require("node:assert/strict");
+const fs = require("node:fs");
+const path = require("node:path");
+const { extractModules, buildRegistry } = require("../../scripts/sync-assessment-registry.js");
+const html = fs.readFileSync(path.join(__dirname, "../../index.html"), "utf8");
+const prior = JSON.parse(fs.readFileSync(path.join(__dirname, "../../schemas/assessment-question-registry.v1.json"), "utf8"));
+const modules = extractModules(html);
+const registry = buildRegistry(html, prior);
+const ids = registry.questions.map(q => q.id);
+assert.ok(modules.length >= 10);
+assert.equal(new Set(ids).size, ids.length);
+assert.equal(registry.question_count, ids.length);
+assert.equal(registry.active_source_question_count, modules.reduce((n,m)=>n+m.items.length,0));
+assert.ok(registry.questions.every(q => q.migration.preserve_raw_value));
+assert.ok(registry.questions.filter(q=>q.status==="active_in_source").every(q=>q.legacy_label && q.legacy_control_type));
+assert.ok(registry.questions.filter(q=>q.legacy_control_type==="select").every(q=>Array.isArray(q.legacy_options)));
+assert.ok(registry.legacy_only_not_rendered_count >= 0);
+console.log("D3.5 source synchronization tests passed.");
