@@ -1,0 +1,38 @@
+const assert=require("assert");
+const Data=require("../../engine/d3-assessment-data.js");
+const Bridge=require("../../engine/d3-assessment-bridge.js");
+const Rollout=require("../../engine/d3-assessment-rollout.js");
+const modules=[{items:[["a","A"],["b","B"],["c","C"],["d","D"]]}];
+function profile(){
+ const p={assessment:{a:"yes",b:"",c:"0",d:"false"},logs:{x:1}};
+ const m=Data.migrateProfile(p,{questionIds:["a","b","c","d"]});
+ return m;
+}
+const p=profile();
+assert.equal(Rollout.compare(p,modules).passed,true);
+assert.equal(Rollout.canEnable(p,modules).allowed,true);
+const original=JSON.stringify(p);
+const check=Rollout.compare(p,modules);
+assert.equal(check.checked,4);
+assert.equal(check.mismatchCount,0);
+assert.equal(JSON.stringify(p),original,"comparison must not mutate profile");
+const partial=JSON.parse(JSON.stringify(p));
+delete partial.assessmentV2.answers.a;
+assert.equal(Rollout.compare(partial,modules).passed,false,"missing structured answer must not silently fall back to legacy");
+const broken=JSON.parse(JSON.stringify(p));
+broken.assessmentV2.answers.a.value="no";
+assert.equal(Rollout.compare(broken,modules).passed,false);
+assert.equal(Rollout.canEnable(broken,modules).allowed,false);
+const missing={assessment:{a:"yes",b:"",c:"0",d:"false"}};
+assert.equal(Rollout.canEnable(missing,modules).allowed,false);
+const store={v:{},getItem(k){return this.v[k]||null},setItem(k,v){this.v[k]=v}};
+assert.equal(Rollout.isEnabled(store),false);
+assert.throws(()=>Rollout.setEnabled(store,true,broken,modules));
+assert.equal(Rollout.setEnabled(store,true,p,modules),true);
+assert.equal(Rollout.read(p,"a",store),"yes");
+assert.equal(Rollout.setEnabled(store,false,p,modules),false);
+assert.equal(Rollout.read(p,"a",store),"yes");
+const legacyOnly={assessment:{a:"yes",b:"",c:"0",d:"false"}};
+const synced=Data.migrateProfile(legacyOnly,{questionIds:["a","b","c","d"]});
+assert.equal(Rollout.compare(synced,modules).passed,true);
+console.log("D3.7-D3.9 tests passed");
