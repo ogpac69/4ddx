@@ -1,0 +1,247 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ray-peat-health-tracker/schemas/knowledge-record-v1.schema.json",
+  "title": "Knowledge record v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "record_type",
+    "topic",
+    "claim",
+    "plain_language_summary",
+    "population",
+    "context",
+    "evidence",
+    "limitations",
+    "sources",
+    "status",
+    "created_at",
+    "last_reviewed"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]+$"
+    },
+    "record_type": {
+      "enum": [
+        "clinical_guideline",
+        "reference_interval",
+        "evidence_synthesis",
+        "human_trial",
+        "observational_study",
+        "mechanism",
+        "preclinical",
+        "historical_hypothesis",
+        "interpretive_rule"
+      ]
+    },
+    "topic": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "plain_language_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "population": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "study_design",
+        "risk_of_bias",
+        "certainty",
+        "consistency",
+        "clinical_actionability"
+      ],
+      "properties": {
+        "study_design": {
+          "enum": [
+            "guideline",
+            "systematic_review",
+            "meta_analysis",
+            "randomized_trial",
+            "nonrandomized_trial",
+            "cohort",
+            "case_control",
+            "cross_sectional",
+            "case_series",
+            "human_mechanistic",
+            "animal",
+            "cellular",
+            "historical_text",
+            "expert_opinion",
+            "not_applicable"
+          ]
+        },
+        "risk_of_bias": {
+          "enum": [
+            "low",
+            "some_concerns",
+            "high",
+            "very_high",
+            "not_assessed",
+            "not_applicable"
+          ]
+        },
+        "certainty": {
+          "enum": [
+            "high",
+            "moderate",
+            "low",
+            "very_low",
+            "unassessed"
+          ]
+        },
+        "consistency": {
+          "enum": [
+            "consistent",
+            "mixed",
+            "conflicting",
+            "insufficient",
+            "not_applicable"
+          ]
+        },
+        "clinical_actionability": {
+          "enum": [
+            "established_guidance",
+            "may_inform_discussion",
+            "not_actionable",
+            "research_only"
+          ]
+        },
+        "population_match": {
+          "enum": [
+            "good",
+            "partial",
+            "poor",
+            "unknown"
+          ]
+        },
+        "measurement_match": {
+          "enum": [
+            "good",
+            "partial",
+            "poor",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "counterevidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_type",
+          "citation",
+          "accessed_or_verified"
+        ],
+        "properties": {
+          "source_type": {
+            "enum": [
+              "doi",
+              "pmid",
+              "guideline",
+              "url",
+              "book",
+              "report",
+              "other"
+            ]
+          },
+          "citation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "doi": {
+            "type": "string"
+          },
+          "pmid": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "publication_date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "accessed_or_verified": {
+            "type": "string",
+            "format": "date"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "related_tracker_variables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "reviewed",
+        "approved",
+        "retired"
+      ]
+    },
+    "review_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "last_reviewed": {
+      "type": "string",
+      "format": "date"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}
