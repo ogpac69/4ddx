@@ -1,0 +1,38 @@
+# Personal / participant data — never commit
+*.backup.json
+*-backup-*.json
+personal-data/
+participant-data/
+health-records/
+exports/
+reports/
+*.csv
+*.pdf
+*.xlsx
+*.ods
+*.sqlite
+*.db
+
+# Browser and OS
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+
+# Tooling
+node_modules/
+dist/
+coverage/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
