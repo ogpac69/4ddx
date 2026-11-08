@@ -1,0 +1,30 @@
+{
+  "logs": {},
+  "assessment": {
+    "age": "20",
+    "custom_unknown": "preserve"
+  },
+  "assessmentV2": {
+    "schemaVersion": "2.0.0",
+    "legacy": {
+      "age": "20"
+    },
+    "answers": {
+      "age": {
+        "value": "20",
+        "status": "answered",
+        "recordedAt": null,
+        "recallWindow": null,
+        "provenance": "imported",
+        "confidence": null,
+        "unit": null,
+        "method": null,
+        "notes": null
+      }
+    },
+    "migration": {
+      "legacySnapshotCreated": true
+    }
+  },
+  "schemaVersion": "2.0.0"
+}

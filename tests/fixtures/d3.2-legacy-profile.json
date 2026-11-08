@@ -1,0 +1,64 @@
+{
+  "logs": {
+    "2026-10-01": {
+      "date": "2026-10-01",
+      "method": "Oral",
+      "measurements": [
+        {
+          "label": "Waking",
+          "time": "07:00",
+          "temp": 97.8,
+          "pulse": 65
+        }
+      ]
+    }
+  },
+  "assessment": {
+    "age": "20",
+    "sex": "Male",
+    "height": "175 cm",
+    "current_weight": 57,
+    "morning_temp": 97.7,
+    "morning_pulse": 0,
+    "cold_hands": "Often",
+    "health_conditions": "",
+    "future_expectation": " cautiously optimistic",
+    "unknown_legacy_field": {
+      "raw": "keep me"
+    }
+  },
+  "supplements": {
+    "Magnesium": {
+      "status": "Currently using",
+      "dose": "440 mg"
+    }
+  },
+  "customSupplements": [
+    "Custom item"
+  ],
+  "supplementSchedules": {
+    "Magnesium": {
+      "frequency": "daily",
+      "times": "21:00"
+    }
+  },
+  "supplementAdherence": {
+    "2026-10-01": {
+      "Magnesium::0": {
+        "status": "taken"
+      }
+    }
+  },
+  "healthData": {
+    "daily": {
+      "2026-10-01": {
+        "weightKg": 57,
+        "sleepHours": 7.5
+      }
+    },
+    "labs": []
+  },
+  "customTopLevel": {
+    "keep": true
+  }
+}
