@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://4ddx.local/schemas/assessment-answer-v2.schema.json",
+  "title": "4DDX Structured Assessment Answer",
+  "type": "object",
+  "required": [
+    "value",
+    "status",
+    "recordedAt",
+    "provenance"
+  ],
+  "properties": {
+    "value": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "array",
+        "object",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "answered",
+        "not_answered",
+        "unknown",
+        "not_measured",
+        "not_applicable",
+        "prefer_not_to_answer",
+        "explicit_none"
+      ]
+    },
+    "recordedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "recallWindow": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provenance": {
+      "enum": [
+        "self_report",
+        "measured",
+        "estimated",
+        "recalled",
+        "imported",
+        "clinician_record",
+        "device_record",
+        "unknown"
+      ]
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "unit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "method": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
