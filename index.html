@@ -1,0 +1,1353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#000000">
+<title>Bioenergetic Profile v22.1 — Navigation Fix</title>
+<style>
+:root{color-scheme:dark;--bg:#090a0f;--panel:#131520;--panel2:#191c2a;--line:rgba(255,255,255,.085);--text:#f2f3f8;--muted:#969bad;--soft:#c2c6d3;--accent:#5e5ce6;--good:#30d158;--warn:#ff9f0a;--bad:#ff6961}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{max-width:1160px;margin:auto;padding:0 22px 70px}.top{height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:#000e;backdrop-filter:blur(14px);z-index:5}.brand{display:flex;align-items:center;gap:12px;font-weight:750;letter-spacing:-.7px;font-size:17px}.brand span{color:#aeb8bd;font-weight:500}.tree-logo{width:32px;height:38px;color:#dce6e9;flex:none}.topright{color:var(--muted);font-size:12px;letter-spacing:.08em}.hero{padding:42px 0 30px;border-bottom:1px solid var(--line)}.eyebrow{font-size:11px;letter-spacing:.16em;color:var(--muted);font-weight:700}.hero h1{font-size:clamp(36px,7vw,68px);letter-spacing:-.065em;line-height:.98;margin:12px 0 14px;max-width:780px}.hero p{max-width:680px;color:var(--soft);margin:0}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}.pill{border:1px solid var(--line);padding:6px 10px;border-radius:99px;color:#c4c9cd;font-size:11px;letter-spacing:.04em}.nav{display:flex;gap:4px;overflow:auto;padding:15px 0;border-bottom:1px solid var(--line);position:sticky;top:64px;background:#000e;backdrop-filter:blur(12px);z-index:4}.nav button{white-space:nowrap;background:transparent;border:0;color:var(--muted);padding:9px 12px;border-radius:7px;font-size:13px}.nav button.active,.nav button:hover{background:#17191c;color:var(--text)}.view{display:none;padding-top:24px}.view.active{display:block}.sectionhead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:20px}.sectionhead h2{font-size:28px;letter-spacing:-.04em;margin:3px 0}.sectionhead p{margin:0;color:var(--muted);font-size:13px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin:12px 0}.card h3{margin:0 0 4px;font-size:16px;letter-spacing:-.02em}.muted{color:var(--muted)}.small{font-size:12px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.stat{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px}.stat .label{color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}.stat .value{font-size:30px;letter-spacing:-.05em;font-weight:700;margin:5px 0 0}.stat .unit{font-size:13px;color:var(--muted);font-weight:500}.field{padding:14px 0;border-top:1px solid #24282c}.field:first-child{border-top:0}.field label.q{display:block;font-weight:600;margin-bottom:8px}.hint{font-size:12px;color:var(--muted);font-weight:400;display:block;margin-top:3px}.choices{display:flex;flex-wrap:wrap;gap:8px 15px}.choices label{display:flex;align-items:center;gap:7px;color:#cbd0d4;font-size:13px;font-weight:400}.choices input{accent-color:#d8e4e8;width:16px;height:16px}.control,input[type=text],input[type=number],input[type=date],input[type=time],input[type=datetime-local],select,textarea{width:100%;background:#08090a;border:1px solid #34393e;border-radius:8px;color:var(--text);padding:10px 11px;outline:none}.control:focus,input:focus,select:focus,textarea:focus{border-color:#8da4ac;box-shadow:0 0 0 2px #8da4ac22}textarea{min-height:80px;resize:vertical}.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.btn{background:#e7e9ea;color:#08090a;border:0;border-radius:8px;padding:10px 15px;font-weight:700;font-size:13px}.btn:hover{background:white}.btn.secondary{background:#1b1f23;color:#e7e9ea;border:1px solid #353a40}.btn.danger{background:#2b1719;color:#f0b4b4;border:1px solid #603236}.btnrow{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0}.progress{height:5px;background:#282d31;border-radius:9px;overflow:hidden}.progress>i{display:block;height:100%;background:#dce6e9;width:0}.module{border:1px solid var(--line);border-radius:12px;margin:10px 0;overflow:hidden}.module summary{list-style:none;cursor:pointer;padding:15px 17px;background:#101214;display:flex;justify-content:space-between;gap:12px}.module summary::-webkit-details-marker{display:none}.module summary strong{font-size:14px}.module summary span{color:var(--muted);font-size:12px}.modulebody{padding:0 17px 14px}.logrow{display:grid;grid-template-columns:1.5fr .8fr .8fr 1fr;gap:8px;align-items:center;padding:10px 0;border-top:1px solid #24282c}.logrow:first-child{border-top:0}.logrow label{font-size:13px;color:#d2d6d9}.logrow input{padding:8px}.chartbox{background:#090a0b;border:1px solid var(--line);border-radius:10px;padding:12px;min-height:190px}.chartbox canvas{width:100%;height:170px;display:block}.tag{font-size:10px;letter-spacing:.1em;color:var(--muted);border:1px solid var(--line);padding:4px 7px;border-radius:5px}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--muted);font-weight:600}.notice{border-left:2px solid #8c9da3;padding:10px 13px;background:#121619;color:#b9c3c7;font-size:13px;margin:14px 0}.score{font-size:38px;letter-spacing:-.06em}.scoregrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.scoreitem{background:#111416;border:1px solid var(--line);padding:14px;border-radius:10px}.scoreitem b{display:block;font-size:23px}.scoreitem span{color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:22px;text-align:center;border:1px dashed #34393e;border-radius:10px;font-size:13px}.footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:11px;margin-top:40px}.hidden{display:none!important}
+
+.timepicker{display:flex;align-items:center;gap:5px}.timepicker select{width:auto;min-width:58px;padding:9px 7px;text-align:center}.timepicker select:last-child{min-width:62px}.reading-card{border:1px solid var(--line);background:#0b0d0f;border-radius:10px;padding:12px;margin:9px 0}.reading-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:13px}.reading-fields{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:9px}.reading-fields input{margin-top:4px}.supp-item{border:1px solid var(--line);border-radius:10px;margin:8px 0;overflow:hidden}.supp-item summary{list-style:none;cursor:pointer;background:#111416;padding:13px 15px;display:flex;justify-content:space-between;gap:12px}.supp-item summary::-webkit-details-marker{display:none}.supp-item summary span{font-size:11px;color:var(--muted)}.supp-fields{padding:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.supp-fields .wide{grid-column:1/-1}.supp-fields textarea{min-height:58px}
+
+@media(max-width:700px){.app{padding:0 14px 50px}.hero{padding:32px 0 25px}.grid,.grid3,.two,.three,.scoregrid{grid-template-columns:1fr 1fr}.logrow{grid-template-columns:1fr 1fr}.reading-fields{grid-template-columns:1fr 1fr}.reading-fields>div:first-child{grid-column:1/-1}.logrow label{grid-column:1/-1}.sectionhead{display:block}.sectionhead .btnrow{margin-bottom:0}}
+@media(max-width:460px){.grid,.grid3,.two,.three,.scoregrid{grid-template-columns:1fr}.topright{display:none}.nav{top:64px}}
+@media print{body{background:#fff;color:#111}.app{max-width:none;padding:0}.top,.nav,.btnrow,.btn,.no-print{display:none!important}.hero{padding:10px 0;border-color:#aaa}.hero p,.muted,.small,.eyebrow,.hint{color:#444}.view{display:block!important;break-before:page;padding-top:10px}.view#dashboard{break-before:auto}.card,.stat,.module,.scoreitem{background:#fff;border:1px solid #bbb;color:#111;break-inside:avoid}.module summary{background:#eee;color:#111}.modulebody{display:block!important}.field{break-inside:avoid}.control,input,select,textarea{background:#fff;color:#111;border:1px solid #aaa}.chartbox{background:#fff;border-color:#aaa}th,td{border-color:#ccc}.footer{color:#555}}
+
+#exportModal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);padding:14px;overflow:auto}
+#exportModal.show{display:block}
+#exportModal .export-shell{max-width:900px;margin:20px auto;background:#11171b;border:1px solid #39434a;border-radius:12px;padding:16px}
+#exportModal h2{margin:0 0 8px}
+#exportModal .export-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+#exportModal textarea{width:100%;min-height:55vh;background:#080c0f;color:#e9eef0;border:1px solid #46515a;border-radius:8px;padding:12px;font:12px/1.5 monospace}
+#exportModal iframe{width:100%;height:65vh;background:white;border:1px solid #46515a;border-radius:8px}
+
+/* V8 visual refinement */
+:root{--accent-soft:rgba(94,92,230,.16);--focus:rgba(94,92,230,.42)}
+body{background:radial-gradient(ellipse at 50% -18%,rgba(94,92,230,.12),transparent 42%),var(--bg)}
+.top{background:rgba(9,10,15,.88);border-color:var(--line)}
+.nav{background:rgba(9,10,15,.9);border-color:var(--line)}
+.brand{letter-spacing:-.035em}.tree-logo{width:34px;height:54px;color:#a8a7ff}
+.hero{padding-top:38px}
+.hero h1{letter-spacing:-.055em}
+.peat-quote{max-width:720px;margin:22px 0 0;padding:15px 18px;border-left:2px solid var(--accent);background:linear-gradient(90deg,var(--accent-soft),transparent 88%);border-radius:0 10px 10px 0;color:#e1e1ff;font-size:15px;line-height:1.6}
+.peat-quote cite{display:block;margin-top:7px;color:var(--muted);font-size:11px;font-style:normal}
+.peat-quote a{color:#a8a7ff;text-decoration:none}.peat-quote a:hover{text-decoration:underline}
+.card,.stat,.scoreitem,.module,.supp-item,.reading-card{border-color:var(--line);box-shadow:0 8px 26px rgba(0,0,0,.12)}
+.card,.stat{background:linear-gradient(145deg,rgba(255,255,255,.018),transparent 70%),var(--panel)}
+.nav button.active,.nav button:hover{background:var(--accent-soft);color:#c7c6ff}
+.btn{background:var(--accent);color:white;border-radius:9px;transition:filter .15s,transform .15s}
+.btn:hover{background:#7775ff;color:white;filter:brightness(1.04)}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:#1a1c2a;border-color:var(--line);color:var(--text)}
+.progress>i{background:linear-gradient(90deg,#5e5ce6,#8d8bff)}
+.module[open],.supp-item[open]{border-color:rgba(94,92,230,.42)}
+.module summary,.supp-item summary{background:#151827}
+.module summary:focus-visible,.supp-item summary:focus-visible,button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #8d8bff;outline-offset:2px}
+input:focus,select:focus,textarea:focus,.control:focus{border-color:#7775ff;box-shadow:0 0 0 3px var(--focus)}
+.choices label{min-height:40px;padding:8px 11px;border:1px solid var(--line);border-radius:9px;background:#151827}
+.choices input{accent-color:var(--accent);width:18px;height:18px}
+.notice{border-left-color:var(--accent);background:var(--accent-soft);border-radius:0 9px 9px 0}
+.tag{border-radius:7px}
+input[type=range]{width:100%;accent-color:var(--accent);min-height:28px;cursor:pointer}
+::selection{background:rgba(94,92,230,.38);color:white}
+@media(prefers-reduced-motion:no-preference){.card,.stat,.module{transition:border-color .18s,background .18s}.module summary{transition:background .18s}}
+
+/* V9: floating feature surfaces and app-style bottom navigation */
+:root{--bg:#08090d;--panel:#12141c;--panel2:#181b26;--line:rgba(255,255,255,.05);--accent:#5e9bff;--good:#30d158;--warn:#ff9f0a}
+html{scroll-padding-bottom:110px}
+body{background:#08090d}
+.app{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+.top{background:rgba(8,9,13,.88);border-bottom-color:rgba(255,255,255,.05)}
+.hero{border-bottom-color:rgba(255,255,255,.05)}
+/* Each top-level destination is its own elevated surface. */
+.view{background:#12141c;border:1px solid rgba(255,255,255,.05);border-radius:16px;padding:24px;margin:20px 0 28px;box-shadow:0 12px 32px rgba(0,0,0,.18)}
+.view.active{display:block}
+.card,.stat,.scoreitem,.module,.supp-item,.reading-card{border-color:rgba(255,255,255,.055)}
+.card,.stat{background:#171a24;border-radius:13px}
+.module,.supp-item,.reading-card{background:#151823;border-radius:12px}
+.module summary,.supp-item summary{background:#181b27}
+.btn{background:#5e9bff;color:#07111f;border-radius:999px}
+.btn:hover{background:#8bbaff;color:#07111f}
+.btn.secondary{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:999px;color:#eef0f6}
+.nav{
+ position:fixed;top:auto;bottom:calc(12px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+ z-index:1000;width:min(700px,calc(100% - 24px));height:72px;padding:7px 9px;
+ display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:3px;overflow:visible;
+ border:1px solid rgba(255,255,255,.09);border-radius:22px;
+ background:rgba(18,20,28,.88);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);
+ box-shadow:0 12px 36px rgba(0,0,0,.48),inset 0 1px rgba(255,255,255,.035)
+}
+.nav button{min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:5px 2px;border:0;border-radius:15px;background:transparent;color:#8d91a2;font-size:10px;font-weight:600;letter-spacing:.01em;line-height:1.1}
+.nav button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.nav button span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.nav button.active,.nav button:hover{background:rgba(94,155,255,.12);color:#5e9bff}
+.nav button.active svg{filter:drop-shadow(0 0 5px rgba(94,155,255,.25))}
+.nav button:focus-visible{outline:2px solid #5e9bff;outline-offset:1px}
+@media(min-width:900px){
+ .app{padding-bottom:130px}
+ .view{padding:28px;margin-top:26px}
+ .nav{bottom:22px}
+}
+@media(max-width:520px){
+ .app{padding-left:12px;padding-right:12px;padding-bottom:calc(106px + env(safe-area-inset-bottom))}
+ .nav{height:66px;bottom:calc(9px + env(safe-area-inset-bottom));width:calc(100% - 20px);border-radius:20px;padding:6px}
+ .nav button{font-size:9px;gap:3px}
+ .nav button svg{width:19px;height:19px}
+ .view{padding:15px;border-radius:16px;margin:14px 0 22px}
+ .sectionhead{gap:12px}
+}
+@media print{
+ .nav{display:none!important}
+ .app{padding-bottom:0}
+ .view{background:#fff;border:0;box-shadow:none;border-radius:0;margin:0;padding:10px}
+}
+
+/* V10: progressive assessment accordion and four-point daily timeline */
+#questionModules{display:grid;gap:10px}
+.module{margin:0;border:1px solid rgba(255,255,255,.065);border-radius:14px;background:#151823;overflow:hidden}
+.module-head{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;background:linear-gradient(110deg,rgba(255,255,255,.025),transparent);cursor:pointer;list-style:none;user-select:none}
+.module-head::-webkit-details-marker{display:none}
+.module-title{display:flex;align-items:center;gap:12px;min-width:0}
+.module-index{display:grid;place-items:center;width:32px;height:32px;flex:none;border-radius:10px;background:rgba(94,155,255,.09);color:#a9caff;font-size:11px;font-weight:750;letter-spacing:.04em}
+.module-title strong{font-size:13px;line-height:1.35;font-weight:650}
+.module-head-right{display:flex;align-items:center;gap:10px;flex:none}
+.module-progress{font-size:10px;line-height:1;padding:6px 9px;border:1px solid rgba(255,255,255,.09);border-radius:99px;color:#b1b5c3;background:rgba(255,255,255,.035);white-space:nowrap}
+.module-progress.complete{color:#5e9bff;border-color:rgba(94,155,255,.23);background:rgba(94,155,255,.08)}
+.module-progress.incomplete{color:#a6aabd}
+.module-chevron{width:19px;height:19px;stroke:#969bad;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .24s ease,color .24s ease;flex:none}
+.module[open]>.module-head .module-chevron{transform:rotate(180deg);color:#5e9bff}
+.module-head:focus-visible{outline:2px solid #5e9bff;outline-offset:-3px;border-radius:12px}
+.modulebody{display:grid;grid-template-rows:0fr;padding:0;border-top:0 solid rgba(255,255,255,.04);transition:grid-template-rows .28s ease,border-top-width .28s ease}
+.modulebody-inner{min-height:0;overflow:hidden;padding:0 17px;opacity:0;transition:padding .28s ease,opacity .2s ease}
+.module[open]>.modulebody{grid-template-rows:1fr;border-top-width:1px}
+.module[open]>.modulebody>.modulebody-inner{padding:12px 17px 17px;opacity:1}
+.timeline-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+.timeline-card{min-width:0;margin:0;padding:12px;border-radius:13px;background:linear-gradient(155deg,rgba(255,255,255,.035),transparent 65%),#151823;border:1px solid rgba(255,255,255,.065)}
+.timeline-card .reading-title{min-height:48px;align-items:flex-start}
+.slot-heading{display:flex;align-items:center;gap:9px;min-width:0}
+.slot-icon{width:32px;height:32px;display:grid;place-items:center;flex:none;border-radius:10px;background:rgba(255,255,255,.055);font-size:19px;color:#e7e9ff}
+.timeline-card.dawn .slot-icon{color:#ffd27a;background:rgba(255,190,80,.10)}
+.timeline-card.day .slot-icon{color:#a6d9ff;background:rgba(100,180,255,.10)}
+.timeline-card.after .slot-icon{color:#c5b4ff;background:rgba(150,120,255,.12)}
+.timeline-card.night .slot-icon{color:#b8bfff;background:rgba(125,140,255,.12)}
+.slot-heading strong{display:block;font-size:12px;line-height:1.3}
+.slot-subtitle{display:block;margin-top:3px;color:var(--muted);font-size:10px;line-height:1.3}
+.timeline-card .reading-fields{display:grid;grid-template-columns:1fr;gap:8px}
+.timeline-card .reading-fields>div{min-width:0}
+.timeline-card .reading-fields input{margin-top:3px;padding:8px 9px;font-size:13px}
+.timeline-card .timepicker select{min-width:0;width:100%;padding:8px 4px;font-size:12px}
+.timeline-card .timepicker{gap:4px}
+.timeline-card .hint{font-size:10px}
+@media(max-width:850px){.timeline-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.timeline-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.timeline-card{padding:9px}.module-head{padding:12px}.module-progress{font-size:9px;padding:5px 7px}.module-title{gap:8px}.module-title strong{font-size:12px}.module-head-right{gap:5px}}
+@media(prefers-reduced-motion:reduce){.modulebody,.modulebody-inner,.module-chevron{transition:none!important}}
+@media print{.modulebody{display:block;grid-template-rows:1fr;border-top-width:1px}.modulebody-inner{display:block;overflow:visible;opacity:1;padding:12px 17px!important}}
+
+/* V11: purposeful empty states and restrained data-management controls */
+.missing-metric{display:inline-block;padding:3px 7px;border:1px dashed rgba(190,195,220,.16);border-radius:6px;color:#858a9c;font-size:11px}
+.vital-stat{min-height:174px;position:relative;overflow:hidden}
+.vital-stat.is-empty .value,.vital-stat.is-empty> .small{display:none}
+.vital-empty,.empty-state-panel{display:flex;align-items:center;gap:12px;padding:14px 13px;margin-top:13px;border:1px dashed rgba(190,195,220,.22);border-radius:12px;background:linear-gradient(110deg,rgba(94,155,255,.035),rgba(255,255,255,.012));color:#d9dbea;text-align:left;min-height:82px}
+.vital-empty[hidden]{display:none!important}
+.vital-empty strong,.empty-state-panel strong{display:block;font-size:12px;font-weight:650;line-height:1.4}
+.vital-empty span,.empty-state-panel span{display:block;margin-top:4px;color:#9297aa;font-size:10px;line-height:1.45}
+.empty-plus{width:36px;height:36px;flex:none;border-radius:11px;border:1px solid rgba(94,155,255,.24);background:rgba(94,155,255,.10);color:#a9caff;font-size:23px;font-weight:400;display:grid;place-items:center;line-height:1;cursor:pointer;transition:background .18s,border-color .18s,transform .18s}
+.empty-plus:hover{background:rgba(94,155,255,.18);border-color:rgba(94,155,255,.45);transform:translateY(-1px)}
+.empty-plus:focus-visible{outline:2px solid #a9caff;outline-offset:3px}
+.empty-state-panel{justify-content:flex-start;max-width:560px;min-height:96px;padding:18px}
+.chartbox{position:relative}
+.export-action-group{display:flex;flex-wrap:wrap;align-items:center;gap:7px;padding:7px;width:max-content;max-width:100%;border:1px solid rgba(255,255,255,.055);border-radius:13px;background:rgba(28,30,42,.72)}
+.export-action-group .btn,.export-action-group label.btn{background:#1c1e2a!important;color:#c6c9d5!important;border:1px solid rgba(255,255,255,.09)!important;border-radius:8px!important;padding:9px 12px;font-weight:600}
+.export-action-group .btn:hover,.export-action-group label.btn:hover{background:#272a39!important;color:#f0f1f7!important;border-color:rgba(255,255,255,.16)!important}
+.btn.danger,.btn.delete-action{background:rgba(255,159,10,.075)!important;color:#e7b36c!important;border:1px solid rgba(255,159,10,.20)!important;border-radius:9px!important}
+.btn.danger:hover,.btn.delete-action:hover{background:rgba(255,159,10,.13)!important;border-color:rgba(255,159,10,.32)!important;color:#ffd095!important}
+@media(max-width:560px){.export-action-group{width:100%;display:grid;grid-template-columns:1fr 1fr}.export-action-group>*{text-align:center;justify-content:center}.vital-empty{padding:11px 9px;gap:9px}.vital-empty strong{font-size:11px}}
+
+
+/* Smart import */
+.smart-import-wrap{margin:0 0 16px}
+.smart-import{min-height:76px;resize:vertical;border:1px solid #343c49!important;background:#0b1019!important;line-height:1.5;padding:14px!important;border-radius:11px!important;transition:border-color .18s,box-shadow .18s,background .18s}
+.smart-import:focus{border-color:#5e9bff!important;box-shadow:0 0 0 3px rgba(94,155,255,.13)}
+.smart-import-hint{font-size:11px;color:var(--muted);margin-top:7px;min-height:16px}
+.custom-import-card .wide{grid-column:1/-1}
+.custom-import-card .parse-highlight{animation:parsePulse .85s ease-out;border-color:#5e9bff!important;box-shadow:0 0 0 3px rgba(94,155,255,.16)!important}
+@keyframes parsePulse{0%{background:#172b49}100%{background:#08090a}}
+
+/* Smartwatch-style time selector */
+.smartwatch-picker{width:100%;min-width:0;padding:13px 13px 10px;background:linear-gradient(145deg,#111722,#0b0e14);border:1px solid #252e3b;border-radius:13px;overflow:hidden}
+.watch-time-readout{font-size:clamp(25px,4vw,32px);font-weight:800;letter-spacing:-1.2px;color:#f2f6ff;font-variant-numeric:tabular-nums;line-height:1.2;margin:0 0 13px}
+.watch-slider-wrap{padding:0 2px}
+.watch-time-slider{display:block;width:100%;height:22px;margin:0;accent-color:#5e9bff;cursor:pointer;background:transparent}
+.watch-time-slider::-webkit-slider-runnable-track{height:5px;border-radius:99px;background:linear-gradient(90deg,#315f9d,#5e9bff 50%,#28384e)}
+.watch-time-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;margin-top:-6.5px;border-radius:50%;background:#f3f7ff;border:4px solid #5e9bff;box-shadow:0 0 0 4px #5e9bff26}
+.watch-time-slider::-moz-range-track{height:5px;border-radius:99px;background:#34465e}
+.watch-time-slider::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:#f3f7ff;border:4px solid #5e9bff}
+.watch-slider-labels{display:flex;justify-content:space-between;color:#758397;font-size:9px;margin-top:3px}
+.quick-time-row{display:flex;gap:7px;overflow-x:auto;padding:11px 1px 3px;scrollbar-width:thin;scrollbar-color:#35445a transparent}
+.time-pill{flex:0 0 auto;border:1px solid #303a49;border-radius:999px;background:#151c27;color:#b8c5d8;padding:7px 11px;font-size:11px;font-weight:650;font-variant-numeric:tabular-nums}
+.time-pill.active{background:#1b3557;border-color:#5e9bff;color:#eaf3ff;box-shadow:inset 0 0 0 1px #5e9bff45}
+.time-pill:active{transform:scale(.97)}
+
+/* Global inventory quick logger */
+.global-log-wrap{margin:0 0 17px;padding:14px;border:1px solid #33445c;border-radius:13px;background:linear-gradient(145deg,#101722,#0b0e14);box-shadow:0 0 0 1px rgba(94,155,255,.035),0 8px 28px rgba(0,0,0,.16)}
+.global-log-input{width:100%;min-height:74px;resize:vertical;padding:13px!important;border:1px solid #35445a!important;border-radius:10px!important;background:#080d15!important;color:#edf3ff!important;line-height:1.5;transition:border-color .2s,box-shadow .2s}
+.global-log-input:focus{outline:none;border-color:#5e9bff!important;box-shadow:0 0 0 3px rgba(94,155,255,.14),0 0 18px rgba(94,155,255,.07)}
+.global-log-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:9px}
+.global-log-note{font-size:11px;color:#8493a8}
+.global-log-status{min-height:15px;margin-top:8px;font-size:11px;color:#9fc5ff}
+.supp-item.quick-log-hit{border-color:#5e9bff!important;box-shadow:0 0 0 2px rgba(94,155,255,.18),0 0 24px rgba(94,155,255,.12);transition:border-color .25s,box-shadow .25s}
+.supp-item.quick-log-hit>summary{color:#eaf3ff}
+@media(max-width:520px){.global-log-footer{align-items:flex-start;flex-direction:column}.global-log-footer .btn{width:100%}}
+
+/* Premium touch-first pill time picker */
+.premium-pill-picker{width:100%;min-width:0;box-sizing:border-box;padding:14px;border:1px solid rgba(94,155,255,.16);border-radius:14px;background:linear-gradient(145deg,#111925,#0b1019);overflow:hidden}
+.premium-pill-picker .watch-time-readout{display:block;margin:0 0 15px;color:#f3f7ff;font-size:clamp(30px,8vw,40px);font-weight:800;letter-spacing:-1.5px;line-height:1.2;font-variant-numeric:tabular-nums}
+.premium-pill-picker .quick-time-row{display:flex;gap:9px;width:100%;overflow-x:auto;overflow-y:hidden;padding:2px 1px 8px;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:none;-ms-overflow-style:none}
+.premium-pill-picker .quick-time-row::-webkit-scrollbar{display:none}
+.premium-pill-picker .time-pill{flex:0 0 auto;min-height:39px;padding:0 14px;border:1px solid rgba(255,255,255,.09);border-radius:999px;background:rgba(255,255,255,.045);color:#dce6f5;font:inherit;font-size:12px;font-weight:650;font-variant-numeric:tabular-nums;white-space:nowrap;cursor:pointer;transition:background .18s,border-color .18s,color .18s,transform .18s;-webkit-tap-highlight-color:transparent}
+.premium-pill-picker .time-pill:active{transform:scale(.96)}
+.premium-pill-picker .time-pill.active{border-color:#5e9bff;background:#5e9bff;color:#07111f;box-shadow:0 3px 14px rgba(94,155,255,.2)}
+.premium-pill-picker .time-pill:focus-visible{outline:2px solid #5e9bff;outline-offset:3px}
+@media(max-width:380px){.premium-pill-picker{padding:12px}.premium-pill-picker .time-pill{padding:0 11px;font-size:11px}}
+
+/* Minimal dark time stepper */
+.stepper-time-picker{width:100%;min-width:0;box-sizing:border-box}
+.time-stepper{display:grid;grid-template-columns:46px minmax(0,1fr) 46px;align-items:center;gap:10px;width:100%;padding:8px;border:1px solid #29364a;border-radius:13px;background:linear-gradient(145deg,#111925,#0b1019)}
+.time-step-display{display:block;min-width:0;text-align:center;color:#f3f7ff;font-size:clamp(23px,6vw,31px);font-weight:800;letter-spacing:-1px;line-height:1.3;font-variant-numeric:tabular-nums;white-space:nowrap}
+.time-step-button{display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(94,155,255,.24);border-radius:11px;background:rgba(255,255,255,.045);color:#dce9ff;font-size:25px;font-weight:500;line-height:1;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;transition:background .15s,border-color .15s,transform .12s}
+.time-step-button:active{background:#244b7d;border-color:#5e9bff;transform:scale(.94)}
+.time-step-button:focus-visible{outline:2px solid #5e9bff;outline-offset:3px}
+@media(max-width:380px){.time-stepper{grid-template-columns:42px minmax(0,1fr) 42px;gap:6px;padding:7px}.time-step-button{width:40px;height:40px}.time-step-display{font-size:23px}}
+
+/* Mobile layout corrections: compact time stepper and refreshed inventory cards */
+.time-stepper{grid-template-columns:38px minmax(0,1fr) 38px!important;gap:7px!important;padding:7px!important;min-width:0!important;box-sizing:border-box!important}
+.time-step-button{width:36px!important;height:38px!important;border-radius:10px!important;font-size:22px!important}
+.time-step-display{font-size:clamp(15px,4.6vw,23px)!important;letter-spacing:-.65px!important;white-space:nowrap!important;overflow:visible!important}
+@media(max-width:460px){
+ .reading-fields>div:first-child{grid-column:1/-1;min-width:0}
+ .time-stepper{grid-template-columns:38px minmax(0,1fr) 38px!important}
+ .time-step-display{font-size:clamp(16px,4.8vw,21px)!important}
+}
+.supp-item{margin:12px 0!important;border:1px solid #252d3b!important;border-radius:16px!important;background:linear-gradient(145deg,#171b27,#121620)!important;overflow:hidden;box-shadow:0 5px 18px rgba(0,0,0,.12);transition:border-color .2s,box-shadow .2s}
+.supp-item[open]{border-color:rgba(94,155,255,.42)!important;box-shadow:0 0 0 1px rgba(94,155,255,.08),0 10px 26px rgba(0,0,0,.2)}
+.supp-item summary{position:relative;display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center!important;gap:8px 12px!important;min-height:66px;padding:17px 18px!important;background:transparent!important;color:#eef3fc!important}
+.supp-item summary strong{font-size:15px;line-height:1.35;font-weight:750;letter-spacing:-.2px;min-width:0}
+.supp-item summary span{font-size:11px!important;line-height:1.4;text-align:right;color:#9aa8bc!important;max-width:115px}
+.supp-item summary:after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:1px;background:rgba(255,255,255,.035)}
+.supp-item:not([open]) summary:after{display:none}
+.supp-fields{padding:17px!important;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 12px!important}
+.supp-fields>div{min-width:0}
+.supp-fields .hint{display:block;margin-bottom:6px;color:#9ca9bc;font-size:11px;font-weight:650;letter-spacing:.02em}
+.supp-fields input,.supp-fields select,.supp-fields textarea{display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box!important;padding:11px 12px!important;border:1px solid #30394a!important;border-radius:10px!important;background:#0b1018!important;color:#edf3ff!important;font-size:13px!important;line-height:1.4;box-shadow:inset 0 1px 2px rgba(0,0,0,.18)!important}
+.supp-fields input:focus,.supp-fields select:focus,.supp-fields textarea:focus{border-color:#5e9bff!important;box-shadow:0 0 0 3px rgba(94,155,255,.12)!important;outline:none}
+.supp-fields textarea{min-height:88px!important;resize:vertical}
+.supp-fields .wide{grid-column:1/-1}
+.supp-item.quick-log-hit{border-color:#5e9bff!important;box-shadow:0 0 0 2px rgba(94,155,255,.18),0 0 24px rgba(94,155,255,.12)}
+@media(max-width:420px){
+ .supp-item summary{grid-template-columns:minmax(0,1fr)!important;gap:5px!important;padding:15px 16px!important}
+ .supp-item summary span{text-align:left!important;max-width:none!important}
+ .supp-fields{grid-template-columns:minmax(0,1fr)!important;padding:15px!important;gap:13px!important}
+ .supp-fields .wide{grid-column:1}
+}
+
+/* Final narrow-card time-stepper sizing override */
+.time-stepper{
+ display:grid!important;
+ grid-template-columns:34px minmax(0,1fr) 34px!important;
+ align-items:center!important;
+ gap:5px!important;
+ width:100%!important;
+ min-width:0!important;
+ max-width:100%!important;
+ padding:6px!important;
+ box-sizing:border-box!important;
+ overflow:hidden!important;
+}
+.time-step-button{
+ width:32px!important;
+ min-width:32px!important;
+ height:36px!important;
+ padding:0!important;
+ display:grid!important;
+ place-items:center!important;
+ box-sizing:border-box!important;
+ font-size:21px!important;
+ flex:none!important;
+}
+.time-step-display{
+ display:block!important;
+ width:100%!important;
+ min-width:0!important;
+ max-width:100%!important;
+ padding:0!important;
+ margin:0!important;
+ box-sizing:border-box!important;
+ text-align:center!important;
+ white-space:nowrap!important;
+ overflow:hidden!important;
+ text-overflow:clip!important;
+ font-size:clamp(12px,3.6vw,16px)!important;
+ line-height:1.15!important;
+ letter-spacing:-.35px!important;
+ font-weight:800!important;
+ font-variant-numeric:tabular-nums!important;
+}
+@media(max-width:460px){
+ .reading-fields{min-width:0}
+ .reading-fields>div{min-width:0}
+ .time-stepper{grid-template-columns:32px minmax(0,1fr) 32px!important;gap:4px!important;padding:5px!important}
+ .time-step-button{width:30px!important;min-width:30px!important;height:35px!important}
+ .time-step-display{font-size:clamp(11px,3.4vw,15px)!important;letter-spacing:-.45px!important}
+}
+
+/* v20 mobile UX stabilization */
+@media(max-width:520px){
+  .timeline-grid{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+  .timeline-card{padding:14px!important;border-radius:15px!important}
+  .timeline-card .reading-title{min-height:0!important;margin-bottom:12px!important}
+  .slot-heading strong{font-size:14px!important}
+  .slot-subtitle{font-size:11px!important}
+  .timeline-card .hint{font-size:11px!important}
+  .timeline-card .reading-fields{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  .timeline-card .reading-fields>div:first-child{grid-column:1/-1!important}
+  .timeline-card .reading-fields>div{min-width:0!important}
+  .timeline-card .reading-fields input{width:100%!important;min-width:0!important;box-sizing:border-box!important;padding:11px 12px!important;font-size:14px!important}
+  .time-stepper{grid-template-columns:42px minmax(0,1fr) 42px!important;gap:10px!important;padding:8px!important}
+  .time-step-button{width:40px!important;min-width:40px!important;height:42px!important;font-size:23px!important}
+  .time-step-display{font-size:clamp(20px,6vw,27px)!important;letter-spacing:-.6px!important;overflow:visible!important}
+}
+@media(max-width:360px){
+  .time-stepper{grid-template-columns:38px minmax(0,1fr) 38px!important;gap:6px!important;padding:6px!important}
+  .time-step-button{width:36px!important;min-width:36px!important;height:38px!important}
+  .time-step-display{font-size:19px!important}
+}
+.timeline-card .time-stepper{width:100%;max-width:100%;min-width:0}
+.timeline-card .time-stepper>*{min-width:0}
+.timeline-card .time-step-display{font-variant-numeric:tabular-nums}
+
+/* Inventory 2.0: search, filters and responsive controls */
+.inventory-toolbar{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1.6fr);gap:12px;padding:14px;margin:14px 0 16px;border:1px solid #263247;border-radius:14px;background:linear-gradient(145deg,#111925,#0c111a)}
+.inventory-search,.inventory-filters>div{min-width:0}
+.inventory-search input,.inventory-filters select{width:100%;min-width:0;box-sizing:border-box;padding:11px 12px!important;border:1px solid #303b4e!important;border-radius:10px!important;background:#090e16!important;color:#eef3fc!important;font-size:13px!important}
+.inventory-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.inventory-counts{grid-column:1/-1;display:flex;justify-content:space-between;gap:10px;color:#91a3bc;font-size:11px}
+.inventory-empty{padding:22px 14px;text-align:center;border:1px dashed #35445a;border-radius:13px;color:#9aa9bd;font-size:13px}
+.supp-item[hidden]{display:none!important}
+.supp-item summary span{flex-shrink:0}
+@media(max-width:520px){
+ .inventory-toolbar{grid-template-columns:minmax(0,1fr);gap:10px;padding:12px}
+ .inventory-filters{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .inventory-counts{font-size:10px}
+}
+
+/* v21.1 separate active stack and independently configured adherence tracker */
+.tracker-card{margin-bottom:16px}
+.tracker-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.tracker-heading h3{margin:3px 0 4px}
+.tracker-date{color:#9eb0c9;font-size:11px;white-space:nowrap;padding:7px 10px;border-radius:9px;background:#182235}
+.active-stack{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:14px 0}
+.active-stack-row{display:grid;grid-template-columns:1fr;gap:9px;padding:13px;border:1px solid #293449;border-radius:12px;background:#101722;min-width:0}
+.active-stack-name{display:flex;flex-direction:column;gap:3px;min-width:0}
+.active-stack-name strong{font-size:13px;color:#edf3ff}
+.active-stack-name span{font-size:10px;color:#8fa0b7}
+.tracker-config{display:flex;flex-direction:column;gap:4px;min-width:0}
+.tracker-config span{font-size:10px;color:#8fa0b7}
+.tracker-config input,.tracker-config select{width:100%;min-width:0;box-sizing:border-box;background:#090e16!important;border:1px solid #303b4e!important;border-radius:8px!important;color:#edf3ff!important;padding:8px!important;font-size:11px!important}
+.tracker-progress{display:flex;align-items:center;gap:10px;margin:13px 0;color:#9eafc6;font-size:11px}
+.tracker-progress-track{height:6px;flex:1;border-radius:99px;background:#252e3d;overflow:hidden}
+.tracker-progress-track span{display:block;height:100%;width:0;background:#5e9bff;border-radius:99px;transition:width .2s}
+.dose-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid rgba(255,255,255,.06)}
+.dose-main{display:flex;flex-direction:column;gap:3px;min-width:0}
+.dose-main strong{font-size:12px;color:#eaf1fc}
+.dose-main span{font-size:10px;color:#91a1b8}
+.dose-actions{display:flex;gap:5px;flex:none}
+.dose-actions button{border:1px solid #303b4e;border-radius:8px;background:#151c28;color:#aebbd0;padding:7px 8px;font-size:10px}
+.dose-actions button.selected{border-color:#5e9bff;background:#1b3557;color:#eaf3ff}
+.dose-actions button.selected.taken{border-color:#4fbd91;background:#123329;color:#b9f0d9}
+.history-row{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid rgba(255,255,255,.05);font-size:10px;color:#9aa9bd}
+.tracker-history{margin-top:14px}
+@media(max-width:600px){.active-stack{grid-template-columns:1fr}.dose-row{align-items:flex-start;flex-direction:column}.dose-actions{width:100%}.dose-actions button{flex:1}.tracker-heading{align-items:flex-start}}
+
+/* V22.2 — daily measurement UX and responsive native time controls */
+
+#daily .reading-fields>div{grid-column:auto!important;width:auto!important;min-width:0!important}
+#daily .reading-fields input{display:block;width:100%!important;max-width:100%!important;box-sizing:border-box!important}
+
+#daily .timeline-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin-top:12px}
+#daily .checkpoint-card{margin:0;padding:0;min-width:0;overflow:hidden}
+#daily .checkpoint-summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:13px 14px;cursor:pointer;min-width:0}
+#daily .checkpoint-summary::-webkit-details-marker{display:none}
+#daily .checkpoint-summary .slot-heading{display:flex;align-items:center;gap:10px;min-width:0}
+#daily .checkpoint-title-wrap{display:flex;flex-direction:column;min-width:0}
+#daily .checkpoint-title-wrap strong{font-size:14px}
+#daily .checkpoint-summary-right{display:flex;align-items:center;gap:9px;flex:none}
+#daily .checkpoint-state{font-size:10px;color:#aab5c7;text-align:right;max-width:145px}
+#daily .checkpoint-card[open] .checkpoint-state{color:#aebbd0}
+#daily .checkpoint-card:not([open]) .checkpoint-state{color:#75cba3}
+#daily .checkpoint-chevron{color:#8793a8;font-size:18px;transition:transform .15s}
+#daily .checkpoint-card[open] .checkpoint-chevron{transform:rotate(180deg)}
+#daily .checkpoint-body{padding:0 14px 14px;border-top:1px solid var(--line)}
+#daily .checkpoint-time{max-width:240px;margin:12px 0}
+#daily .native-time-input{display:block;width:100%;min-width:0;height:44px;padding:8px 10px;border:1px solid #344057;border-radius:10px;background:#0d121c;color:var(--text);font-size:16px;font-variant-numeric:tabular-nums;color-scheme:dark}
+#daily .reading-fields{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;min-width:0}
+#daily .reading-fields>div{min-width:0}
+#daily .reading-fields input{width:100%;min-width:0;height:44px;padding:9px 10px;font-size:16px}
+#daily .checkpoint-tools{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);align-items:end;gap:12px;margin-bottom:12px}
+#daily #tempUnit{width:100%;min-height:42px}
+#daily .measurement-quality{padding:11px 12px;margin:12px 0;border:1px solid rgba(94,155,255,.2);border-radius:11px;background:rgba(94,155,255,.055)}
+#daily .quality-top{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:12px}
+#daily .quality-score{color:#b9d2ff;text-align:right}
+#daily .quality-track{height:5px;background:#252d3c;border-radius:9px;overflow:hidden;margin:9px 0 7px}
+#daily .quality-track span{display:block;height:100%;background:#6ca6ff;border-radius:9px;transition:width .15s}
+#daily .quality-detail{font-size:11px;color:var(--muted);line-height:1.45;overflow-wrap:anywhere}
+#daily .context-tags{display:flex;flex-wrap:wrap;gap:8px}
+#daily .context-tags label{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:#151823;border-radius:20px;padding:7px 10px;font-size:12px}
+#daily .context-tags input{accent-color:#6ca6ff}
+@media(max-width:430px){
+ #daily .card{padding:13px}
+ #daily .checkpoint-summary{padding:12px 11px}
+ #daily .checkpoint-body{padding:0 11px 12px}
+ #daily .checkpoint-tools{grid-template-columns:minmax(0,1fr);gap:5px}
+ #daily .checkpoint-time{max-width:none}
+ #daily .checkpoint-state{max-width:130px;font-size:9px}
+}
+@media(max-width:340px){
+ #daily .reading-fields{gap:7px!important}
+ #daily .reading-fields input{padding:8px;font-size:15px}
+ #daily .checkpoint-summary-right{gap:5px}
+ #daily .checkpoint-state{max-width:105px}
+ #daily .context-tags{gap:5px}
+ #daily .context-tags label{font-size:11px;padding:6px 8px}
+}
+
+
+/* V22.3 — shared calendar and analog-clock picker */
+.picker-trigger{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-width:0;min-height:46px;padding:10px 13px;border:1px solid #30364a;border-radius:12px;background:#171a26;color:var(--text);text-align:left;font-size:14px;font-weight:650}
+.picker-trigger b{display:grid;place-items:center;width:29px;height:29px;border-radius:9px;background:rgba(111,89,255,.2);color:#b7aaff;font-size:17px}
+#daily .time-trigger{max-width:240px}
+#daily .native-time-input{display:none}
+.tracker-date{width:auto;min-width:135px;font-size:12px;padding:8px 10px}
+.schedule-times{display:flex;flex-wrap:wrap;gap:7px;margin-top:5px}
+.schedule-time-chip,.schedule-time-add{border:1px solid #34394c;border-radius:10px;background:#191d2b;color:#e7e9f3;padding:8px 10px;font-size:12px}
+.schedule-time-chip{background:rgba(111,89,255,.18);border-color:rgba(111,89,255,.4)}
+.schedule-time-add{color:#b9b1ff}
+.picker-overlay{display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.72);align-items:flex-end;justify-content:center;padding:12px}
+.picker-overlay.show{display:flex}
+.picker-sheet{width:min(440px,100%);max-height:min(90dvh,820px);overflow:auto;border:1px solid rgba(255,255,255,.09);border-radius:26px 26px 20px 20px;background:#1c1b1e;color:#f5f3f7;padding:10px 18px max(16px,env(safe-area-inset-bottom));box-shadow:0 -14px 55px rgba(0,0,0,.5)}
+.picker-sheet-handle{width:42px;height:4px;border-radius:5px;background:#55545a;margin:0 auto 13px}
+.picker-sheet-head{display:flex;align-items:center;justify-content:space-between;min-height:40px}
+.picker-sheet-head strong{font-size:16px}
+.picker-close{width:36px;height:36px;border:0;border-radius:50%;background:#303035;color:#eee;font-size:23px}
+.picker-panel{padding:15px 0}
+.picker-panel[hidden]{display:none}
+.calendar-month{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.calendar-month strong{font-size:15px}
+.calendar-month button{width:36px;height:36px;border:0;border-radius:50%;background:#303035;color:white;font-size:22px}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
+.calendar-weekday{text-align:center;color:#9b9aa2;font-size:10px;padding:5px 0}
+.calendar-blank{aspect-ratio:1}
+.calendar-day{aspect-ratio:1;border:0;border-radius:11px;background:#303034;color:#f2f1f4;font-size:13px}
+.calendar-day.today{outline:1px solid #a69aff}
+.calendar-day.selected{background:#7044f6;color:white;font-weight:800}
+.clock-current{text-align:center;padding:9px 0 16px}
+.clock-current span{display:block;color:#a9a6b0;font-size:12px;margin-bottom:5px}
+.clock-current strong{font-size:32px;letter-spacing:.5px;font-variant-numeric:tabular-nums}
+.clock-current small{font-size:13px;color:#aaa7b1}
+.clock-face{position:relative;width:min(260px,72vw);aspect-ratio:1;margin:0 auto 12px;border:5px solid #55545b;border-radius:50%;background:radial-gradient(circle,#252429 0 57%,#1c1b1e 58%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.clock-numbers{position:absolute;inset:0}
+.clock-number{position:absolute;transform:translate(-50%,-50%);width:38px;height:38px;border:0;border-radius:50%;background:transparent;color:#e8e6ed;font-size:13px;z-index:2}
+.clock-number.selected{background:#7044f6;color:white;font-weight:800}
+
+.clock-center{position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;background:white;transform:translate(-50%,-50%);z-index:3}
+.clock-period{display:flex;justify-content:center;gap:8px}
+.clock-period button{border:1px solid #45434c;border-radius:18px;background:#29282d;color:#ddd;padding:8px 19px;font-size:12px}
+.clock-period button.selected{background:#7044f6;border-color:#7044f6;color:white}
+.picker-actions{display:flex;gap:9px;margin-top:10px}
+.picker-actions button{flex:1;min-height:46px;border-radius:15px}
+@media(min-width:700px){.picker-overlay{align-items:center}.picker-sheet{border-radius:24px}}
+@media(max-width:340px){.picker-sheet{padding-left:13px;padding-right:13px}.clock-face{width:230px}.clock-number{width:34px;height:34px}}
+
+
+/* V22.4 — clock hand alignment and minimal picker heading */
+
+.clock-current>span{display:none!important}
+\n
+/* V22.5 — direct-tap clock face; no misleading static hand */
+.clock-face{touch-action:manipulation;user-select:none}
+.clock-number{cursor:pointer;touch-action:manipulation}
+.clock-number.selected{box-shadow:0 0 0 3px rgba(112,68,246,.22)}
+.clock-center{pointer-events:none}
+
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="brand"><svg class="tree-logo" viewBox="0 0 100 160" role="img" aria-label="Tree of Life: ten connected spheres">
+<g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" opacity=".82">
+<path d="M50 12L20 36L80 36L50 12 M20 36L80 36 M20 36L20 70L80 70L80 36 M20 36L50 82L80 36 M80 36L50 82 M20 70L80 70 M20 70L50 82L80 70 M20 70L20 108L80 108L80 70 M20 70L50 122L80 70 M80 70L50 122 M20 108L80 108 M20 108L50 122L80 108 M50 82L20 108 M50 82L80 108 M50 82L50 122 M20 108L50 148L80 108 M50 122L50 148 M80 108L50 148"/>
+</g>
+<g fill="#131520" stroke="currentColor" stroke-width="1.6">
+<circle cx="50" cy="12" r="8"/><circle cx="20" cy="36" r="8"/><circle cx="80" cy="36" r="8"/>
+<circle cx="20" cy="70" r="8"/><circle cx="80" cy="70" r="8"/><circle cx="50" cy="82" r="8"/>
+<circle cx="20" cy="108" r="8"/><circle cx="80" cy="108" r="8"/><circle cx="50" cy="122" r="8"/><circle cx="50" cy="148" r="8"/>
+</g></svg><span>/ BIOENERGETIC PROFILE</span></div><div class="topright">PERSONAL HEALTH INTELLIGENCE&nbsp; · &nbsp;V12.0</div></header>
+<section class="hero">
+<div class="eyebrow">BASELINE ASSESSMENT / DAILY OBSERVATION</div>
+<h1>Understand your<br>own physiology.</h1>
+<p>A personal record for physiology, nutrition, sleep, cognition, performance and the conditions that shape everyday life.</p>
+<blockquote class="peat-quote">“The key idea was that energy and structure are interdependent, at every level.”<cite>— Ray Peat, <a href="https://raypeat.com/about.shtml" target="_blank" rel="noopener">About Ray Peat</a></cite></blockquote>
+</section>
+
+<div class="picker-overlay" id="pickerOverlay" aria-hidden="true">
+ <div class="picker-sheet" role="dialog" aria-modal="true" aria-labelledby="pickerTitle">
+  <div class="picker-sheet-handle"></div>
+  <div class="picker-sheet-head"><button type="button" class="picker-close" id="pickerBack" aria-label="Back">‹</button><strong id="pickerTitle">Select</strong><button type="button" class="picker-close" id="pickerClose" aria-label="Close">×</button></div>
+  <div id="calendarPanel" class="picker-panel" hidden>
+   <div class="calendar-month"><button type="button" id="calendarPrev">‹</button><strong id="calendarMonth"></strong><button type="button" id="calendarNext">›</button></div>
+   <div class="calendar-grid" id="calendarGrid"></div>
+  </div>
+  <div id="clockPanel" class="picker-panel" hidden>
+   <div class="clock-current"><span id="clockStepLabel" aria-hidden="true"></span><strong id="clockReadout">08 : 00 <small>AM</small></strong></div>
+   <div class="clock-face" id="clockFace"><div class="clock-center"></div><div class="clock-numbers" id="clockNumbers"></div></div>
+   <div class="clock-period"><button type="button" id="clockAM" class="selected">AM</button><button type="button" id="clockPM">PM</button></div>
+  </div>
+  <div class="picker-actions"><button type="button" class="btn secondary" id="pickerCancel">Cancel</button><button type="button" class="btn" id="pickerApply">Set</button></div>
+ </div>
+</div>
+<nav class="nav" aria-label="Main navigation">
+<button class="active" data-view="dashboard" aria-label="Overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-6H9v6H3z"/></svg><span>Home</span></button>
+<button data-view="daily" aria-label="Daily log"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M7 2.5v4M17 2.5v4M3 9h18M7 13h3M7 17h3M14 13h3M14 17h3"/></svg><span>Daily</span></button>
+<button data-view="questionnaire" aria-label="Assessment"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h11a2 2 0 0 1 2 2v15H8a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"/><path d="M5 7h13M9 11h8M9 15h8M9 19h5"/></svg><span>Assessment</span></button>
+<button data-view="supplements" aria-label="Supplements"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 3 13 13a4.2 4.2 0 0 1-6 6L2 9a4.2 4.2 0 0 1 6-6z"/><path d="m6 7 6-6M9 10l6-6"/></svg><span>Supps</span></button>
+<button data-view="healthdata" aria-label="Health data"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2.2-6 4.1 12 2.2-6H21"/><path d="M12 22s-8-4.8-8-12a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 7.2-8 12-8 12z" opacity=".0"/></svg><span>Health</span></button>
+<button data-view="trends" aria-label="Trends and reports"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m6 15 4-4 3 2 6-7"/></svg><span>Trends</span></button>
+<button data-view="settings" aria-label="Data and settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.8-.6a8 8 0 0 1-1.5.9l-.3 1.9h-2.8l-.3-1.9a8 8 0 0 1-1.5-.9l-1.8.6-1.4-2.4 1.4-1.1a7 7 0 0 1 0-1.8l-1.4-1.1 1.4-2.4 1.8.6a8 8 0 0 1 1.5-.9l.3-1.9h2.8l.3 1.9a8 8 0 0 1 1.5.9l1.8-.6 1.4 2.4-1.4 1.1a7 7 0 0 1 0 1.8z"/></svg><span>Settings</span></button>
+</nav>
+
+<section class="view active" id="dashboard">
+<div class="sectionhead"><div><div class="eyebrow">YOUR RECORD</div><h2>Overview</h2><p id="todayLabel">Your records are stored in this browser.</p></div><button class="btn" onclick="showView('daily')">Log today's data ↗</button></div>
+<div class="grid3">
+<div class="stat vital-stat" id="tempStat"><div class="label">Latest morning temperature</div><div class="value" id="dashTemp">— <span class="unit">°F</span></div><div class="small" id="dashTempDate">No entries yet</div><div class="vital-empty" id="tempEmpty"><button type="button" class="empty-plus" onclick="showView('daily')" aria-label="Add morning temperature">+</button><div><strong>Start your temperature stream</strong><span>Log your morning vitals to reveal your baseline.</span></div></div></div>
+<div class="stat vital-stat" id="pulseStat"><div class="label">Latest resting pulse</div><div class="value" id="dashPulse">— <span class="unit">BPM</span></div><div class="small" id="dashPulseDate">No entries yet</div><div class="vital-empty" id="pulseEmpty"><button type="button" class="empty-plus" onclick="showView('daily')" aria-label="Add resting pulse">+</button><div><strong>Give your pulse a starting point</strong><span>A calm, consistent reading starts the trend.</span></div></div></div>
+<div class="stat"><div class="label">Daily logs recorded</div><div class="value" id="dashDays">0</div><div class="small">Distinct dates</div></div>
+</div>
+<div class="card"><div class="sectionhead"><div><h3>Temperature & pulse, last 14 days</h3><p>Waking readings; one consistent daily baseline is enough.</p></div><span class="tag">14 DAYS</span></div><div class="grid"><div class="chartbox"><div class="small">TEMPERATURE · °F</div><canvas id="dashTempChart"></canvas></div><div class="chartbox"><div class="small">RESTING PULSE · BPM</div><canvas id="dashPulseChart"></canvas></div></div></div>
+<div class="card"><h3>Assessment status</h3><p class="small">Complete the baseline questionnaire to create your initial profile. The score is a descriptive completeness/behavioral index, not a clinical measure of metabolic health.</p><div class="progress"><i id="assessmentProgress"></i></div><div class="small" id="assessmentProgressText">0% of required profile fields completed</div><div class="btnrow"><button class="btn secondary" onclick="showView('questionnaire')">Open assessment</button></div></div>
+<div class="notice">Interpretation note: Ray Peat-inspired temperature and pulse observations can be useful personal tracking variables, but they are not validated standalone tests of thyroid function, metabolic rate or “cellular energy.” Record conditions consistently and interpret patterns alongside symptoms and clinical context.</div>
+</section>
+
+<section class="view" id="daily">
+<div class="sectionhead"><div><div class="eyebrow">REPEATED OBSERVATIONS</div><h2>Daily temperature & pulse</h2><p>Use the same thermometer, site and resting conditions when possible.</p></div><span class="tag">DAILY LOG</span></div>
+<div class="card">
+<div class="two"><div><label class="q" for="logDate">Log date</label><input id="logDate" type="hidden"><button type="button" class="picker-trigger date-trigger" data-open-calendar="logDate"><span id="logDateLabel">Select date</span><b>▦</b></button></div><div><label class="q">Wake time</label><div id="wakeTimePicker"></div></div></div>
+<div class="field"><label class="q">Measurement method</label><div class="choices"><label><input type="radio" name="method" value="Oral" checked> Oral</label><label><input type="radio" name="method" value="Axillary"> Axillary</label><label><input type="radio" name="method" value="Ear"> Ear</label><label><input type="radio" name="method" value="Forehead"> Forehead</label><label><input type="radio" name="method" value="Other"> Other</label></div><span class="hint">Do not compare readings from different sites as if they were interchangeable.</span></div>
+<div class="field"><div class="checkpoint-tools"><div><label class="q" for="tempUnit">Temperature display unit</label><select id="tempUnit" onchange="changeTempUnit()"><option value="F">Fahrenheit (°F)</option><option value="C">Celsius (°C)</option></select></div><p class="hint">Values are stored internally in °F for consistent trends and exports.</p></div><label class="q">Daily checkpoints</label><span class="hint">Waking, pre-meal and post-meal are core checkpoints. Bedtime is optional. Completed cards can be collapsed.</span><div id="measurementQuality" class="measurement-quality" aria-live="polite"></div><div id="measurementRows" class="timeline-grid"></div></div>
+<div class="field"><label class="q">Context tags</label><span class="hint">Mark factors that may affect readings. These tags provide context; they do not automatically adjust measurements.</span><div class="context-tags"><label><input type="checkbox" name="contextTag" value="Caffeine" onchange="updateMeasurementQuality()"> Caffeine</label><label><input type="checkbox" name="contextTag" value="Exercise" onchange="updateMeasurementQuality()"> Exercise</label><label><input type="checkbox" name="contextTag" value="Illness" onchange="updateMeasurementQuality()"> Illness</label><label><input type="checkbox" name="contextTag" value="Medication" onchange="updateMeasurementQuality()"> Medication</label><label><input type="checkbox" name="contextTag" value="Poor sleep" onchange="updateMeasurementQuality()"> Poor sleep</label></div></div>
+<div class="field"><label class="q" for="dailyNotes">Notes / unusual circumstances</label><textarea id="dailyNotes" placeholder="Illness, fever, room temperature, medication, unusual stress, exercise, measurement issues..."></textarea></div>
+<div class="btnrow"><button class="btn" onclick="saveDaily()">Save daily log</button><button class="btn secondary" onclick="clearDailyForm()">Clear form</button></div><div class="small" id="dailyStatus" aria-live="polite"></div>
+</div>
+<div class="card"><div class="sectionhead"><div><h3>Recent daily records</h3><p>Choose a date to load or edit its log.</p></div></div><div id="recentLogs" class="empty">No daily records yet.</div></div>
+</section>
+
+<section class="view" id="questionnaire">
+<div class="sectionhead"><div><div class="eyebrow">INITIAL PROFILE</div><h2>Comprehensive assessment</h2><p>Save progressively. Skip anything you do not know or do not wish to answer.</p></div><span class="tag">11 MODULES</span></div>
+<div class="notice">This assessment is a structured history, not a diagnostic instrument. For temperature, pulse, weight and intake, distinguish measured values from estimates. Sexual-health questions are optional.</div>
+<form id="assessmentForm">
+<div id="questionModules"></div>
+<div class="card"><h3>Save baseline assessment</h3><p class="small">Your answers are stored locally in this browser. You can revise them later.</p><div class="btnrow"><button type="button" class="btn" onclick="saveAssessment()">Save assessment</button><button type="button" class="btn secondary" onclick="calculateScore()">Calculate profile completeness</button></div><div id="scoreOutput"></div></div>
+</form>
+</section>
+
+<section class="view" id="supplements">
+<div class="sectionhead"><div><div class="eyebrow">COMPOUND & MEDICATION INVENTORY</div><h2>Supplements, foods & substances</h2><p>Track supplements, medicines and selected foods you actually consume.</p></div><span class="tag">PERSONAL INVENTORY</span></div>
+<div class="notice"><strong>Inventory, not a protocol.</strong> This catalog groups nutrients and substances discussed in Ray Peat-inspired communities. Inclusion does not mean Ray Peat recommended every item, that it is effective, or that it is safe for you. Record prescribed medicines accurately. Do not self-start thyroid hormones, progesterone or other hormones. T3/T4 are prescription medicines; excess thyroid hormone can cause serious or life-threatening toxicity. Aspirin can cause ulcers and serious bleeding. Sodium chloride and baking soda also have meaningful risks, especially with kidney, heart or blood-pressure problems.</div>
+<div class="card tracker-card"><div class="tracker-heading"><div><div class="eyebrow">DAILY ROUTINE</div><h3>Supplement tracker</h3><p class="small">Configure schedules independently from inventory dose notes. Log each scheduled dose as taken, skipped or missed.</p></div><button type="button" class="picker-trigger tracker-date" id="trackerDate" data-open-calendar="trackerDate"><span id="trackerDateLabel">Today</span><b>▦</b></button></div><div id="activeStack" class="active-stack"></div><div class="tracker-progress"><div class="tracker-progress-track"><span id="trackerProgressFill"></span></div><span id="trackerProgressText">0 / 0 logged</span></div><div id="dailySupplementChecklist"></div><div id="trackerHistory" class="tracker-history"></div></div>
+<div class="card"><h3>Your supplement inventory</h3>
+<div class="global-log-wrap"><label class="q" for="globalSuppLog">⚡ Quick Log Tracker (Paste line from Cronometer or type freely)</label><textarea id="globalSuppLog" class="global-log-input" rows="2" placeholder="Paste or type a supplement entry..."></textarea><div class="global-log-footer"><span class="global-log-note">Example: Thiamine 300mg twice a day with meal bioven</span><button type="button" class="btn secondary" id="globalSuppParse">Parse &amp; Apply</button></div><div class="global-log-status" id="globalSuppStatus" aria-live="polite"></div></div>
+<p class="small">Choose a status, then record the exact product, amount, frequency, timing and effects. For foods, use ordinary portions or weights. No dose suggestions are provided.</p>
+<div class="inventory-toolbar">
+ <div class="inventory-search"><label class="q" for="suppSearch">Find an item</label><input id="suppSearch" type="search" placeholder="Search supplements, foods, medicines..." autocomplete="off"></div>
+ <div class="inventory-filters"><div><label class="q" for="suppCategoryFilter">Category</label><select id="suppCategoryFilter"><option value="">All categories</option><option>Vitamin</option><option>Mineral</option><option>Supplement</option><option>Prescription medicine</option><option>Hormone</option><option>Food / beverage</option><option>Other</option></select></div><div><label class="q" for="suppStatusFilter">Status</label><select id="suppStatusFilter"><option value="">All statuses</option><option>Currently using</option><option>Prescribed and using</option><option>Previously used</option><option>Considering</option><option>Not using</option></select></div></div>
+ <div class="inventory-counts"><span id="inventoryVisibleCount">Showing all items</span><span id="inventoryActiveCount">0 currently using</span></div>
+</div>
+<div id="supplementCatalog"></div><div id="inventoryNoResults" class="inventory-empty" hidden>No matching inventory items. Try another search or filter.</div><div class="btnrow"><button class="btn" onclick="saveSupplements()">Save supplement inventory</button><button class="btn secondary" onclick="exportJSON()">Back up data</button></div><div id="suppStatus" class="small"></div></div>
+<div class="card custom-import-card"><h3>Add something not listed</h3>
+<div class="smart-import-wrap"><label class="q" for="smartSuppImport">Smart Import / Paste from Cronometer</label><textarea id="smartSuppImport" class="smart-import" rows="2" placeholder="Paste a diary row or type e.g. Magnesium Glycinate 200 mg"></textarea><div class="smart-import-hint" id="smartImportHint">Paste or type an item. Name, amount and category will be filled when recognized.</div></div>
+<div class="two"><div><label class="q" for="customSuppName">Name</label><input id="customSuppName" type="text" placeholder="Compound / product name"></div><div><label class="q" for="customSuppAmount">Amount</label><input id="customSuppAmount" type="text" placeholder="e.g. 200 mg"></div><div class="wide"><label class="q" for="customSuppType">Category</label><select id="customSuppType"><option>Supplement</option><option>Prescription medicine</option><option>Hormone</option><option>Food / beverage</option><option>Other</option></select></div></div>
+<div class="btnrow"><button class="btn secondary" onclick="addCustomSupplement()">Confirm &amp; Add</button></div></div>
+</section>
+
+<section class="view" id="healthdata">
+<div class="sectionhead"><div><div class="eyebrow">LONGITUDINAL HEALTH RECORD</div><h2>Health data</h2><p>Track body weight, sleep, symptoms, food intake and laboratory results in one dated record.</p></div><span class="tag">PERSONAL DATA</span></div>
+<div class="card">
+ <div class="two">
+  <div class="field"><label class="q" for="hdDate">Record date</label><input id="hdDate" type="date"></div>
+  <div class="field"><label class="q" for="hdWeight">Body weight (kg)</label><input id="hdWeight" type="number" step="0.1" min="0" placeholder="e.g. 62.5"></div>
+ </div>
+ <h3>Sleep</h3>
+ <div class="two">
+  <div class="field"><label class="q" for="hdSleepHours">Sleep duration (hours)</label><input id="hdSleepHours" type="number" step="0.25" min="0" max="24" placeholder="e.g. 7.5"></div>
+  <div class="field"><label class="q" for="hdSleepQuality">Sleep quality</label><select id="hdSleepQuality"><option value="">Not recorded</option><option>Very poor</option><option>Poor</option><option>Fair</option><option>Good</option><option>Very good</option></select></div>
+ </div>
+ <div class="two">
+  <div class="field"><label class="q" for="hdBedtime">Bedtime</label><input id="hdBedtime" type="time"></div>
+  <div class="field"><label class="q" for="hdWake">Wake time</label><input id="hdWake" type="time"></div>
+ </div>
+ <h3>Symptoms</h3>
+ <div class="field"><label class="q" for="hdSymptoms">Symptoms, severity and timing</label><textarea id="hdSymptoms" rows="3" placeholder="Describe what happened, when it started, duration, severity (0–10), triggers and what relieved it."></textarea></div>
+ <h3>Food intake</h3>
+ <div class="field"><label class="q" for="hdFood">Meals, approximate quantities and reactions</label><textarea id="hdFood" rows="3" placeholder="Record foods, quantities, meal times, appetite, digestion and any reactions."></textarea></div>
+ <div class="field"><label class="q" for="hdNotes">Additional notes</label><textarea id="hdNotes" rows="2" placeholder="Activity, illness, medication changes, unusual stress or measurement context."></textarea></div>
+ <div class="btnrow"><button class="btn" onclick="saveHealthDay()">Save daily health record</button><button class="btn secondary" onclick="clearHealthDayForm()">Clear form</button></div>
+ <div id="hdStatus" class="small" aria-live="polite"></div>
+</div>
+<div class="card"><h3>Recent daily records</h3><p class="small">Select a date to edit its record. Weight and sleep charts use recorded values only; missing days are not imputed.</p><div id="hdDailyHistory" class="tablewrap"></div></div>
+<div class="card"><h3>Weight and sleep trends</h3><div class="two"><div><div class="small">Body weight (kg)</div><div class="chartbox"><canvas id="hdWeightChart"></canvas></div></div><div><div class="small">Sleep duration (hours)</div><div class="chartbox"><canvas id="hdSleepChart"></canvas></div></div></div></div>
+<div class="notice">This is a record-keeping tool, not a diagnostic engine. Do not change medication or supplements based on an isolated measurement or an app-generated trend. For laboratory interpretation, use the report's units, reference interval, symptoms and clinical context.</div>
+</section>
+
+<section class="view" id="trends">
+<div class="sectionhead"><div><div class="eyebrow">LONGITUDINAL VIEW</div><h2>Trends & reports</h2><p>Look for repeatable changes, not isolated readings.</p></div><span class="tag">7 / 30 / 90 DAYS</span></div>
+<div class="card"><div class="two"><div><label class="q" for="trendRange">Time range</label><select id="trendRange" onchange="renderTrends()"><option value="7">Last 7 days</option><option value="30" selected>Last 30 days</option><option value="90">Last 90 days</option><option value="365">Last 12 months</option><option value="all">All records</option></select></div><div><label class="q" for="trendMetric">Chart</label><select id="trendMetric" onchange="renderTrends()"><option value="temp">Morning temperature (°F)</option><option value="pulse">Morning resting pulse (BPM)</option></select></div></div><div class="chartbox"><canvas id="trendChart"></canvas></div><div id="trendSummary" class="small"></div></div>
+<div class="card"><h3>First-meal response</h3><p class="small">Compare the pre-meal reading with the reading 45–60 minutes after the first substantial meal. This is descriptive; meal timing, activity, caffeine and measurement conditions can confound the comparison.</p><div class="tablewrap" id="mealTable"></div></div>
+<div class="card"><h3>Assessment domain indicators</h3><p class="small">Scores reflect answer coverage and selected self-reported habits only. They are not medical risk scores or diagnoses.</p><div id="domainScores" class="scoregrid"></div></div>
+
+</section>
+
+<section class="view" id="settings">
+<div class="sectionhead"><div><div class="eyebrow">CONTROL YOUR DATA</div><h2>Data & settings</h2><p>No account, analytics service or cloud sync is used by this file.</p></div></div>
+<div class="card"><h3>Local storage</h3><p class="small">Records are saved in this browser's local storage. Clearing browser data, using private browsing or changing devices can remove or separate your records. Export backups regularly.</p><div class="btnrow export-action-group"><button class="btn" onclick="exportJSON()">Export JSON</button><label class="btn secondary" for="importFile">Import backup</label><input class="hidden" id="importFile" type="file" accept="application/json" onchange="importJSON(event)"></div><div id="backupStatus" class="small"></div></div>
+<div class="card"><h3>Export your records</h3><p class="small">Create a printable report, export daily measurements as CSV, or save a complete JSON backup.</p><div class="btnrow export-action-group"><button class="btn" onclick="exportPDF()">Export PDF</button><button class="btn" onclick="exportCSV()">Export CSV</button><button class="btn" onclick="exportJSON()">Export JSON</button></div><div id="reportStatus" class="small" aria-live="polite"></div></div>
+<div class="card"><h3>Data deletion</h3><p class="small">This permanently clears the data saved by this application in this browser. Export a backup first if you may need it.</p><button class="btn danger delete-action" onclick="deleteAll()">Delete all local data</button></div>
+<div class="card"><h3>Measurement guidance</h3><ul class="small"><li>Use one thermometer and one measurement site consistently.</li><li>For resting pulse, sit or lie quietly for several minutes before measuring; use the same posture when possible.</li><li>Record fever, acute illness, medication changes, strenuous exercise and other confounders.</li><li>Do not deliberately change food, salt, supplements or medication to force a target temperature or pulse.</li><li>Seek medical assessment for persistent symptoms or concerning changes; urgent symptoms should not wait for trend analysis.</li></ul></div>
+</section>
+<div class="footer">BIOENERGETIC PROFILE · PRIVATE LOCAL RECORD · NOT A MEDICAL DEVICE OR SUBSTITUTE FOR CLINICAL CARE</div>
+</div>
+
+<div id="exportModal" role="dialog" aria-modal="true" aria-label="Export"><div class="export-shell"><h2 id="exportTitle">Export</h2><p id="exportHelp" class="small">Your export is prepared below.</p><div class="export-actions"><button class="btn" id="exportDownloadBtn" type="button">Download file</button><button class="btn secondary" id="exportCopyBtn" type="button">Copy content</button><button class="btn secondary" id="exportPrintBtn" type="button" style="display:none">Print / Save PDF</button><button class="btn secondary" id="exportOpenBtn" type="button" style="display:none">Open report in browser</button><button class="btn secondary" type="button" onclick="closeExportModal()">Close</button></div><textarea id="exportText" spellcheck="false" style="display:none" aria-label="Export content"></textarea><iframe id="exportFrame" title="Printable report" style="display:none"></iframe><p id="exportFeedback" class="small" aria-live="polite"></p></div></div>
+<script>
+const DBKEY='bioenergetic_profile_v1';
+const slots=['Waking','Pre-meal','Post-meal','Bedtime'];
+const slotMeta=[{icon:'☀',sub:'Before getting up',tone:'dawn'},{icon:'◉',sub:'Before first meal',tone:'day'},{icon:'◒',sub:'45–60 min after meal',tone:'after'},{icon:'☾',sub:'Before sleep',tone:'night'}];
+const modules=[
+{title:'01 · Personal profile & health history',desc:'Context for interpreting measurements.',items:[
+['age','Age (years)','number','20'],['sex','Sex assigned at birth','select',['Male','Female','Intersex','Prefer not to say']],['height','Height','text','e.g. 175 cm'],['current_weight','Current weight (kg)','number',''],['weight_history','Weight over the last 1–2 years','select',['Stable','Gradually increasing','Gradually decreasing','Fluctuates substantially','Not sure']],['health_conditions','Diagnosed health conditions','textarea','List diagnoses, or write none'],['family_history','Relevant family medical history','textarea','Thyroid, diabetes, cardiovascular, autoimmune, reproductive, other'],['medications','Prescription / OTC medications','textarea','Name, dose, frequency, duration'],['recent_illness','Recent infection, fever or illness in the last month?','select',['No','Yes','Not sure']],['smoking','Nicotine / tobacco use','select',['Never','Former','Occasional','Daily']],['alcohol','Alcohol use','select',['Never','Less than weekly','1–3 days/week','4+ days/week']],['baseline_goal','Main priority over the next 3 months','textarea','What would meaningful improvement look like?']]},
+{title:'02 · Anthropometry & body composition',desc:'Track body size and change over time.',items:[
+['waist','Waist circumference (cm)','number',''],['hip','Hip circumference (cm)','number',''],['bodyfat','Estimated body-fat percentage','number','Optional; include method in notes'],['weight_goal','Desired weight or body-composition direction','select',['Gain weight / muscle','Lose fat while preserving muscle','Recomposition','Maintain','Unsure']],['weight_appetite','Typical appetite','select',['Very low','Low','Moderate','High','Very high']],['weight_change','Unintentional weight change recently?','select',['No','Lost weight','Gained weight','Unsure']],['body_image','How confident are you in your body-composition estimate?','select',['Not confident','Somewhat','Reasonably','Very confident']]]},
+{title:'03 · Thermoregulation & metabolism',desc:'Temperature, pulse, cold/heat tolerance and daily energy.',items:[
+['morning_temp','Typical waking temperature (°F)','number','Measured value; note method'],['morning_pulse','Typical waking resting pulse (BPM)','number','Measured value, after waking'],['temp_method','Temperature measurement site','select',['Oral','Axillary','Ear','Forehead','Other / varies']],['cold_hands','Cold hands or feet','select',['Never','Rarely','Sometimes','Often','Almost always']],['cold_body','Feeling unusually cold compared with others','select',['Never','Rarely','Sometimes','Often','Almost always']],['heat_tolerance','Tolerance of warm environments','select',['Poor','Below average','Average','Good','Very good']],['sweating','Sweating pattern','select',['Very little','Typical','Heavy','Night sweats','Variable']],['energy_morning','Energy during first 2 hours after waking','select',['Very low','Low','Moderate','High','Very high']],['energy_day','Energy through the day','select',['Consistently low','Afternoon crash','Evening improvement','Stable','Highly variable']],['fatigue','Fatigue despite adequate sleep','select',['Never','Rarely','Sometimes','Often','Daily']],['exercise_tolerance','Exercise tolerance','select',['Poor','Below average','Average','Good','Excellent']],['recovery','Recovery after ordinary activity','select',['Slow','Somewhat slow','Typical','Fast','Unsure']],['sweat_sleep','Do you wake sweaty or overheated?','select',['Never','Rarely','Sometimes','Often']],['temperature_variation','Have you noticed a consistent daily temperature pattern?','select',['Yes, clear pattern','Some pattern','No clear pattern','I have not tracked it']],['metabolic_notes','Other temperature, pulse or energy observations','textarea','Describe patterns and when they occur']]},
+{title:'04 · Post-meal response & digestion',desc:'Meal-related symptoms and timing.',items:[
+['postmeal_energy','Energy 30–90 minutes after meals','select',['Usually improves','No consistent change','Usually worsens','Varies by meal']],['postmeal_temp','Have you measured temperature before and after meals?','select',['Yes, regularly','Occasionally','No']],['postmeal_pulse','Have you measured pulse before and after meals?','select',['Yes, regularly','Occasionally','No']],['satiety','How long does a typical meal keep you satisfied?','select',['Less than 1 hour','1–2 hours','2–4 hours','More than 4 hours','Variable']],['bloating','Bloating','select',['Never','Rarely','Sometimes','Often','Daily']],['reflux','Heartburn / reflux','select',['Never','Rarely','Sometimes','Often','Daily']],['nausea','Nausea','select',['Never','Rarely','Sometimes','Often']],['stool_frequency','Bowel movement frequency','select',['Less than 3/week','About once daily','2–3/day','More than 3/day','Highly variable']],['stool_consistency','Typical stool consistency (Bristol scale if known)','select',['Hard / lumpy (1–2)','Formed (3–4)','Loose (5–6)','Watery (7)','Variable / unsure']],['constipation','Straining or incomplete evacuation','select',['Never','Rarely','Sometimes','Often','Most bowel movements']],['abdominal_pain','Abdominal pain','select',['Never','Rarely','Sometimes','Often']],['food_reaction','Foods that reliably trigger symptoms','textarea','Food, amount, symptoms, time to onset'],['digestion_notes','Other digestive observations','textarea','']]},
+{title:'05 · Sexual & reproductive health',desc:'Optional. Responses are private to this local browser profile.',items:[
+['libido','How would you describe your libido over the last 3 months?','select',['Very low','Low','Moderate','High','Very high','Variable','Prefer not to answer']],['libido_change','Change in libido compared with your usual baseline','select',['Decreased','Unchanged','Increased','Fluctuates','Prefer not to answer']],['morning_erections','Frequency of morning erections','select',['Never','Less than weekly','A few times weekly','Most days','Daily','Prefer not to answer']],['erection_quality','Ability to achieve an erection when desired','select',['Consistently difficult','Often difficult','Sometimes difficult','Usually easy','Consistently easy','Not applicable / prefer not to answer']],['erection_maintenance','Ability to maintain an erection','select',['Consistently difficult','Often difficult','Sometimes difficult','Usually easy','Consistently easy','Not applicable / prefer not to answer']],['erection_context','Are erection difficulties situational or consistent?','select',['Situational','Consistent','Both','No difficulty','Prefer not to answer']],['ejaculation','Any concerns about ejaculation?','select',['No','Premature ejaculation','Delayed ejaculation','Difficulty ejaculating','Painful ejaculation','Other / prefer not to answer']],['sexual_satisfaction','Overall sexual satisfaction','select',['Very dissatisfied','Dissatisfied','Neutral','Satisfied','Very satisfied','Prefer not to answer']],['sexual_function_change','Recent change in sexual function','select',['No change','Improved','Worsened','Variable','Prefer not to answer']],['genital_pain','Genital, testicular or pelvic pain','select',['No','Occasional','Persistent','Prefer not to answer']],['urinary','Urinary symptoms (weak stream, urgency, pain, frequency)','select',['None','Mild','Moderate','Severe','Prefer not to answer']],['reproductive','Fertility or reproductive-health concerns','textarea','Optional'],['sexual_stress','Does stress, anxiety or relationship context affect sexual function?','select',['Not noticeably','A little','Moderately','A lot','Unsure','Prefer not to answer']],['sexual_notes','Anything else relevant to sexual health?','textarea','Optional; skip if uncomfortable']]},
+{title:'06 · Circadian rhythm & sleep',desc:'Sleep timing, light exposure and regularity.',items:[
+['bedtime','Usual bedtime','time',''],['waketime','Usual wake time','time',''],['sleep_duration','Average sleep duration (hours)','number',''],['sleep_latency','Time to fall asleep','select',['Under 15 min','15–30 min','30–60 min','Over 60 min']],['sleep_quality','Overall sleep quality','select',['Very poor','Poor','Fair','Good','Very good']],['night_awakenings','Typical awakenings per night','select',['None','1','2','3 or more','Variable']],['early_waking','Wake earlier than intended and cannot return to sleep?','select',['Never','Rarely','Sometimes','Often']],['daylight','Outdoor daylight within 1 hour of waking','select',['Almost never','1–2 days/week','3–5 days/week','6–7 days/week']],['evening_light','Bright screens / lighting in final hour before bed','select',['Almost none','A little','Moderate','A lot']],['caffeine_time','Latest usual caffeine time','select',['No caffeine','Before 10 AM','10 AM–12 PM','12–3 PM','After 3 PM']],['sleepiness','Daytime sleepiness','select',['Never','Rarely','Sometimes','Often','Daily']],['snoring','Loud snoring or witnessed breathing pauses?','select',['No','Snoring only','Breathing pauses reported','Unsure']],['chronotype','Natural preference','select',['Strong morning type','Somewhat morning','Neither','Somewhat evening','Strong evening']],['sleep_notes','Other sleep observations','textarea','']]},
+{title:'07 · Cognition & mental performance',desc:'Subjective function, mood and mental stamina.',items:[
+['focus','Ability to sustain focus','select',['Very poor','Poor','Average','Good','Excellent']],['memory','Short-term memory','select',['Very poor','Poor','Average','Good','Excellent']],['brainfog','Brain fog / mental sluggishness','select',['Never','Rarely','Sometimes','Often','Daily']],['motivation','Motivation and initiative','select',['Very low','Low','Moderate','High','Very high']],['mood','Typical mood','select',['Very low','Low','Neutral','Good','Very good']],['irritability','Irritability','select',['Never','Rarely','Sometimes','Often','Daily']],['anxiety','Anxiety or persistent worry','select',['None','Mild','Moderate','High','Severe','Prefer not to answer']],['mental_fatigue','Mental fatigue after concentrated work','select',['Very quickly','Within an hour','After several hours','Rarely']],['cognitive_change','Recent change in cognitive function','select',['Worsened','Unchanged','Improved','Variable']],['cognitive_notes','Examples of cognitive strengths or difficulties','textarea','']]},
+{title:'08 · Muscle mass & physical performance',desc:'Training, strength, recovery and progression.',items:[
+['training_type','Current resistance training','select',['None','Bodyweight','Weights','Machines','Mixed']],['training_frequency','Resistance-training days per week','number',''],['training_duration','Typical session duration (minutes)','number',''],['training_experience','Training experience','select',['Beginner','Under 1 year','1–3 years','3–5 years','Over 5 years']],['strength_trend','Strength over the last 3 months','select',['Decreasing','Unchanged','Increasing slowly','Increasing steadily','Not tracked']],['progressive_overload','Do you track sets, reps and loads?','select',['Never','Sometimes','Usually','Every session']],['soreness','Typical post-training soreness','select',['Minimal','Mild','Moderate','Severe / prolonged']],['recovery_days','Time needed to recover from hard sessions','select',['Under 24 hours','24–48 hours','48–72 hours','Over 72 hours','Variable']],['injuries','Current or recurring injuries','textarea',''],['steps','Average daily steps','number',''],['cardio','Cardiovascular activity per week','text','Type, sessions and duration'],['muscle_goal','Primary muscular goal','select',['Gain overall muscle','Improve strength','Improve power / athleticism','Recomposition','Maintain']],['performance_tests','Current strength benchmarks','textarea','Exercise, load, reps, date; optional'],['training_notes','Other training observations','textarea','']]},
+{title:'09 · Nutrition & food intake',desc:'Expanded quantitative and qualitative dietary assessment.',items:[
+['eating_pattern','Typical eating pattern','select',['1 meal/day','2 meals/day','3 meals/day','3 meals + snacks','Frequent small meals','Variable']],['calorie_estimate','Estimated daily energy intake (kcal)','number','Leave blank if unknown'],['food_log','Can you provide a representative 3-day food record?','textarea','List foods, quantities, drinks, cooking fats and approximate times for 3 typical days.'],['meal_times','Usual meal times','textarea','Breakfast, lunch, dinner, snacks'],['milk_ml','Milk / dairy milk (mL per day)','number','Include type and fat percentage in notes'],['dairy_other','Other dairy intake','textarea','Curd, yogurt, paneer, cheese, cream; quantities'],['eggs_day','Eggs per day (average)','number',''],['fruit_day','Fruit servings per day','number','Specify fruits and quantities in notes'],['juice_day','Fruit juice / sweet drinks per day','text','Type and approximate mL'],['starch_day','Main starches and approximate daily quantities','textarea','Rice, potatoes, wheat, oats, etc.; cooked or dry weights'],['sugar_day','Added sugar / honey / sucrose per day (g)','number','Estimate if possible'],['protein_g','Estimated protein per day (g)','number',''],['protein_sources','Main protein sources and quantities','textarea','Dairy, eggs, meat, fish, legumes, gelatin, etc.'],['protein_distribution','How is protein distributed across meals?','select',['Mostly one meal','Two meals','Across 3 meals','Across 4+ feedings','Unsure']],['meat_frequency','Meat / poultry frequency','select',['Never','Less than weekly','1–3 times/week','4–6 times/week','Daily']],['fish_frequency','Fish / seafood frequency','select',['Never','Less than weekly','1–3 times/week','4+ times/week']],['liver_frequency','Liver / organ meat frequency','select',['Never','Less than monthly','1–3 times/month','Weekly','More than weekly']],['gelatin','Gelatin / collagen intake','text','Grams per day or week; source'],['fat_sources','Main cooking fats and spreads','textarea','Butter, ghee, coconut oil, olive oil, seed oils, etc.'],['fat_estimate','Estimated total fat intake (g/day)','number','Optional'],['carb_estimate','Estimated carbohydrate intake (g/day)','number','Optional'],['fiber_estimate','Estimated fiber intake (g/day)','number','Optional'],['seed_oils','Frequency of foods cooked in industrial seed oils','select',['Rarely / never','1–2 times/week','3–5 times/week','Most days','Unsure']],['vegetables','Vegetable intake','textarea','Types and approximate daily quantities'],['legumes','Legumes / beans / lentils intake','text','Frequency and quantity'],['nuts_seeds','Nuts and seeds intake','textarea','Types and approximate quantities'],['salt','Salt added to food','select',['Very little','Moderate','Generous','Highly variable','Not sure']],['water','Approximate fluids per day (L)','number','Include water and other drinks'],['caffeine','Caffeine intake','textarea','Coffee, tea, energy drinks; quantity and timing'],['alcohol_nutrition','Alcohol intake','text','Type, quantity and frequency'],['supp_food','Food restrictions or exclusions','textarea','Allergies, intolerances, ethical or personal restrictions'],['hunger','Hunger between meals','select',['Rarely hungry','Mild hunger','Often hungry','Very hungry / difficult to satisfy','Variable']],['cravings','Common cravings','textarea','Sweet, salty, fatty, starch, other; timing'],['food_tolerance','Foods that improve or worsen how you feel','textarea','Include portion size and symptoms'],['meal_response','Typical response after a high-carbohydrate meal','select',['More energetic / comfortable','Sleepy / sluggish','Hungry again quickly','No clear change','Depends on meal']],['meal_composition','Meal composition most associated with good satiety','textarea','Describe foods and approximate portions'],['diet_change','Major dietary changes in the last 3 months','textarea','What changed and what happened afterward'],['nutrition_confidence','How confident are your intake estimates?','select',['Low; mostly guesses','Moderate','High; weighed / tracked foods']],['nutrition_notes','Other nutrition details','textarea','Include cooking methods, food access, budget constraints or anything missed.']]},
+{title:'10 · Stress, environment & lifestyle',desc:'Contextual factors that influence recovery and measurements.',items:[
+['stress_level','Average perceived stress','select',['Very low','Low','Moderate','High','Very high']],['stress_sources','Main sources of stress','textarea',''],['sunlight','Typical outdoor daylight exposure per day (minutes)','number',''],['temperature_env','Typical sleeping-room temperature','text','If known, °C or °F'],['work_schedule','Work / study schedule','select',['Regular daytime','Early shift','Evening shift','Night shift','Irregular']],['sedentary','Approximate sitting time per day (hours)','number',''],['outdoors','Time spent outdoors','select',['Almost none','Under 30 min','30–60 min','1–2 hours','Over 2 hours']],['social','Social connection / support','select',['Very limited','Limited','Adequate','Strong']],['relaxation','Regular relaxation or recovery practices','textarea','Walking, breathing, hobbies, etc.'],['lifestyle_notes','Other lifestyle factors','textarea','']]},
+{title:'11 · Goals, agency & life direction',desc:'Map goals across health and everyday life. These questions explore perceived control, expectations and responses to setbacks; they do not diagnose learned helplessness or any mental-health condition.',items:[
+['priority_goal','Top three health priorities','textarea','Rank them and explain why they matter.'],
+['life_priorities','What are your three most important non-health goals?','textarea','Examples: education, work, money, relationships, creativity, independence, contribution or living conditions. Be specific.'],
+['life_domains','Which areas of life currently feel most stuck or neglected?','textarea','Describe what is happening, not just a label.'],
+['success_definition','What measurable progress would count as success in the next 12 weeks?','textarea','Include health and non-health outcomes. Separate what you control from what depends on others or circumstances.'],
+['long_term_direction','Where would you like your life to be in 1 year and 5 years?','textarea','What would an ordinary week look like if things were moving in the right direction?'],
+['goal_action','What concrete action have you taken toward an important personal goal in the last 30 days?','textarea','Include small actions. If none, explain what got in the way without judging yourself.'],
+['goal_followthrough','When you set a goal, how often do you follow through on the next planned step?','select',['Almost never','Rarely','About half the time','Usually','Almost always','I rarely set specific goals']],
+['perceived_control','How much influence do you feel you have over improving your current circumstances?','select',['Almost none','A little','Some','A lot','A great deal','Unsure']],
+['effort_belief','When you make a sustained effort, how often do you expect it to change the outcome?','select',['Almost never','Rarely','Sometimes','Usually','Almost always','Depends strongly on the situation']],
+['setback_response','When an attempt fails, what is your usual response?','select',['I stop trying for a long time','I assume further effort will not matter','I feel discouraged but try a different approach','I review what failed and adjust','I seek help or change the conditions','It varies']],
+['failure_attribution','When something does not work out, what explanation comes to mind first?','select',['It is entirely outside my control','I lack the ability to change it','I did not have the right strategy or information','I did not persist or follow through','Several factors, including external constraints','I am not sure']],
+['barriers','What most often prevents you from acting on your goals?','textarea','Consider money, time, health, skills, fear, low confidence, unclear next steps, family demands, environment or repeated setbacks.'],
+['available_support','What resources or support could realistically help you make progress?','textarea','People, money, training, tools, information, access or changes to your environment.'],
+['small_next_step','What is one small action you are willing and able to take in the next 7 days?','textarea','Make it observable and within your control.'],
+['tracking_capacity','How often can you realistically log health measurements?','select',['Once daily','Morning and selected meal readings','Several times daily','A few days per week','Only when symptoms change']],
+['barriers_tracking','What could interfere with consistent health tracking?','textarea',''],
+['future_expectation','How do you generally view your ability to build a better future?','select',['I do not expect things to improve','I am mostly pessimistic','Mixed / uncertain',' cautiously optimistic','Strongly optimistic']],
+['other_context','Anything else about your circumstances, goals or sense of control that matters?','textarea','']]} 
+];
+
+// Expanded field-performance tests.
+modules[7].items.push(
+['pushups_max','Maximum strict-form push-ups in one set','number','Chest reaches consistent depth; stop when form breaks.'],
+['pullups_max','Maximum strict pull-ups in one set','number','Specify grip and range of motion in notes.'],
+['plank_time','Front plank hold (seconds)','number','Stop when position fails.'],
+['balance_left','Single-leg balance, left (seconds)','number','Eyes open, safe flat surface; stop at loss of balance.'],
+['balance_right','Single-leg balance, right (seconds)','number','Eyes open, safe flat surface; stop at loss of balance.'],
+['grip_left','Grip strength, left hand (kg)','number','Only if using a calibrated dynamometer.'],
+['grip_right','Grip strength, right hand (kg)','number','Only if using a calibrated dynamometer.'],
+['sprint_test','Sprint test result','textarea','Distance, time, surface, footwear, timing method and date. Do not sprint maximally without suitable preparation.'],
+['hiit_frequency','HIIT sessions per week','number','Include intervals and recovery periods in notes.'],
+['hiit_details','HIIT format and total weekly volume','textarea','Exercise, work interval, recovery, rounds, intensity and how you judge intensity.'],
+['jump_test','Jump / power test','textarea','Optional: standing broad jump or vertical jump; describe method and result.'],
+['fitness_notes','Testing conditions and limitations','textarea','Recent training, injuries, fatigue, surface, equipment and test repeatability.']
+);
+
+const supplementCatalog = [
+['Thiamine (B1)','Vitamin'],['Riboflavin (B2)','Vitamin'],['Niacin / niacinamide (B3)','Vitamin'],['Pantothenic acid (B5)','Vitamin'],['Pyridoxine / P5P (B6)','Vitamin'],['Biotin (B7)','Vitamin'],['Folate (B9)','Vitamin'],['Cobalamin (B12)','Vitamin'],['Vitamin A / retinol','Vitamin'],['Vitamin C','Vitamin'],['Vitamin D','Vitamin'],['Vitamin E','Vitamin'],['Vitamin K / K2','Vitamin'],
+['Magnesium','Mineral'],['Calcium','Mineral'],['Sodium chloride (salt)','Electrolyte'],['Potassium','Mineral'],['Zinc','Mineral'],['Copper','Mineral'],['Selenium','Mineral'],
+['Sodium bicarbonate (baking soda)','Other'],['Glycine','Amino acid'],['Taurine','Amino acid'],['Creatine','Performance'],['Gelatin / collagen','Protein'],['Whole eggs','Food'],['Liver / organ meat','Food'],['Caffeine / coffee','Stimulant'],['Aspirin (acetylsalicylic acid)','Medicine'],['N-acetylcysteine (NAC)','Other'],['Pregnenolone','Hormone-related'],['Progesterone','Hormone'],['DHEA','Hormone'],['T3 (liothyronine)','Prescription thyroid hormone'],['T4 (levothyroxine)','Prescription thyroid hormone'],['Desiccated thyroid','Prescription thyroid medicine'],['Cyproheptadine','Prescription medicine'],['Other / custom','Other']
+];
+
+function loadDB(){try{return JSON.parse(localStorage.getItem(DBKEY))||{logs:{},assessment:{},supplements:{},customSupplements:[]}}catch(e){return{logs:{},assessment:{},supplements:{},customSupplements:[]}}}
+const baseSupplementCount=supplementCatalog.length;
+let db=loadDB(); db.supplements ||= {}; db.logs ||= {}; db.assessment ||= {}; db.customSupplements ||= []; db.supplementSchedules ||= {}; db.supplementAdherence ||= {}; db.healthData ||= {daily:{},labs:[]}; db.healthData.daily ||= {}; db.healthData.labs ||= [];
+['supplements','supp_effects','supp_changes','med_changes','adverse','wearables','hrv','glucose_tracking','fasting','cold_exposure','heat_exposure','breathing_practice','light_tools','red_light','grounding','experiment_log','planned_experiment','biohack_notes'].forEach(k=>delete db.assessment[k]); db.customSupplements.forEach(n=>{if(!supplementCatalog.some(x=>x[0].toLowerCase()===n.toLowerCase()))supplementCatalog.push([n,'Custom'])});
+// Migrate first-version 14-point logs into the simpler four-point format without discarding the original data.
+Object.values(db.logs).forEach(l=>{if((l.measurements||[]).length>4){const old=l.measurements; l.measurements=[old[0],old[1],old[3],old[13]].map((m,i)=>({...m,label:slots[i]}));}});
+function morning(log){
+  const measurements=Array.isArray(log?.measurements)?log.measurements:[];
+  // The first slot is the waking measurement in the current four-checkpoint layout.
+  // Older records are handled by selecting a label that indicates waking/morning when available.
+  const labelled=measurements.find(m=>/upon waking|waking|morning/i.test(String(m?.label||'')));
+  const m=labelled||measurements[0]||{};
+  return {temp:m.temp??null,pulse:m.pulse??null,time:m.time||'',label:m.label||'Upon waking'};
+}
+function latestLogs(){
+  return Object.values(db.logs||{}).filter(l=>l&&typeof l==='object').sort((a,b)=>String(a.date||'').localeCompare(String(b.date||'')));
+}
+function saveDB(){localStorage.setItem(DBKEY,JSON.stringify(db))}
+function today(){let d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));if(id==='dashboard')renderDashboard();if(id==='trends')renderTrends();if(id==='supplements'){renderSupplements();renderSupplementTracker();}if(id==='healthdata')renderHealthData();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+document.getElementById('todayLabel').textContent=new Date().toLocaleDateString(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric'})+' · Your records are stored in this browser.';
+function formatPickerTime(minutes){
+ const h=Math.floor(minutes/60),m=minutes%60;
+ return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0');
+}
+function displayPickerTime(value){
+ if(!value)return '--:-- --';
+ const [h,m]=value.split(':').map(Number),suffix=h>=12?'PM':'AM',hour=(h%12)||12;
+ return String(hour).padStart(2,'0')+':'+String(m).padStart(2,'0')+' '+suffix;
+}
+function timePickerHTML(id,value=''){
+ const initial=value||'';
+ return `<div class="timepicker stepper-time-picker" data-timepicker="${id}">
+ <input type="hidden" id="${id}" name="${id}" data-time-value value="${escapeHTML(initial)}">
+ <div class="time-stepper">
+  <button type="button" class="time-step-button" data-time-step="-1" aria-label="Decrease time by 15 minutes">−</button>
+  <output class="time-step-display" data-time-display aria-live="polite">${displayPickerTime(initial)}</output>
+  <button type="button" class="time-step-button" data-time-step="1" aria-label="Increase time by 15 minutes">+</button>
+ </div>
+ </div>`;
+}
+function getTimePicker(id){return document.querySelector(`[data-timepicker="${id}"] [data-time-value]`)?.value||''}
+function setTimePicker(id,value){let host=document.getElementById(id+'Picker');if(host)host.innerHTML=timePickerHTML(id,value)}
+function updateTimePicker(host,value){
+ const hidden=host.querySelector('[data-time-value]'),display=host.querySelector('[data-time-display]');
+ if(hidden){hidden.value=value;hidden.dispatchEvent(new Event('input',{bubbles:true}));hidden.dispatchEvent(new Event('change',{bubbles:true}))}
+ if(display)display.textContent=displayPickerTime(value);
+}
+function stepTimePicker(button){
+ const host=button.closest('[data-timepicker]'),hidden=host?.querySelector('[data-time-value]');
+ if(!host||!hidden)return;
+ const current=hidden.value||'07:00';
+ const [hours,minutes]=current.split(':').map(Number);
+ let total=((hours*60+minutes)+(Number(button.dataset.timeStep)*15))%(24*60);
+ if(total<0)total+=24*60;
+ updateTimePicker(host,formatPickerTime(total));
+}
+let timeStepHoldTimer=null,timeStepHoldDelay=null,activeTimeStepButton=null;
+function stopTimeStepHold(){
+ if(timeStepHoldDelay)clearTimeout(timeStepHoldDelay);
+ if(timeStepHoldTimer)clearInterval(timeStepHoldTimer);
+ timeStepHoldDelay=null;timeStepHoldTimer=null;
+ if(activeTimeStepButton){try{activeTimeStepButton.releasePointerCapture?.(activeTimeStepButton._holdPointerId)}catch(e){}}
+ activeTimeStepButton=null;
+}
+document.addEventListener('pointerdown',e=>{
+ const button=e.target.closest('[data-time-step]');
+ if(!button)return;
+ e.preventDefault();
+ stopTimeStepHold();
+ activeTimeStepButton=button;
+ button._holdPointerId=e.pointerId;
+ try{button.setPointerCapture(e.pointerId)}catch(err){}
+ stepTimePicker(button);
+ timeStepHoldDelay=setTimeout(()=>{timeStepHoldTimer=setInterval(()=>{if(activeTimeStepButton===button)stepTimePicker(button)},125)},420);
+});
+['pointerup','pointercancel','blur'].forEach(eventName=>window.addEventListener(eventName,stopTimeStepHold));
+document.addEventListener('visibilitychange',()=>{if(document.hidden)stopTimeStepHold()});
+document.addEventListener('keydown',e=>{
+ const button=e.target.closest('[data-time-step]');
+ if(button&&(e.key==='Enter'||e.key===' ')){e.preventDefault();stepTimePicker(button)}
+});
+
+function nativeTimeHTML(id,value=''){
+ return `<input type="hidden" id="${id}" value="${escapeHTML(value||'')}"><button type="button" class="picker-trigger time-trigger" data-open-clock="${id}"><span>${value?formatClockLabel(value):'Select time'}</span><b>◷</b></button>`;
+}
+function dailyTime(id){return document.getElementById(id)?.value||''}
+
+let pickerTarget=null,pickerMode='',calendarCursor=new Date(),clockStage='hour',clockHour=8,clockMinute=0,clockPeriod='AM',scheduleTimeIndex=null;
+let selectedTrackerDate=today();
+function formatClockLabel(value){if(!value)return 'Select time';let [h,m]=value.split(':').map(Number);return `${String((h%12)||12).padStart(2,'0')} : ${String(m).padStart(2,'0')} ${h>=12?'PM':'AM'}`}
+function dateLabel(value,opts={weekday:'short',year:'numeric',month:'short',day:'numeric'}){let d=new Date(value+'T12:00:00');return isNaN(d)?value:d.toLocaleDateString(undefined,opts)}
+function openPicker(mode,target,value=''){
+ pickerMode=mode;pickerTarget=target;
+ const overlay=document.getElementById('pickerOverlay');
+ overlay.classList.add('show');overlay.setAttribute('aria-hidden','false');
+ document.getElementById('calendarPanel').hidden=mode!=='calendar';
+ document.getElementById('clockPanel').hidden=mode!=='clock';
+ document.getElementById('pickerTitle').textContent=mode==='calendar'?'Select date':'Select time';
+ document.getElementById('pickerBack').style.visibility='hidden';
+ if(mode==='calendar'){let d=value?new Date(value+'T12:00:00'):new Date();calendarCursor=new Date(d.getFullYear(),d.getMonth(),1);renderCalendar()}
+ else{let [h,m]=(value||'08:00').split(':').map(Number);clockHour=(h%12)||12;clockMinute=m||0;clockPeriod=h>=12?'PM':'AM';clockStage='hour';renderClock()}
+}
+function closePicker(){const o=document.getElementById('pickerOverlay');o.classList.remove('show');o.setAttribute('aria-hidden','true');pickerTarget=null;pickerMode=''}
+function renderCalendar(){
+ const y=calendarCursor.getFullYear(),m=calendarCursor.getMonth(),first=new Date(y,m,1),start=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate();
+ document.getElementById('calendarMonth').textContent=calendarCursor.toLocaleDateString(undefined,{month:'long',year:'numeric'});
+ const names=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+ let out=names.map(n=>`<span class="calendar-weekday">${n}</span>`).join('');
+ for(let i=0;i<start;i++)out+='<span class="calendar-blank"></span>';
+ for(let d=1;d<=days;d++){let date=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`,active=pickerTarget==='trackerDate'?selectedTrackerDate===date:document.getElementById(pickerTarget)?.value===date;out+=`<button type="button" class="calendar-day ${active?'selected':''} ${date===today()?'today':''}" data-calendar-date="${date}">${d}</button>`}
+ document.getElementById('calendarGrid').innerHTML=out;
+}
+function renderClock(){
+ const values=clockStage==='hour'?Array.from({length:12},(_,i)=>i+1):Array.from({length:12},(_,i)=>i*5);
+ const selected=clockStage==='hour'?clockHour:clockMinute;
+ const face=document.getElementById('clockNumbers');
+ face.innerHTML=values.map((v,i)=>{let angle=(i*30-90)*Math.PI/180,r=clockStage==='hour'?42:42,x=50+Math.cos(angle)*r,y=50+Math.sin(angle)*r,txt=clockStage==='hour'?String(v):String(v).padStart(2,'0');return `<button type="button" class="clock-number ${v===selected?'selected':''}" style="left:${x}%;top:${y}%" data-clock-value="${v}">${txt}</button>`}).join('');
+ document.getElementById('clockStepLabel').textContent='';
+ document.getElementById('clockReadout').innerHTML=`${String(clockHour).padStart(2,'0')} : ${String(clockMinute).padStart(2,'0')} <small>${clockPeriod}</small>`;
+ document.getElementById('clockAM').classList.toggle('selected',clockPeriod==='AM');document.getElementById('clockPM').classList.toggle('selected',clockPeriod==='PM');
+}
+function applyPicker(){
+ if(pickerMode==='calendar'){
+  const chosen=document.querySelector('[data-calendar-date].selected')?.dataset.calendarDate;
+  if(!chosen){closePicker();return}
+  if(pickerTarget==='trackerDate'){selectedTrackerDate=chosen;renderSupplementTracker()}
+  else{document.getElementById(pickerTarget).value=chosen;const label=document.getElementById(pickerTarget+'Label');if(label)label.textContent=dateLabel(chosen); }
+ }else if(pickerMode==='clock'){
+  const value=`${String(clockPeriod==='PM'?(clockHour%12)+12:clockHour%12).padStart(2,'0')}:${String(clockMinute).padStart(2,'0')}`;
+  if(pickerTarget?.type==='schedule'){
+   const name=pickerTarget.name,cfg=db.supplementSchedules[name]||{frequency:'daily',times:'08:00',days:'Mon, Tue, Wed, Thu, Fri, Sat, Sun'};
+   let times=String(cfg.times||'').split(',').map(x=>x.trim()).filter(Boolean);
+   if(scheduleTimeIndex===null)times.push(value);else times[scheduleTimeIndex]=value;
+   db.supplementSchedules[name]={...cfg,times:[...new Set(times)].sort().join(', ')};saveDB();renderSupplementTracker();
+  }else{
+   const input=document.getElementById(pickerTarget);if(input)input.value=value;
+   const button=document.querySelector(`[data-open-clock="${pickerTarget}"] span`);if(button)button.textContent=formatClockLabel(value);
+  }
+ }
+ closePicker();
+}
+document.getElementById('pickerClose').addEventListener('click',closePicker);
+document.getElementById('pickerCancel').addEventListener('click',closePicker);
+document.getElementById('pickerApply').addEventListener('click',applyPicker);
+document.getElementById('calendarPrev').addEventListener('click',()=>{calendarCursor.setMonth(calendarCursor.getMonth()-1);renderCalendar()});
+document.getElementById('calendarNext').addEventListener('click',()=>{calendarCursor.setMonth(calendarCursor.getMonth()+1);renderCalendar()});
+document.getElementById('calendarGrid').addEventListener('click',e=>{const b=e.target.closest('[data-calendar-date]');if(!b)return;document.querySelectorAll('[data-calendar-date]').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')});
+document.getElementById('clockNumbers').addEventListener('click',e=>{const b=e.target.closest('[data-clock-value]');if(!b)return;let v=Number(b.dataset.clockValue);if(clockStage==='hour'){clockHour=v;clockStage='minute'}else{clockMinute=v;clockStage='hour'}renderClock()});
+document.getElementById('clockAM').addEventListener('click',()=>{clockPeriod='AM';renderClock()});
+document.getElementById('clockPM').addEventListener('click',()=>{clockPeriod='PM';renderClock()});
+document.addEventListener('click',e=>{
+ const dateBtn=e.target.closest('[data-open-calendar]');if(dateBtn){let target=dateBtn.dataset.openCalendar;openPicker('calendar',target,target==='trackerDate'?selectedTrackerDate:document.getElementById(target).value);return}
+ const timeBtn=e.target.closest('[data-open-clock]');if(timeBtn){openPicker('clock',timeBtn.dataset.openClock,document.getElementById(timeBtn.dataset.openClock)?.value||'08:00');return}
+ const sched=e.target.closest('[data-schedule-time]');if(sched){scheduleTimeIndex=Number(sched.dataset.scheduleIndex);openPicker('clock',{type:'schedule',name:sched.dataset.scheduleName},sched.dataset.scheduleValue);return}
+ const add=e.target.closest('[data-add-schedule-time]');if(add){scheduleTimeIndex=null;openPicker('clock',{type:'schedule',name:add.dataset.addScheduleTime},'08:00')}
+});
+function buildMeasurementRows(){
+ document.getElementById('wakeTimePicker').innerHTML=nativeTimeHTML('wakeTime');
+ document.getElementById('measurementRows').innerHTML=slots.map((label,i)=>`
+ <details class="reading-card timeline-card checkpoint-card ${slotMeta[i].tone}" id="checkpoint${i}" ${i===3?'':'open'}>
+  <summary class="checkpoint-summary">
+   <span class="slot-heading"><span class="slot-icon" aria-hidden="true">${slotMeta[i].icon}</span><span class="checkpoint-title-wrap"><strong>${label}</strong><span class="slot-subtitle">${slotMeta[i].sub}</span></span></span>
+   <span class="checkpoint-summary-right"><span class="checkpoint-state" id="checkpointState${i}">${i===3?'Optional':'Missing'}</span><span class="checkpoint-chevron">⌄</span></span>
+  </summary>
+  <div class="checkpoint-body">
+   <div class="checkpoint-time"><label class="hint" for="tm${i}">Measurement time</label>${nativeTimeHTML('tm'+i)}</div>
+   <div class="reading-fields">
+    <div><label class="hint" for="tp${i}">Temperature <span class="temp-unit-label">°F</span></label><input aria-label="${label} temperature" type="number" inputmode="decimal" step=".1" min="85" max="110" placeholder="97.6" id="tp${i}"></div>
+    <div><label class="hint" for="pu${i}">Pulse (BPM)</label><input aria-label="${label} pulse BPM" type="number" inputmode="numeric" step="1" min="25" max="240" placeholder="72" id="pu${i}"></div>
+   </div>
+  </div>
+ </details>`).join('');
+ document.querySelectorAll('#measurementRows input').forEach(el=>el.addEventListener('input',updateMeasurementQuality));
+ document.querySelectorAll('#measurementRows details').forEach((d,i)=>d.addEventListener('toggle',()=>{if(d.open)updateMeasurementQuality()}));
+ updateMeasurementQuality();
+}
+function currentTempUnit(){return document.getElementById('tempUnit')?.value||'F'}
+function changeTempUnit(){
+ const next=currentTempUnit(),previous=next==='F'?'C':'F';
+ slots.forEach((_,i)=>{const el=document.getElementById('tp'+i);if(!el||el.value==='')return;const v=Number(el.value);el.value=(next==='C'?(v-32)*5/9:v*9/5+32).toFixed(1)});
+ document.querySelectorAll('.temp-unit-label').forEach(el=>el.textContent='°'+next);
+ document.querySelectorAll('#measurementRows input[id^="tp"]').forEach(el=>{el.min=next==='F'?'85':'29.4';el.max=next==='F'?'110':'43.3';el.placeholder=next==='F'?'97.6':'36.4'});
+ updateMeasurementQuality();
+}
+function temperatureToF(value){return value===''?null:(currentTempUnit()==='C'?Number(value)*9/5+32:Number(value))}
+function temperatureFromF(value){return value==null?'':(currentTempUnit()==='C'?(Number(value)-32)*5/9:Number(value)).toFixed(1)}
+function checkpointCompleteness(i){
+ const time=dailyTime('tm'+i),temp=document.getElementById('tp'+i)?.value??'',pulse=document.getElementById('pu'+i)?.value??'';
+ return {time:!!time,temp:temp!=='',pulse:pulse!=='',complete:!!time&&temp!==''&&pulse!==''};
+}
+function updateMeasurementQuality(){
+ if(!document.getElementById('measurementRows'))return;
+ let core=0,complete=0,missing=[];
+ slots.forEach((label,i)=>{
+  const c=checkpointCompleteness(i),required=i!==3;
+  if(required){core++;if(c.complete)complete++}
+  const miss=[];if(!c.time)miss.push('time');if(!c.temp)miss.push('temperature');if(!c.pulse)miss.push('pulse');
+  const state=document.getElementById('checkpointState'+i);
+  if(state)state.textContent=c.complete?'Complete':(i===3&&!c.time&&!c.temp&&!c.pulse?'Optional':('Missing '+miss.join(', ')));
+  if(required&&miss.length)missing.push(label+': '+miss.join(', '));
+ });
+ const quality=document.getElementById('measurementQuality');
+ if(quality){
+  const tags=[...document.querySelectorAll('[name="contextTag"]:checked')].map(x=>x.value);
+  quality.innerHTML=`<div class="quality-top"><strong>Measurement quality</strong><span class="quality-score">${complete}/${core} core checkpoints complete</span></div><div class="quality-track"><span style="width:${Math.round(complete/core*100)}%"></span></div><div class="quality-detail">${missing.length?'Missing: '+missing.map(escapeHTML).join(' · '):'All core checkpoints have time, temperature and pulse.'}${tags.length?' · Context noted: '+tags.map(escapeHTML).join(', '):''}</div>`;
+ }
+}
+function clearDailyForm(){
+ document.querySelectorAll('#measurementRows input').forEach(x=>x.value='');
+ ['wakeTime','dailyNotes','tm0','tm1','tm2','tm3'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';const b=document.querySelector(`[data-open-clock="${id}"] span`);if(b)b.textContent='Select time'});
+ document.querySelectorAll('[name="contextTag"]').forEach(x=>x.checked=false);
+ document.querySelectorAll('#measurementRows details').forEach((d,i)=>d.open=i!==3);
+ document.getElementById('dailyStatus').textContent='Form cleared. Existing saved records were not changed.';
+ updateMeasurementQuality();
+}
+function loadDaily(date){
+ let l=db.logs[date];document.getElementById('logDate').value=date;document.getElementById('logDateLabel').textContent=dateLabel(date);
+ document.getElementById('wakeTime').value=l?.wakeTime||'';document.querySelector('[data-open-clock="wakeTime"] span').textContent=formatClockLabel(l?.wakeTime||'');
+ document.getElementById('dailyNotes').value=l?.notes||'';
+ document.querySelector(`input[name="method"][value="${l?.method||'Oral'}"]`).checked=true;
+ document.getElementById('tempUnit').value='F';
+ slots.forEach((s,i)=>{
+  let m=l?.measurements?.[i]||{};
+  document.getElementById('tm'+i).value=m.time||'';document.querySelector(`[data-open-clock="tm${i}"] span`).textContent=formatClockLabel(m.time||'');
+  document.getElementById('tp'+i).value=temperatureFromF(m.temp);
+  document.getElementById('pu'+i).value=m.pulse??'';
+  const c=checkpointCompleteness(i);document.getElementById('checkpoint'+i).open=!c.complete&&i!==3;
+ });
+ const tags=l?.contextTags||[];document.querySelectorAll('[name="contextTag"]').forEach(x=>x.checked=tags.includes(x.value));
+ document.getElementById('dailyStatus').textContent=l?'Loaded '+date+' for editing.':'New log for '+date+'.';
+ updateMeasurementQuality();showView('daily');
+}
+function saveDaily(){
+ let date=document.getElementById('logDate').value;if(!date){alert('Choose a log date.');return}
+ let measurements=slots.map((label,i)=>({label,time:dailyTime('tm'+i),temp:temperatureToF(document.getElementById('tp'+i).value),pulse:document.getElementById('pu'+i).value===''?null:Number(document.getElementById('pu'+i).value)}));
+ for(let m of measurements){
+  if(m.temp!==null&&(m.temp<85||m.temp>110)){alert('Check temperature entries. The converted value must be between 85°F and 110°F.');return}
+  if(m.pulse!==null&&(m.pulse<25||m.pulse>240)){alert('Check pulse entries. Enter BPM values between 25 and 240.');return}
+ }
+ const contextTags=[...document.querySelectorAll('[name="contextTag"]:checked')].map(x=>x.value);
+ db.logs[date]={date,wakeTime:dailyTime('wakeTime'),method:document.querySelector('input[name="method"]:checked').value,measurements,contextTags,notes:document.getElementById('dailyNotes').value};
+ saveDB();document.getElementById('dailyStatus').textContent='Saved locally for '+date+'.';updateMeasurementQuality();renderDashboard();renderRecent();
+}
+function renderDashboard(){
+ let logs=latestLogs(),last=logs[logs.length-1],m=morning(last);
+ const hasTemp=m.temp!==null&&m.temp!==undefined&&m.temp!=='';
+ const hasPulse=m.pulse!==null&&m.pulse!==undefined&&m.pulse!=='';
+ document.getElementById('tempStat').classList.toggle('is-empty',!hasTemp);
+ document.getElementById('pulseStat').classList.toggle('is-empty',!hasPulse);
+ document.getElementById('tempEmpty').hidden=hasTemp;
+ document.getElementById('pulseEmpty').hidden=hasPulse;
+ document.getElementById('dashTemp').innerHTML=hasTemp?escapeHTML(m.temp)+' <span class="unit">°F</span>':'';
+ document.getElementById('dashPulse').innerHTML=hasPulse?escapeHTML(m.pulse)+' <span class="unit">BPM</span>':'';
+ document.getElementById('dashTempDate').textContent=hasTemp?(last?.date||''):'';
+ document.getElementById('dashPulseDate').textContent=hasPulse?(last?.date||''):'';
+ document.getElementById('dashDays').textContent=logs.length;
+ let recent=logs.slice(-14);
+ drawChart('dashTempChart',recent.map(x=>({x:x.date.slice(5),y:morning(x).temp})), '°F');
+ drawChart('dashPulseChart',recent.map(x=>({x:x.date.slice(5),y:morning(x).pulse})),'BPM');
+ let total=modules.reduce((n,m)=>n+m.items.length,0),answered=Object.values(db.assessment).filter(v=>v!==''&&v!==null&&v!==undefined).length,p=Math.round(answered/total*100);
+ document.getElementById('assessmentProgress').style.width=p+'%';
+ document.getElementById('assessmentProgressText').textContent=`${p}% of profile fields completed (${answered}/${total})`;
+ renderRecent();
+}
+function renderRecent(){
+ let logs=latestLogs().slice(-10).reverse(),el=document.getElementById('recentLogs');
+ if(!logs.length){el.className='empty-state-panel';el.innerHTML='<button type="button" class="empty-plus" onclick="showView(\'daily\')" aria-label="Create first daily log">+</button><div><strong>Your timeline starts here</strong><span>Save your first daily log to build a history you can compare.</span></div>';return}
+ el.className='tablewrap';
+ el.innerHTML='<table><thead><tr><th>Date</th><th>Morning temp</th><th>Morning pulse</th><th>Method</th><th></th></tr></thead><tbody>'+logs.map(l=>{
+  const m=morning(l),temp=m.temp!==null&&m.temp!==undefined&&m.temp!==''?escapeHTML(m.temp)+' °F':'<span class="missing-metric">Not logged</span>',pulse=m.pulse!==null&&m.pulse!==undefined&&m.pulse!==''?escapeHTML(m.pulse)+' BPM':'<span class="missing-metric">Not logged</span>';
+  return `<tr><td>${escapeHTML(l.date||'')}</td><td>${temp}</td><td>${pulse}</td><td>${escapeHTML(l.method||'')}</td><td><button class="btn secondary" onclick="loadDaily('${escapeHTML(l.date||'')}')">Edit</button></td></tr>`;
+ }).join('')+'</tbody></table>';
+}
+function drawChart(id,points,unit){let c=document.getElementById(id);if(!c)return;let w=c.clientWidth||320,h=170,dpr=window.devicePixelRatio||1;c.width=w*dpr;c.height=h*dpr;let ctx=c.getContext('2d');ctx.scale(dpr,dpr);ctx.clearRect(0,0,w,h);let vals=points.filter(p=>Number.isFinite(p.y));ctx.strokeStyle='#292e33';ctx.lineWidth=1;for(let i=1;i<4;i++){let y=i*h/4;ctx.beginPath();ctx.moveTo(28,y);ctx.lineTo(w-8,y);ctx.stroke()}if(vals.length<2){ctx.fillStyle='#71767b';ctx.font='12px system-ui';ctx.fillText(vals.length?'Add another reading to reveal a trend':'Log your first reading to activate this chart',34,h/2);return}let min=Math.min(...vals.map(p=>p.y)),max=Math.max(...vals.map(p=>p.y));if(min===max){min-=1;max+=1}let xstep=(w-45)/(points.length-1||1);ctx.strokeStyle='#dce6e9';ctx.lineWidth=2;ctx.beginPath();let started=false;points.forEach((p,i)=>{if(!Number.isFinite(p.y)){started=false;return}let x=30+i*xstep,y=h-20-(p.y-min)/(max-min)*(h-40);if(!started){ctx.moveTo(x,y);started=true}else ctx.lineTo(x,y)});ctx.stroke();points.forEach((p,i)=>{if(!Number.isFinite(p.y))return;let x=30+i*xstep,y=h-20-(p.y-min)/(max-min)*(h-40);ctx.fillStyle='#e7e9ea';ctx.beginPath();ctx.arc(x,y,3,0,Math.PI*2);ctx.fill()});ctx.fillStyle='#71767b';ctx.font='10px system-ui';ctx.fillText(max.toFixed(1),2,13);ctx.fillText(min.toFixed(1),2,h-6);ctx.fillText(points[0]?.x||'',28,h-3);ctx.fillText(points[points.length-1]?.x||'',Math.max(28,w-42),h-3)}
+
+function healthDayFormValue(id){return document.getElementById(id)?.value??''}
+function clearHealthDayForm(){
+ ['hdWeight','hdSleepHours','hdSleepQuality','hdBedtime','hdWake','hdSymptoms','hdFood','hdNotes'].forEach(id=>{const e=document.getElementById(id);if(e)e.value=''});
+ const date=document.getElementById('hdDate');if(date)date.value=today();
+ document.getElementById('hdStatus').textContent='Form cleared. Existing saved records were not changed.';
+}
+function loadHealthDay(date){
+ const r=db.healthData.daily[date]||{};
+ document.getElementById('hdDate').value=date;
+ document.getElementById('hdWeight').value=r.weightKg??'';
+ document.getElementById('hdSleepHours').value=r.sleepHours??'';
+ document.getElementById('hdSleepQuality').value=r.sleepQuality??'';
+ document.getElementById('hdBedtime').value=r.bedtime??'';
+ document.getElementById('hdWake').value=r.wakeTime??'';
+ document.getElementById('hdSymptoms').value=r.symptoms??'';
+ document.getElementById('hdFood').value=r.food??'';
+ document.getElementById('hdNotes').value=r.notes??'';
+ document.getElementById('hdStatus').textContent='Loaded record for '+date+'. Save to update it.';
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function saveHealthDay(){
+ const date=healthDayFormValue('hdDate');if(!date){document.getElementById('hdStatus').textContent='Choose a record date.';return}
+ const weight=healthDayFormValue('hdWeight'),sleep=healthDayFormValue('hdSleepHours');
+ if((weight!==''&&(!Number.isFinite(Number(weight))||Number(weight)<=0||Number(weight)>500))||(sleep!==''&&(!Number.isFinite(Number(sleep))||Number(sleep)<0||Number(sleep)>24))){document.getElementById('hdStatus').textContent='Check the weight and sleep values.';return}
+ const r={date,weightKg:weight===''?null:Number(weight),sleepHours:sleep===''?null:Number(sleep),sleepQuality:healthDayFormValue('hdSleepQuality'),bedtime:healthDayFormValue('hdBedtime'),wakeTime:healthDayFormValue('hdWake'),symptoms:healthDayFormValue('hdSymptoms').trim(),food:healthDayFormValue('hdFood').trim(),notes:healthDayFormValue('hdNotes').trim(),updatedAt:new Date().toISOString()};
+ const hasData=Object.entries(r).some(([k,v])=>!['date','updatedAt'].includes(k)&&v!==null&&v!=='');
+ if(!hasData){document.getElementById('hdStatus').textContent='Add at least one value before saving.';return}
+ db.healthData.daily[date]=r;saveDB();document.getElementById('hdStatus').textContent='Saved locally for '+date+'.';renderHealthData(false);
+}
+function renderHealthData(loadToday=true){
+ if(!db.healthData)db.healthData={daily:{},labs:[]};db.healthData.daily ||= {};db.healthData.labs ||= [];
+ const dateEl=document.getElementById('hdDate');
+ if(loadToday&&dateEl&&!dateEl.value){dateEl.value=today();loadHealthDay(dateEl.value)}
+ const rows=Object.values(db.healthData.daily).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+ document.getElementById('hdDailyHistory').innerHTML=rows.length?'<table><thead><tr><th>Date</th><th>Weight</th><th>Sleep</th><th>Symptoms / food</th><th></th></tr></thead><tbody>'+rows.slice(0,60).map(r=>`<tr><td>${escapeHTML(r.date)}</td><td>${r.weightKg==null?'—':escapeHTML(r.weightKg)+' kg'}</td><td>${r.sleepHours==null?'—':escapeHTML(r.sleepHours)+' h'}</td><td>${escapeHTML([r.symptoms,r.food].filter(Boolean).join(' · ')||'—').slice(0,100)}</td><td><button class="btn secondary" onclick="loadHealthDay('${escapeHTML(r.date)}')">Edit</button></td></tr>`).join('')+'</tbody></table>':'<div class="empty">No daily health records yet.</div>';
+ const trend=rows.slice(-30);
+ drawChart('hdWeightChart',trend.map(r=>({x:r.date.slice(5),y:r.weightKg==null?null:Number(r.weightKg)})),'kg');
+ drawChart('hdSleepChart',trend.map(r=>({x:r.date.slice(5),y:r.sleepHours==null?null:Number(r.sleepHours)})),'h');
+}
+function renderTrends(){let logs=latestLogs(),range=document.getElementById('trendRange').value,metric=document.getElementById('trendMetric').value;if(range!=='all'){let cutoff=new Date();cutoff.setDate(cutoff.getDate()-Number(range)+1);let key=todayFrom(cutoff);logs=logs.filter(l=>l.date>=key)}let points=logs.map(l=>({x:l.date.slice(5),y:metric==='temp'?morning(l).temp:morning(l).pulse}));drawChart('trendChart',points,metric==='temp'?'°F':'BPM');let vals=points.filter(p=>Number.isFinite(p.y)).map(p=>p.y),avg=vals.length?(vals.reduce((a,b)=>a+b,0)/vals.length):null;document.getElementById('trendSummary').textContent=vals.length?`${vals.length} morning readings · Average ${avg.toFixed(1)} ${metric==='temp'?'°F':'BPM'} · Range ${Math.min(...vals).toFixed(1)}–${Math.max(...vals).toFixed(1)}`:'No morning readings in this period.';renderMealTable();renderDomainScores()}
+function todayFrom(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function renderMealTable(){let rows=[];latestLogs().forEach(l=>{let ms=l.measurements||[],before=ms[1],after=ms[2];if((before?.temp!=null||before?.pulse!=null)&&(after?.temp!=null||after?.pulse!=null))rows.push({date:l.date,dt:before.temp!=null&&after.temp!=null?(after.temp-before.temp).toFixed(1):'—',dp:before.pulse!=null&&after.pulse!=null?(after.pulse-before.pulse):'—'})});document.getElementById('mealTable').innerHTML=rows.length?'<table><thead><tr><th>Date</th><th>Temperature change °F</th><th>Pulse change BPM</th></tr></thead><tbody>'+rows.slice(-30).reverse().map(r=>`<tr><td>${r.date}</td><td>${r.dt}</td><td>${r.dp}</td></tr>`).join('')+'</tbody></table>':'<div class="empty">Log both pre-meal and 45–60 minute post-meal readings to compare them.</div>'}
+function renderDomainScores(){let groups=[['Metabolic',['morning_temp','morning_pulse','cold_hands','energy_morning','fatigue']],['Nutrition',['food_log','protein_g','carb_estimate','milk_ml','water','meal_times','food_tolerance']],['Sexual',['libido','morning_erections','erection_quality','sexual_satisfaction']],['Circadian',['bedtime','waketime','sleep_duration','daylight','sleep_quality']],['Cognitive',['focus','memory','brainfog','mental_fatigue']],['Muscular',['training_type','training_frequency','strength_trend','muscle_goal']],['Agency & goals',['life_priorities','perceived_control','effort_belief','goal_followthrough','small_next_step']]];document.getElementById('domainScores').innerHTML=groups.map(([name,keys])=>{let n=keys.filter(k=>db.assessment[k]!==undefined&&db.assessment[k]!=='').length,p=Math.round(n/keys.length*100);return `<div class="scoreitem"><b>${p}%</b><span>${name} · ${n}/${keys.length} fields</span></div>`}).join('')}
+function moduleCompletion(mod){
+ const answered=mod.items.filter(([id])=>{const v=db.assessment[id];return v!==undefined&&v!==null&&String(v).trim()!==''}).length;
+ return {answered,total:mod.items.length,complete:answered===mod.items.length};
+}
+function refreshModuleProgress(){
+ document.querySelectorAll('#questionModules details.module').forEach((d,i)=>{
+  const mod=modules[i];if(!mod)return;
+  const p=moduleCompletion(mod),chip=d.querySelector('.module-progress');
+  if(chip){chip.textContent=p.complete?'Completed':(p.answered+'/'+p.total+' answered');chip.classList.toggle('complete',p.complete);chip.classList.toggle('incomplete',!p.complete)}
+ });
+}
+function buildQuestionnaire(){
+ let root=document.getElementById('questionModules');
+ root.innerHTML=modules.map((mod,mi)=>{const p=moduleCompletion(mod);return `
+ <details class="module" name="assessment-modules">
+  <summary class="module-head">
+   <span class="module-title"><span class="module-index">${String(mi+1).padStart(2,'0')}</span><strong>${escapeHTML(mod.title.replace(/^\\d+\\s*[·.]\\s*/,''))}</strong></span>
+   <span class="module-head-right"><span class="module-progress ${p.complete?'complete':'incomplete'}">${p.complete?'Completed':p.answered+'/'+p.total+' answered'}</span><svg class="module-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
+  </summary>
+  <div class="modulebody"><div class="modulebody-inner">${mod.desc?`<p class="small">${mod.desc}</p>`:''}${mod.items.map(([id,label,type,extra])=>fieldHTML(id,label,type,extra)).join('')}</div></div>
+ </details>`}).join('');
+ root.querySelectorAll('details.module').forEach(d=>{
+  d.addEventListener('toggle',()=>{if(d.open)root.querySelectorAll('details.module').forEach(other=>{if(other!==d)other.open=false})});
+  d.addEventListener('input',refreshModuleProgress);d.addEventListener('change',refreshModuleProgress);
+ });
+ Object.entries(db.assessment).forEach(([id,val])=>{let el=document.getElementById('q_'+id);if(el){if(el.type==='checkbox')el.checked=!!val;else el.value=val}else{let host=document.querySelector(`[data-timepicker="q_${id}"]`);if(host&&val)host.outerHTML=timePickerHTML('q_'+id,val)}});
+ refreshModuleProgress();
+}
+function fieldHTML(id,label,type,extra){let val=db.assessment[id]??'';if(type==='time')return `<div class="field"><label class="q">${label}</label>${timePickerHTML('q_'+id,val)}<span class="hint">Choose hour, minute and AM/PM.</span></div>`;if(type==='select')return `<div class="field"><label class="q" for="q_${id}">${label}</label><select id="q_${id}"><option value="">Select / skip</option>${extra.map(v=>`<option ${val===v?'selected':''}>${escapeHTML(v)}</option>`).join('')}</select></div>`;if(type==='textarea')return `<div class="field"><label class="q" for="q_${id}">${label}</label><textarea id="q_${id}" placeholder="${escapeHTML(extra||'')}">${escapeHTML(val)}</textarea></div>`;return `<div class="field"><label class="q" for="q_${id}">${label}</label><input id="q_${id}" type="${type}" value="${escapeHTML(val)}" placeholder="${escapeHTML(extra||'')}" ${type==='number'?'step="any"':''}></div>`}
+function saveAssessment(){modules.forEach(m=>m.items.forEach(([id,label,type])=>{let el=document.getElementById('q_'+id);if(el)db.assessment[id]=el.value.trim();else if(type==='time')db.assessment[id]=getTimePicker('q_'+id)}));saveDB();calculateScore();renderDashboard();document.getElementById('scoreOutput').innerHTML='<div class="notice">Assessment saved in this browser. These indicators describe completion, not health status.</div>'}
+function calculateScore(){let total=modules.reduce((n,m)=>n+m.items.length,0),n=Object.values(db.assessment).filter(v=>v!==''&&v!==null&&v!==undefined).length,p=Math.round(n/total*100);document.getElementById('scoreOutput').innerHTML=`<div class="score">${p}<span class="unit"> / 100</span></div><div class="small">Profile completion index · ${n} of ${total} fields answered. This is not a biological health score.</div>`}
+function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+let currentExport={name:'export.txt',content:'',type:'text/plain'};
+function closeExportModal(){document.getElementById('exportModal').classList.remove('show')}
+function openExportModal(title,name,content,type,mode='text'){
+ currentExport={name,content,type};const modal=document.getElementById('exportModal'),txt=document.getElementById('exportText'),frame=document.getElementById('exportFrame');
+ document.getElementById('exportTitle').textContent=title;document.getElementById('exportFeedback').textContent='';
+ document.getElementById('exportHelp').textContent=mode==='report'?'Download the HTML report, open it in Chrome, then use Chrome menu → Print → Save as PDF. Embedded app viewers often block printing.':'Use Download file. If that fails, copy the displayed content.';
+ txt.style.display=mode==='text'?'block':'none';frame.style.display=mode==='report'?'block':'none';
+ document.getElementById('exportPrintBtn').style.display=mode==='report'?'inline-flex':'none';
+ document.getElementById('exportOpenBtn').style.display=mode==='report'?'inline-flex':'none';
+ if(mode==='text'){txt.value=content;txt.scrollTop=0}else{frame.srcdoc=content}modal.classList.add('show');
+}
+function download(name,content,type){try{const blob=new Blob([content],{type:type+';charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.rel='noopener';a.style.position='fixed';a.style.left='-9999px';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(url)},30000);return true}catch(err){console.error('Download failed',err);return false}}
+function downloadCurrentExport(){const mime=currentExport.name.toLowerCase().endsWith('.csv')?'text/plain':currentExport.type;const ok=download(currentExport.name,currentExport.content,mime);document.getElementById('exportFeedback').textContent=ok?'Download requested. Check the Downloads folder. If nothing appears, use Copy content.':'Download was blocked. Use Copy content or select the text below.'}
+async function copyCurrentExport(){const feedback=document.getElementById('exportFeedback');try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(currentExport.content);feedback.textContent='Copied. Paste it into a file or document.';return}}catch(e){}const txt=document.getElementById('exportText');if(txt.style.display!=='none'){txt.focus();txt.select();txt.setSelectionRange(0,txt.value.length);let ok=false;try{ok=document.execCommand('copy')}catch(e){}feedback.textContent=ok?'Copied. Paste it into a file or document.':'Content selected. Long-press and choose Copy.'}else feedback.textContent='For this report, use Download file or Print / Save PDF.'}
+document.getElementById('exportDownloadBtn').addEventListener('click',downloadCurrentExport);document.getElementById('exportCopyBtn').addEventListener('click',copyCurrentExport);document.getElementById('exportPrintBtn').addEventListener('click',()=>{document.getElementById('exportFeedback').textContent='Downloading the report as HTML. Open it in Chrome, then choose Print → Save as PDF.';download(currentExport.name,currentExport.content,'text/html')});
+document.getElementById('exportOpenBtn').addEventListener('click',()=>{try{const blob=new Blob([currentExport.content],{type:'text/html'}),url=URL.createObjectURL(blob),w=window.open(url,'_blank');if(!w)document.getElementById('exportFeedback').textContent='Pop-up blocked. Download the HTML report and open it in Chrome.';setTimeout(()=>URL.revokeObjectURL(url),60000)}catch(e){document.getElementById('exportFeedback').textContent='Could not open report. Download it and open it in Chrome.'}});
+function exportJSON(){try{saveAssessment();if(document.querySelector('#supplementCatalog [data-sup]'))saveSupplements()}catch(e){console.error('Pre-export save failed',e)}const content=JSON.stringify(db,null,2);openExportModal('Full JSON backup','bioenergetic-profile-backup-'+today()+'.json',content,'application/json','text');const el=document.getElementById('backupStatus');if(el)el.textContent='Backup prepared. Use Download file or Copy content.'}
+function buildReportHTML(){
+const esc=escapeHTML;let html=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bioenergetic Profile Report</title><style>body{font:12px/1.5 Arial,sans-serif;color:#172027;margin:28px}h1{font-size:26px;margin:0}h2{font-size:17px;border-bottom:1px solid #bbb;padding-bottom:5px;margin-top:25px}h3{font-size:13px;margin:14px 0 4px}.meta{color:#59636b;font-size:10px}.item{padding:5px 0;border-bottom:1px solid #eee;break-inside:avoid}.key{font-weight:bold}.val{white-space:pre-wrap;overflow-wrap:anywhere}.muted{color:#66717a}.warn{background:#f3f4f4;padding:10px;margin:14px 0}.table{width:100%;border-collapse:collapse;font-size:10px}.table td,.table th{border:1px solid #ddd;padding:5px;text-align:left;vertical-align:top;white-space:normal}section{break-inside:auto}.pagebreak{break-before:page}.toolbar{position:sticky;top:0;background:#fff;padding:10px 0;border-bottom:1px solid #ddd}.toolbar button{padding:9px 14px;font-weight:bold}@media print{body{margin:14mm}.toolbar{display:none}}</style></head><body><div class="toolbar"><button onclick="window.print()">Print / Save as PDF</button> <span class="muted">Choose “Save as PDF” in the print dialog.</span></div><h1>BIOENERGETIC PROFILE</h1><div class="meta">COMPLETE PERSONAL HEALTH RECORD · Exported ${new Date().toLocaleString()}</div><div class="warn">This report contains self-reported observations and is not a medical diagnosis. Temperature and pulse are not standalone tests of thyroid function or metabolic rate.</div><h2>Baseline assessment</h2>`;
+modules.forEach(mod=>{let rows=mod.items.map(([id,label])=>[label,db.assessment[id]]).filter(x=>x[1]!==undefined&&x[1]!==''&&x[1]!==null);if(rows.length)html+=`<section><h3>${esc(mod.title)}</h3>${rows.map(([k,v])=>`<div class="item"><span class="key">${esc(k)}: </span><span class="val">${esc(v)}</span></div>`).join('')}</section>`});
+html+='<h2 class="pagebreak">Daily temperature & pulse logs</h2>';let logs=latestLogs();if(!logs.length)html+='<p class="muted">No daily logs recorded.</p>';logs.forEach(l=>{html+=`<h3>${esc(l.date)} · ${esc(l.method||'')} · Wake ${esc(l.wakeTime||'—')}</h3><table class="table"><tr><th>Reading</th><th>Time</th><th>Temperature °F</th><th>Pulse BPM</th></tr>${(l.measurements||[]).map(m=>`<tr><td>${esc(m.label)}</td><td>${esc(m.time||'—')}</td><td>${m.temp??'—'}</td><td>${m.pulse??'—'}</td></tr>`).join('')}</table>${l.contextTags?.length?`<p><b>Context:</b> ${esc(l.contextTags.join(', '))}</p>`:''}${l.notes?`<p><b>Notes:</b> ${esc(l.notes)}</p>`:''}`});
+html+='<h2 class="pagebreak">Supplement & food inventory</h2>';let active=Object.entries(db.supplements||{}).filter(([k,v])=>v&&Object.values(v).some(x=>x!==''&&x!==null&&x!==undefined));if(!active.length)html+='<p class="muted">No supplement inventory entries recorded.</p>';else html+='<table class="table"><tr><th>Item</th><th>Status</th><th>Dose / amount</th><th>Frequency / timing</th><th>Product / notes</th></tr>'+active.map(([name,v])=>`<tr><td>${esc(name)}</td><td>${esc(v.status||'')}</td><td>${esc(v.dose||'')}</td><td>${esc(v.frequency||'')} ${esc(v.timing||'')}</td><td>${esc(v.product||'')} ${esc(v.notes||'')}</td></tr>`).join('')+'</table>';
+
+html+='<h2 class="pagebreak">Health data · weight, sleep, symptoms and food</h2>';
+let healthRows=Object.values(db.healthData?.daily||{}).sort((a,b)=>String(a.date).localeCompare(String(b.date)));
+if(!healthRows.length)html+='<p class="muted">No health data records recorded.</p>';
+else healthRows.forEach(r=>{html+=`<section><h3>${esc(r.date)}</h3><div class="item"><span class="key">Weight: </span>${r.weightKg==null?'—':esc(r.weightKg)+' kg'} · <span class="key">Sleep: </span>${r.sleepHours==null?'—':esc(r.sleepHours)+' hours'} · <span class="key">Quality: </span>${esc(r.sleepQuality||'—')}</div><div class="item"><span class="key">Bedtime / wake: </span>${esc(r.bedtime||'—')} / ${esc(r.wakeTime||'—')}</div>${r.symptoms?`<div class="item"><b>Symptoms:</b> ${esc(r.symptoms)}</div>`:''}${r.food?`<div class="item"><b>Food:</b> ${esc(r.food)}</div>`:''}${r.notes?`<div class="item"><b>Notes:</b> ${esc(r.notes)}</div>`:''}</section>`});
+html+='<h2>Data notes</h2><p class="muted">Records are exported from this browser. Missing values are not interpreted as normal. Preserve the JSON backup for future imports.</p></body></html>';return html}
+function exportPDF(){
+ try{saveAssessment();if(document.querySelector('#supplementCatalog [data-sup]'))saveSupplements();const report=buildReportHTML();
+ openExportModal('Complete report · PDF / HTML','bioenergetic-profile-report-'+today()+'.html',report,'text/html','report');
+ const el=document.getElementById('reportStatus');if(el)el.textContent='Complete report prepared. Download HTML, open it in Chrome, then use Print → Save as PDF.';
+ }catch(err){console.error('Report export failed',err);const el=document.getElementById('reportStatus');if(el)el.textContent='Report export failed: '+(err&&err.message?err.message:'unknown error')}
+}
+
+function renderSupplements(){
+ let root=document.getElementById('supplementCatalog');
+ root.innerHTML=supplementCatalog.map(([name,category])=>{
+  let v=db.supplements[name]||{};
+  return `<details class="supp-item" data-inventory-name="${escapeHTML(name.toLowerCase())}" data-inventory-category="${escapeHTML(category)}" data-inventory-status="${escapeHTML(v.status||'Not using')}">
+   <summary><strong>${escapeHTML(name)}</strong><span>${escapeHTML(category)} · ${escapeHTML(v.status||'Not logged')}</span></summary>
+   <div class="supp-fields">
+    <div><label class="hint">Status</label><select data-sup="${escapeHTML(name)}" data-key="status"><option ${(!v.status||v.status==='Not using')?'selected':''}>Not using</option><option ${v.status==='Currently using'?'selected':''}>Currently using</option><option ${v.status==='Prescribed and using'?'selected':''}>Prescribed and using</option><option ${v.status==='Previously used'?'selected':''}>Previously used</option><option ${v.status==='Considering'?'selected':''}>Considering</option></select></div>
+    <div><label class="hint">Dose / amount</label><input data-sup="${escapeHTML(name)}" data-key="dose" value="${escapeHTML(v.dose||'')}" placeholder="e.g. 200 mg / 2 eggs / 100 g"></div>
+    <div><label class="hint">Frequency</label><input data-sup="${escapeHTML(name)}" data-key="frequency" value="${escapeHTML(v.frequency||'')}" placeholder="e.g. daily / as prescribed"></div>
+    <div><label class="hint">Timing</label><input data-sup="${escapeHTML(name)}" data-key="timing" value="${escapeHTML(v.timing||'')}" placeholder="With meal, morning, etc."></div>
+    <div><label class="hint">Start / stop date</label><input data-sup="${escapeHTML(name)}" data-key="dates" value="${escapeHTML(v.dates||'')}" placeholder="Dates"></div>
+    <div><label class="hint">Product / brand</label><input data-sup="${escapeHTML(name)}" data-key="product" value="${escapeHTML(v.product||'')}" placeholder="Optional"></div>
+    <div class="wide"><label class="hint">Effects, side effects, reason or prescriber</label><textarea data-sup="${escapeHTML(name)}" data-key="notes" placeholder="Record observed effects and adverse effects">${escapeHTML(v.notes||'')}</textarea></div>
+   </div></details>`;
+ }).join('');
+ root.querySelectorAll('details.supp-item').forEach(d=>d.addEventListener('toggle',()=>{
+  if(d.open)root.querySelectorAll('details.supp-item').forEach(o=>{if(o!==d)o.open=false});
+ }));
+ root.querySelectorAll('[data-key="status"]').forEach(el=>el.addEventListener('change',()=>{
+  const card=el.closest('.supp-item');
+  card.dataset.inventoryStatus=el.value;
+  const meta=card.querySelector('summary span');
+  if(meta)meta.textContent=meta.textContent.split(' · ')[0]+' · '+el.value;
+  filterSupplementInventory();
+ }));
+ filterSupplementInventory();
+}
+function filterSupplementInventory(){
+ const root=document.getElementById('supplementCatalog');
+ if(!root)return;
+ const query=(document.getElementById('suppSearch')?.value||'').trim().toLowerCase();
+ const category=document.getElementById('suppCategoryFilter')?.value||'';
+ const status=document.getElementById('suppStatusFilter')?.value||'';
+ const cards=[...root.querySelectorAll('.supp-item')];
+ let visible=0,active=0;
+ cards.forEach(card=>{
+  const matchName=card.dataset.inventoryName.includes(query);
+  const matchCategory=!category||card.dataset.inventoryCategory.toLowerCase()===category.toLowerCase();
+  const matchStatus=!status||card.dataset.inventoryStatus===status;
+  const show=matchName&&matchCategory&&matchStatus;
+  card.hidden=!show;
+  if(show)visible++;
+  if(card.dataset.inventoryStatus==='Currently using'||card.dataset.inventoryStatus==='Prescribed and using')active++;
+ });
+ const total=document.getElementById('inventoryVisibleCount');
+ const activeEl=document.getElementById('inventoryActiveCount');
+ const empty=document.getElementById('inventoryNoResults');
+ if(total)total.textContent=`Showing ${visible} of ${cards.length} items`;
+ if(activeEl)activeEl.textContent=`${active} active`;
+ if(empty)empty.hidden=visible!==0;
+}
+function initInventoryFilters(){
+ ['suppSearch','suppCategoryFilter','suppStatusFilter'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el&&!el.dataset.bound){el.dataset.bound='1';el.addEventListener(id==='suppSearch'?'input':'change',filterSupplementInventory)}
+ });
+}
+function saveSupplements(){document.querySelectorAll('#supplementCatalog [data-sup]').forEach(el=>{let n=el.dataset.sup,k=el.dataset.key;db.supplements[n] ||= {};db.supplements[n][k]=el.value});saveDB();document.getElementById('suppStatus').textContent='Supplement inventory saved locally.';renderSupplements()}
+function parseSmartSupplement(raw){
+ const text=String(raw||'').replace(/\r/g,'').trim();
+ if(!text)return null;
+ // Prefer the first non-empty row; Cronometer clipboard rows commonly use tabs or columns.
+ const line=text.split('\n').map(x=>x.trim()).find(Boolean)||text;
+ const amountRe=/\b(\d+(?:[.,]\d+)?)\s*(mcg|µg|μg|mg|g|drops?)\b/i;
+ const match=line.match(amountRe);
+ let name=line;
+ let amount='';
+ if(match){
+  amount=(match[1].replace(',','.')+' '+match[2]).replace(/\bdrops?\b/i,'drops');
+  name=(line.slice(0,match.index)+' '+line.slice(match.index+match[0].length))
+    .replace(/[\t|;,]+/g,' ').replace(/\s{2,}/g,' ').replace(/^[\s:–—-]+|[\s:–—-]+$/g,'').trim();
+ }else{
+  name=line.replace(/[\t|;,]+/g,' ').replace(/\s{2,}/g,' ').trim();
+ }
+ // Remove common trailing diary metadata when no amount was found.
+ name=name.replace(/\s+(?:total|logged|serving)\s*$/i,'').trim();
+ if(!name)return null;
+ const low=(text+' '+name).toLowerCase();
+ let category='Supplement';
+ if(/\b(t3|t4|liothyronine|levothyroxine|thyroid hormone|testosterone|progesterone|estradiol|dhea|pregnenolone)\b/i.test(low))category='Hormone';
+ else if(/\b(prescription|medication|medicine|aspirin|metformin|antibiotic|antihistamine)\b/i.test(low))category='Prescription medicine';
+ else if(/\b(milk|egg|eggs|beef|chicken|liver|rice|potato|banana|coffee|tea|juice|fruit|food|yogurt|cheese|butter)\b/i.test(low))category='Food / beverage';
+ else if(/\b(other|miscellaneous)\b/i.test(low))category='Other';
+ return {name,amount,category};
+}
+function applySmartSupplementParse(){
+ const box=document.getElementById('smartSuppImport');
+ const parsed=parseSmartSupplement(box.value);
+ const hint=document.getElementById('smartImportHint');
+ if(!parsed){hint.textContent='Paste or type an item. Name, amount and category will be filled when recognized.';return}
+ const nameEl=document.getElementById('customSuppName');
+ const amountEl=document.getElementById('customSuppAmount');
+ const typeEl=document.getElementById('customSuppType');
+ nameEl.value=parsed.name;
+ if(parsed.amount)amountEl.value=parsed.amount;
+ typeEl.value=parsed.category;
+ [nameEl,amountEl,typeEl].forEach(el=>{el.classList.remove('parse-highlight');void el.offsetWidth;el.classList.add('parse-highlight')});
+ hint.textContent='Parsed: '+parsed.name+(parsed.amount?' · '+parsed.amount:'')+' · '+parsed.category;
+}
+function initSmartSupplementImport(){
+ const box=document.getElementById('smartSuppImport');
+ if(!box||box.dataset.parserReady)return;
+ box.dataset.parserReady='1';
+ box.addEventListener('input',applySmartSupplementParse);
+ box.addEventListener('paste',()=>setTimeout(applySmartSupplementParse,0));
+}
+function addCustomSupplement(){
+ saveSupplements();
+ const n=document.getElementById('customSuppName').value.trim();
+ const amount=document.getElementById('customSuppAmount').value.trim();
+ const category=document.getElementById('customSuppType').value;
+ if(!n)return alert('Enter a name first.');
+ if(!supplementCatalog.some(x=>x[0].toLowerCase()===n.toLowerCase())){
+  supplementCatalog.push([n,category]);
+  db.customSupplements ||= []; db.supplementSchedules ||= {}; db.supplementAdherence ||= {};
+  db.customSupplements.push(n);
+ }
+ db.supplements[n] ||= {status:'Considering'};
+ if(amount)db.supplements[n].dose=amount;
+ saveDB();
+ document.getElementById('customSuppName').value='';
+ document.getElementById('customSuppAmount').value='';
+ document.getElementById('smartSuppImport').value='';
+ document.getElementById('smartImportHint').textContent='Added to your local inventory.';
+ renderSupplements();
+}
+
+
+function trackerActiveItems(){
+ return supplementCatalog.filter(([name])=>{
+  const st=(db.supplements[name]||{}).status;
+  return st==='Currently using'||st==='Prescribed and using';
+ });
+}
+function trackerDateKey(){return selectedTrackerDate}
+function trackerEntryKey(name,index){return name+'::'+index}
+function renderSupplementTracker(){
+ const active=trackerActiveItems(),stack=document.getElementById('activeStack');
+ const list=document.getElementById('dailySupplementChecklist');
+ if(!stack||!list)return;
+ const date=trackerDateKey(),day=db.supplementAdherence[date]||{};
+ document.getElementById('trackerDateLabel').textContent=dateLabel(date,{weekday:'short',month:'short',day:'numeric'});
+ stack.innerHTML=active.length?active.map(([name,cat])=>{
+  const cfg=db.supplementSchedules[name]||{};
+  const inv=db.supplements[name]||{};
+  return `<div class="active-stack-row"><div class="active-stack-name"><strong>${escapeHTML(name)}</strong><span>${escapeHTML(cat)} · ${escapeHTML(inv.dose||'Dose not recorded')}</span></div><label class="tracker-config"><span>Schedule</span><select data-schedule-name="${escapeHTML(name)}" data-schedule-key="frequency"><option value="daily" ${(!cfg.frequency||cfg.frequency==='daily')?'selected':''}>Daily</option><option value="weekdays" ${cfg.frequency==='weekdays'?'selected':''}>Selected days</option><option value="weekly" ${cfg.frequency==='weekly'?'selected':''}>Weekly</option><option value="as-needed" ${cfg.frequency==='as-needed'?'selected':''}>As needed</option></select></label><div class="tracker-config"><span>Reminder times</span><div class="schedule-times">${String(cfg.times||'08:00').split(',').map((t,i)=>t.trim()).filter(Boolean).map((t,i)=>`<button type="button" class="schedule-time-chip" data-schedule-time data-schedule-name="${escapeHTML(name)}" data-schedule-index="${i}" data-schedule-value="${escapeHTML(t)}">${formatClockLabel(t)}</button>`).join('')}<button type="button" class="schedule-time-add" data-add-schedule-time="${escapeHTML(name)}">+ Add time</button></div></div><label class="tracker-config"><span>Days (for selected days)</span><input data-schedule-name="${escapeHTML(name)}" data-schedule-key="days" value="${escapeHTML(cfg.days||'Mon, Tue, Wed, Thu, Fri, Sat, Sun')}" placeholder="Mon, Wed, Fri"></label></div>`;
+ }).join(''):'<div class="inventory-empty">Your active stack is empty. Mark items as Currently using or Prescribed and using in the inventory to add them here.</div>';
+ let doses=[];
+ active.forEach(([name])=>{
+  const cfg=db.supplementSchedules[name]||{frequency:'daily',times:'08:00'};
+  if(cfg.frequency==='as-needed')return;
+  const weekday=new Date().toLocaleDateString('en-US',{weekday:'short'});
+  if(cfg.frequency==='weekdays'&&!String(cfg.days||'').toLowerCase().includes(weekday.toLowerCase()))return;
+  const times=String(cfg.times||'08:00').split(',').map(x=>x.trim()).filter(x=>/^([01]\d|2[0-3]):[0-5]\d$/.test(x));
+  times.forEach((time,index)=>doses.push({name,time,index,key:trackerEntryKey(name,index)}));
+ });
+ doses.sort((a,b)=>a.time.localeCompare(b.time)||a.name.localeCompare(b.name));
+ list.innerHTML=doses.length?doses.map(d=>{
+  const state=day[d.key]||{};
+  return `<div class="dose-row"><div class="dose-main"><strong>${escapeHTML(d.name)}</strong><span>${d.time} · ${escapeHTML((db.supplements[d.name]||{}).dose||'Dose not specified')}</span></div><div class="dose-actions"><button type="button" data-dose-state="taken" data-dose-key="${escapeHTML(d.key)}" class="${state.status==='taken'?'selected taken':''}">Taken</button><button type="button" data-dose-state="skipped" data-dose-key="${escapeHTML(d.key)}" class="${state.status==='skipped'?'selected':''}">Skipped</button><button type="button" data-dose-state="missed" data-dose-key="${escapeHTML(d.key)}" class="${state.status==='missed'?'selected':''}">Missed</button></div></div>`;
+ }).join(''):'<div class="inventory-empty">No doses scheduled for today. Configure a schedule above, or use As needed for non-routine items.</div>';
+ const logged=doses.filter(d=>day[d.key]?.status).length;
+ const pct=doses.length?Math.round(logged/doses.length*100):0;
+ document.getElementById('trackerProgressFill').style.width=pct+'%';
+ document.getElementById('trackerProgressText').textContent=`${logged} / ${doses.length} doses logged`;
+ const history=Object.keys(db.supplementAdherence||{}).sort().slice(-7).reverse();
+ document.getElementById('trackerHistory').innerHTML=history.length?'<div class="small">Recent adherence records</div>'+history.map(d=>{const vals=Object.values(db.supplementAdherence[d]||{});const taken=vals.filter(x=>x.status==='taken').length;return `<div class="history-row"><span>${d}</span><span>${taken} taken · ${vals.length-taken} skipped/missed or other</span></div>`}).join(''):'';
+}
+function initSupplementTracker(){
+ const root=document.getElementById('supplements');
+ if(!root||root.dataset.trackerBound)return;
+ root.dataset.trackerBound='1';
+ root.addEventListener('change',e=>{
+  const el=e.target.closest('[data-schedule-name]');
+  if(!el)return;
+  const name=el.dataset.scheduleName,key=el.dataset.scheduleKey;
+  db.supplementSchedules[name] ||= {frequency:'daily',times:'08:00',days:'Mon, Tue, Wed, Thu, Fri, Sat, Sun'};
+  db.supplementSchedules[name][key]=el.value;
+  saveDB();renderSupplementTracker();
+ });
+ root.addEventListener('click',e=>{
+  const btn=e.target.closest('[data-dose-state]');
+  if(!btn)return;
+  const date=trackerDateKey(),key=btn.dataset.doseKey;
+  db.supplementAdherence[date] ||= {};
+  db.supplementAdherence[date][key]={status:btn.dataset.doseState,loggedAt:new Date().toISOString()};
+  saveDB();renderSupplementTracker();
+ });
+}
+
+function parseGlobalSupplementLine(raw){
+ const text=String(raw||'').replace(/\s+/g,' ').trim();
+ if(!text)return {error:'Paste or type an entry first.'};
+ const cards=[...document.querySelectorAll('#supplementCatalog details.supp-item')];
+ const candidates=cards.map(card=>({card,name:card.querySelector('summary strong')?.textContent.trim()||''}))
+  .filter(x=>x.name)
+  .sort((a,b)=>b.name.length-a.name.length);
+ const escaped=x=>x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+ let found=null;
+ for(const item of candidates){
+  const re=new RegExp('(^|[^a-z0-9])'+escaped(item.name)+'(?=$|[^a-z0-9])','i');
+  if(re.test(text)){found=item;break}
+ }
+ if(!found){
+  const typed=text.match(/^([a-z][a-z0-9+()\- ]{1,35}?)(?=\s+\d|\s+(?:daily|weekly|once|twice|three times|with|on waking|before|after)\b|$)/i);
+  const guess=typed?.[1]?.trim();
+  return {error:guess?'No inventory row matched “'+guess+'”. Add it under “Add something not listed” first.':'Could not identify a supplement name in the inventory.'};
+ }
+ let remainder=text.replace(new RegExp('(^|[^a-z0-9])'+escaped(found.name)+'(?=$|[^a-z0-9])','i'),' ').replace(/\s+/g,' ').trim();
+ const amountMatch=remainder.match(/\b\d+(?:[.,]\d+)?\s*(?:mcg|µg|μg|mg|g|ml|mL|iu|units?|drops?)\b/i);
+ const amount=amountMatch?amountMatch[0].replace(/\s+/g,' ').trim():'';
+ if(amountMatch)remainder=remainder.replace(amountMatch[0],' ');
+ const frequencyRe=/\b(?:once|twice|three times|four times)\s+(?:a|per)\s+day\b|\b\d+\s*(?:x|times?)\s*(?:\/|per)\s*day\b|\b(?:daily|every day|every other day|weekly|once a week|twice a week|monthly)\b/i;
+ const frequencyMatch=remainder.match(frequencyRe);
+ const frequency=frequencyMatch?frequencyMatch[0]:'';
+ if(frequencyMatch)remainder=remainder.replace(frequencyMatch[0],' ');
+ const timingRe=/\b(?:with|before|after)\s+(?:a\s+)?(?:meal|food|breakfast|lunch|dinner|bed|sleep)\b|\b(?:on waking|upon waking|empty stomach|at bedtime|in the morning|in the evening|morning|evening|night)\b/i;
+ const timingMatch=remainder.match(timingRe);
+ const timing=timingMatch?timingMatch[0]:'';
+ if(timingMatch)remainder=remainder.replace(timingMatch[0],' ');
+ const product=remainder.replace(/\b(?:take|taking|dose|dosage|supplement|of|and|then)\b/ig,' ')
+  .replace(/[()[\],;|]/g,' ').replace(/\s+/g,' ').replace(/^[\s:–—-]+|[\s:–—-]+$/g,'').trim();
+ return {card:found.card,name:found.name,amount,frequency,timing,product};
+}
+function applyGlobalSupplementLog(){
+ const input=document.getElementById('globalSuppLog'),status=document.getElementById('globalSuppStatus');
+ const parsed=parseGlobalSupplementLine(input.value);
+ if(parsed.error){status.textContent=parsed.error;return}
+ const card=parsed.card;
+ if(!card.open)card.open=true;
+ const set=(key,value)=>{if(!value)return;const el=card.querySelector(`[data-key="${key}"]`);if(el)el.value=value};
+ set('status','Currently using');set('dose',parsed.amount);set('frequency',parsed.frequency);set('timing',parsed.timing);set('product',parsed.product);
+ card.classList.remove('quick-log-hit');void card.offsetWidth;card.classList.add('quick-log-hit');
+ card.scrollIntoView({behavior:'smooth',block:'center'});
+ status.textContent='Matched '+parsed.name+'. Fields filled; review them, then save your supplement inventory.';
+ window.setTimeout(()=>card.classList.remove('quick-log-hit'),2200);
+}
+function initGlobalSupplementLog(){
+ const input=document.getElementById('globalSuppLog'),button=document.getElementById('globalSuppParse');
+ if(!input||input.dataset.ready)return;
+ input.dataset.ready='1';
+ input.addEventListener('input',()=>{
+  const parsed=parseGlobalSupplementLine(input.value);
+  if(parsed.card)applyGlobalSupplementLog();
+  else document.getElementById('globalSuppStatus').textContent=parsed.error||'';
+ });
+ input.addEventListener('paste',()=>setTimeout(()=>{const parsed=parseGlobalSupplementLine(input.value);if(parsed.card)applyGlobalSupplementLog()},0));
+ button?.addEventListener('click',applyGlobalSupplementLog);
+}
+
+function exportCSV(){
+ try{
+  const rows=[['date','wake_time','method','measurement','time','temperature_f','pulse_bpm','notes']];
+  latestLogs().forEach(l=>{(Array.isArray(l.measurements)?l.measurements:[]).forEach(m=>rows.push([l.date||'',l.wakeTime||'',l.method||'',m.label||'',m.time||'',m.temp??'',m.pulse??'',l.notes||'']))});
+  const csv='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');
+  openExportModal('Daily logs · CSV','bioenergetic-daily-logs-'+today()+'.csv',csv,'text/plain','text');
+  const el=document.getElementById('reportStatus');if(el)el.textContent='CSV prepared. Tap Download file. '+(rows.length-1)+' measurement rows included.';
+ }catch(err){console.error('CSV export failed',err);const el=document.getElementById('reportStatus');if(el)el.textContent='CSV export failed: '+(err&&err.message?err.message:'unknown error')}
+}
+function importJSON(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!x.logs||!x.assessment)throw Error('Invalid backup');x.supplements ||= {};x.customSupplements ||= [];db=x; supplementCatalog.splice(baseSupplementCount);db.customSupplements.forEach(n=>{if(!supplementCatalog.some(x=>x[0].toLowerCase()===n.toLowerCase()))supplementCatalog.push([n,'Custom'])});saveDB();renderDashboard();renderTrends();renderSupplements();document.getElementById('backupStatus').textContent='Backup imported.'}catch(err){document.getElementById('backupStatus').textContent='Could not import: invalid backup file.'}};r.readAsText(f)}
+function deleteAll(){if(confirm('Delete all assessment answers and daily logs from this browser? This cannot be undone.')){localStorage.removeItem(DBKEY);db={logs:{},assessment:{},supplements:{},customSupplements:[]};supplementCatalog.splice(baseSupplementCount);buildQuestionnaire();renderSupplements();renderDashboard();renderTrends();document.getElementById('backupStatus').textContent='Local data deleted.'}}
+buildMeasurementRows();document.getElementById('logDate').value=today();document.getElementById('logDateLabel').textContent=dateLabel(today());document.getElementById('tempUnit').value='F';document.getElementById('hdDate').value=today();buildQuestionnaire();renderSupplements();renderDashboard();renderTrends();renderHealthData();window.addEventListener('resize',()=>{renderDashboard();renderTrends();if(document.getElementById('healthdata').classList.contains('active'))renderHealthData(false)});
+initSmartSupplementImport();
+initGlobalSupplementLog();
+initInventoryFilters();
+initSupplementTracker();
+</script>
+</body></html>
