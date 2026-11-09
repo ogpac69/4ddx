@@ -1,3 +1,5 @@
-# 4DDX D4.4 Diagnostic Workspace
+# 4DDX D4.5
 
-Additive D4.4 UI release. Extract at repository root, preserving paths. Includes root and `app/` entry points, the D4.3 reasoning engine, and the D4.4 workspace controller. Existing profile storage is unchanged; diagnostic cases use a separate localStorage key. See `docs/D4.4-DIAGNOSTIC-WORKSPACE.md`.
+Evidence library and source-to-claim linking for the D4.4 diagnostic workspace.
+
+Install by extracting at repository root and preserving paths. Replace the included files. No migration is performed. Evidence records are stored separately by case and require their own export. Tests are in `tests/node/`; run them in a Node-capable environment if available.

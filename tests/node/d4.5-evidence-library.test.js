@@ -1,0 +1,14 @@
+const assert=require('assert');
+const E=require('../../engine/d4-evidence-library.js');
+const lib=E.createLibrary({caseId:'case-1'});
+const withSource=E.addSource(lib,{id:'s1',title:'Example controlled trial',year:2024,sourceType:'randomized_trial',perspective:'mainstream_clinical',quality:'moderate',url:'https://example.org/paper',population:'Adults',methods:'Randomized parallel-group design',limitations:'Small sample'});
+assert.equal(withSource.sources.length,1);
+const withClaim=E.addClaim(withSource,{id:'c1',text:'The intervention changed the measured endpoint in this study population.',hypothesisId:'hyp-1',sourceIds:['s1'],supports:true,perspective:'mainstream_clinical'});
+assert.equal(E.validate(withClaim).valid,true);
+assert.equal(E.review(withClaim).claimCount,1);
+assert.throws(()=>E.addClaim(withSource,{text:'Unsupported citation',sourceIds:['missing']}),/unknown source/i);
+assert.throws(()=>E.source({title:'Bad URL',url:'javascript:alert(1)'}),/http/i);
+assert.throws(()=>E.source({title:''}),/required/i);
+const separate=E.createLibrary({caseId:'case-2'});
+assert.equal(separate.sources.length,0);
+console.log('D4.5 evidence library tests: PASS');

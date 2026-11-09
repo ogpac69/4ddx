@@ -616,6 +616,38 @@ body{background:#08090d}
 <div class="sectionhead"><div><div class="eyebrow">D4.4 · DIFFERENTIAL WORKSPACE</div><h2>Diagnostic workspace</h2><p>Document competing explanations, evidence, confounders and what would change your mind.</p></div><span class="tag">USER-GUIDED</span></div>
 <div class="d44-card"><div class="d44-actions"><button class="btn" id="d44NewCase" type="button">New case</button><select id="d44CaseSelect" aria-label="Select case" style="flex:1;min-width:180px"></select><button class="btn secondary" id="d44Export" type="button">Export case JSON</button></div><div class="field"><label class="q" for="d44Question">Clinical question / problem representation</label><textarea id="d44Question" rows="2" placeholder="Describe the main problem, duration and context."></textarea></div><div class="field"><label class="q" for="d44Observations">Key observations (one per line)</label><textarea id="d44Observations" rows="3" placeholder="Separate measured findings from interpretations."></textarea></div><div class="d44-grid"><div class="field"><label class="q" for="d44RedFlags">Red flags / urgent concerns (one per line)</label><textarea id="d44RedFlags" placeholder="Record any concerning features already identified."></textarea></div><div class="field"><label class="q" for="d44SafetyNotes">Safety review notes</label><textarea id="d44SafetyNotes" placeholder="Clinical review, dates, unresolved concerns."></textarea></div></div><div class="d44-actions"><button class="btn" id="d44SaveMeta" type="button">Save case details</button></div></div>
 <div class="d44-card"><h3>Add a hypothesis</h3><p class="small">Keep mainstream clinical and bioenergetic interpretations distinct. An evidence label is a user-entered classification, not independently verified.</p><div class="field"><label class="q" for="d44HypTitle">Hypothesis title</label><input id="d44HypTitle" placeholder="A concise explanatory claim"></div><div class="field"><label class="q" for="d44Mechanism">Proposed mechanism and rationale</label><textarea id="d44Mechanism" rows="2"></textarea></div><div class="d44-grid"><div class="field"><label class="q" for="d44Perspective">Perspective</label><select id="d44Perspective"><option value="mainstream_clinical">Mainstream clinical</option><option value="bioenergetic_peat_ling">Bioenergetic · Peat / Ling</option><option value="other">Other</option></select></div><div class="field"><label class="q" for="d44Evidence">Evidence classification</label><select id="d44Evidence"><option value="unknown">Unknown / not assessed</option><option value="established_mechanism">Established mechanism</option><option value="supported_hypothesis">Supported hypothesis</option><option value="contested_claim">Contested claim</option><option value="speculation">Speculation</option></select></div></div><div class="d44-grid"><div class="field"><label class="q" for="d44Support">Supporting observations · one per line</label><textarea id="d44Support"></textarea></div><div class="field"><label class="q" for="d44Against">Contradicting observations · one per line</label><textarea id="d44Against"></textarea></div><div class="field"><label class="q" for="d44Confounders">Confounders / alternative explanations</label><textarea id="d44Confounders"></textarea></div><div class="field"><label class="q" for="d44Predictions">Testable predictions</label><textarea id="d44Predictions"></textarea></div><div class="field"><label class="q" for="d44Falsifiers">What would weaken or falsify it?</label><textarea id="d44Falsifiers"></textarea></div><div class="field"><label class="q" for="d44Missing">Missing information / data</label><textarea id="d44Missing"></textarea></div></div><div class="field"><label class="q" for="d44Sources">Source notes / citations</label><textarea id="d44Sources" rows="2"></textarea></div><div class="d44-actions"><button class="btn" id="d44AddHyp" type="button">Add hypothesis</button></div></div>
+
+<div class="d44-card" id="d45EvidenceWorkspace"><h3>D4.5 · Evidence library</h3>
+<p class="small">Store traceable sources and the exact claims they support or challenge. Quality labels are appraisal notes, not automated scores or proof.</p>
+<div class="d44-grid">
+<div class="field"><label class="q" for="d45Title">Source title</label><input id="d45Title" placeholder="Paper, guideline, book chapter…"></div>
+<div class="field"><label class="q" for="d45Authors">Authors / organization</label><input id="d45Authors"></div>
+<div class="field"><label class="q" for="d45Year">Publication year</label><input id="d45Year" type="number" min="1800" max="2200"></div>
+<div class="field"><label class="q" for="d45Type">Source type</label><select id="d45Type"><option value="guideline">Guideline</option><option value="systematic_review">Systematic review</option><option value="meta_analysis">Meta-analysis</option><option value="randomized_trial">Randomized trial</option><option value="observational_study">Observational study</option><option value="case_report">Case report</option><option value="mechanistic_study">Mechanistic study</option><option value="book">Book</option><option value="expert_opinion">Expert opinion</option><option value="other">Other</option></select></div>
+<div class="field"><label class="q" for="d45Perspective">Perspective</label><select id="d45Perspective"><option value="mainstream_clinical">Mainstream clinical</option><option value="bioenergetic_peat_ling">Bioenergetic · Peat / Ling</option><option value="other">Other</option></select></div>
+<div class="field"><label class="q" for="d45Quality">Appraisal</label><select id="d45Quality"><option value="not_assessed">Not assessed</option><option value="high">High</option><option value="moderate">Moderate</option><option value="low">Low</option><option value="very_low">Very low</option></select></div>
+</div>
+<div class="field"><label class="q" for="d45Url">URL (optional)</label><input id="d45Url" type="url" placeholder="https://…"></div>
+<div class="field"><label class="q" for="d45Doi">DOI (optional)</label><input id="d45Doi"></div>
+<div class="field"><label class="q" for="d45Population">Population / model studied</label><input id="d45Population" placeholder="Human population, animal model, cell model…"></div>
+<div class="field"><label class="q" for="d45Methods">Methods and main result</label><textarea id="d45Methods" rows="2"></textarea></div>
+<div class="field"><label class="q" for="d45Limitations">Limitations / bias / applicability</label><textarea id="d45Limitations" rows="2"></textarea></div>
+<div class="d44-actions"><button class="btn" id="d45AddSource" type="button">Add source</button></div>
+<hr>
+<h4>Claim linked to a source</h4>
+<div class="field"><label class="q" for="d45ClaimText">Exact claim</label><textarea id="d45ClaimText" rows="2" placeholder="State narrowly what the source does or does not show."></textarea></div>
+<div class="d44-grid">
+<div class="field"><label class="q" for="d45Hypothesis">Related hypothesis</label><select id="d45Hypothesis"></select></div>
+<div class="field"><label class="q" for="d45ClaimSource">Source</label><select id="d45ClaimSource"></select></div>
+<div class="field"><label class="q" for="d45ClaimPerspective">Perspective</label><select id="d45ClaimPerspective"><option value="mainstream_clinical">Mainstream clinical</option><option value="bioenergetic_peat_ling">Bioenergetic · Peat / Ling</option><option value="other">Other</option></select></div>
+<div class="field"><label class="q" for="d45Supports">Relation to hypothesis</label><select id="d45Supports"><option value="true">Supports</option><option value="false">Challenges / limits</option></select></div>
+</div>
+<div class="field"><label class="q" for="d45Context">Population/context and interpretation</label><textarea id="d45Context" rows="2"></textarea></div>
+<div class="field"><label class="q" for="d45ClaimLimits">Claim-specific limitations</label><textarea id="d45ClaimLimits" rows="2"></textarea></div>
+<div class="d44-actions"><button class="btn" id="d45AddClaim" type="button">Add linked claim</button></div>
+<div id="d45LibraryList"></div><div id="d45Status" class="small" aria-live="polite"></div>
+</div>
+
 <div class="d44-card"><h3>Hypotheses in this case</h3><div id="d44HypList"></div></div><div class="d44-card"><h3>Reasoning review & safety boundaries</h3><div id="d44Review"></div><div id="d44Status" class="small" aria-live="polite"></div></div>
 <div class="notice">This workspace organizes user-entered information. It does not diagnose, rank diseases, estimate probabilities, triage emergencies or recommend treatment. A blank red-flag list does not establish safety. Seek urgent medical assessment for potentially serious or rapidly worsening symptoms.</div>
 </section>
@@ -647,6 +679,8 @@ body{background:#08090d}
 <script src="../engine/d4-longitudinal.js"></script>
 <script src="../engine/d4-diagnostic-reasoning.js"></script>
 <script src="../engine/d4-diagnostic-workspace.js"></script>
+<script src="../engine/d4-evidence-library.js"></script>
+<script src="../engine/d4-evidence-workspace.js"></script>
 <script src="../engine/d3-assessment-bridge.js"></script>
 <script src="../engine/d3-assessment-integration.js"></script>
 <script src="../engine/d3-assessment-rollout.js"></script>
