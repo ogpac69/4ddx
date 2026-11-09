@@ -1,7 +1,3 @@
-# 4DDX — D4.1 to D4.3
+# 4DDX D4.4 Diagnostic Workspace
 
-This package includes the D4.1–D4.2 questionnaire/longitudinal UI integration and the additive D4.3 transparent diagnostic-reasoning engine.
-
-D4.3 is engine-only: it does not alter app UI, localStorage, participant records, migrations, or JSON import/export. It supports competing hypotheses, explicit evidence labels and perspectives, supporting/contradicting observations, confounders, predictions, falsifiers, missing-data tracking, and a human-reviewed safety flag record. It does not diagnose or score disease probability.
-
-Preserve repository paths when extracting. Root and `app/` HTML copies are both included. Android users can replace the files through Gitling; no terminal or Node setup is required. Internal test scripts are included for maintainers.
+Additive D4.4 UI release. Extract at repository root, preserving paths. Includes root and `app/` entry points, the D4.3 reasoning engine, and the D4.4 workspace controller. Existing profile storage is unchanged; diagnostic cases use a separate localStorage key. See `docs/D4.4-DIAGNOSTIC-WORKSPACE.md`.
