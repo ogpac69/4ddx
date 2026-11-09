@@ -481,8 +481,9 @@ body{background:#08090d}
 .clock-center{pointer-events:none}
 
 
-.d44-card{border:1px solid var(--line,#ddd);border-radius:14px;padding:16px;margin:14px 0;background:var(--card,#fff)}.d44-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.d44-grid .field{margin:0}.d44-grid textarea{min-height:76px}.d44-hyp{border:1px solid var(--line,#ddd);border-radius:12px;padding:14px;margin:12px 0}.d44-hyphead{display:flex;justify-content:space-between;align-items:center;gap:10px}.d44-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}.d44-review{font-size:.92rem}.d44-review p{margin:.5rem 0}.d44-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}@media(max-width:600px){.d44-grid,.d44-columns{grid-template-columns:1fr}}
+.d44-card{border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0;background:var(--panel);color:var(--text)}.d44-card h3,.d44-card h4,.d44-card p,.d44-card label,.d44-card .small,.d44-card .q{color:var(--text)}.d44-card .small,.d44-card .hint{color:var(--muted)}.d44-card input,.d44-card select,.d44-card textarea{background:var(--panel2);color:var(--text);border:1px solid var(--line)}.d44-card input::placeholder,.d44-card textarea::placeholder{color:var(--muted)}.d44-card a{color:#9b9aff}.d44-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.d44-grid .field{margin:0}.d44-grid textarea{min-height:76px}.d44-hyp{border:1px solid var(--line,#ddd);border-radius:12px;padding:14px;margin:12px 0}.d44-hyphead{display:flex;justify-content:space-between;align-items:center;gap:10px}.d44-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}.d44-review{font-size:.92rem}.d44-review p{margin:.5rem 0}.d44-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}@media(max-width:600px){.d44-grid,.d44-columns{grid-template-columns:1fr}}
 
+ .workspace-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 18px;border-bottom:1px solid var(--line);padding-bottom:10px}.workspace-tabs button{background:var(--panel);color:var(--muted);border:1px solid var(--line);padding:8px 14px;border-radius:9px}.workspace-tabs button.active{background:var(--panel2);color:var(--text);border-color:var(--accent)}.workspace-panel[hidden]{display:none!important}.workspace-panel{display:block}
 </style>
 </head>
 <body>
@@ -524,14 +525,13 @@ body{background:#08090d}
 <button data-view="daily" aria-label="Daily log"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M7 2.5v4M17 2.5v4M3 9h18M7 13h3M7 17h3M14 13h3M14 17h3"/></svg><span>Daily</span></button>
 <button data-view="questionnaire" aria-label="Assessment"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h11a2 2 0 0 1 2 2v15H8a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"/><path d="M5 7h13M9 11h8M9 15h8M9 19h5"/></svg><span>Assessment</span></button>
 <button data-view="supplements" aria-label="Supplements"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 3 13 13a4.2 4.2 0 0 1-6 6L2 9a4.2 4.2 0 0 1 6-6z"/><path d="m6 7 6-6M9 10l6-6"/></svg><span>Supps</span></button>
-<button data-view="healthdata" aria-label="Health data"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l2.2-6 4.1 12 2.2-6H21"/><path d="M12 22s-8-4.8-8-12a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 7.2-8 12-8 12z" opacity=".0"/></svg><span>Health</span></button>
-<button data-view="trends" aria-label="Trends and reports"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m6 15 4-4 3 2 6-7"/></svg><span>Trends</span></button>
-<button data-view="diagnostic" aria-label="Diagnostic workspace"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg><span>DDX</span></button>
+<button data-view="insights" aria-label="Insights"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="m6 15 4-4 3 2 6-7"/></svg><span>Insights</span></button>
+
 <button data-view="settings" aria-label="Data and settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.8-.6a8 8 0 0 1-1.5.9l-.3 1.9h-2.8l-.3-1.9a8 8 0 0 1-1.5-.9l-1.8.6-1.4-2.4 1.4-1.1a7 7 0 0 1 0-1.8l-1.4-1.1 1.4-2.4 1.8.6a8 8 0 0 1 1.5-.9l.3-1.9h2.8l.3 1.9a8 8 0 0 1 1.5.9l1.8-.6 1.4 2.4-1.4 1.1a7 7 0 0 1 0 1.8z"/></svg><span>Settings</span></button>
 </nav>
 
 <section class="view active" id="dashboard">
-<div class="sectionhead"><div><div class="eyebrow">YOUR RECORD</div><h2>Overview</h2><p id="todayLabel">Your records are stored in this browser.</p></div><button class="btn" onclick="showView('daily')">Log today's data ↗</button></div>
+<div class="sectionhead"><div><div class="eyebrow">YOUR RECORD</div><h2>Overview</h2><button class="btn secondary" id="openDiagnostic" type="button" style="margin-top:10px">Open diagnostic workspace</button><p id="todayLabel">Your records are stored in this browser.</p></div><button class="btn" onclick="showView('daily')">Log today's data ↗</button></div>
 <div class="grid3">
 <div class="stat vital-stat" id="tempStat"><div class="label">Latest morning temperature</div><div class="value" id="dashTemp">— <span class="unit">°F</span></div><div class="small" id="dashTempDate">No entries yet</div><div class="vital-empty" id="tempEmpty"><button type="button" class="empty-plus" onclick="showView('daily')" aria-label="Add morning temperature">+</button><div><strong>Start your temperature stream</strong><span>Log your morning vitals to reveal your baseline.</span></div></div></div>
 <div class="stat vital-stat" id="pulseStat"><div class="label">Latest resting pulse</div><div class="value" id="dashPulse">— <span class="unit">BPM</span></div><div class="small" id="dashPulseDate">No entries yet</div><div class="vital-empty" id="pulseEmpty"><button type="button" class="empty-plus" onclick="showView('daily')" aria-label="Add resting pulse">+</button><div><strong>Give your pulse a starting point</strong><span>A calm, consistent reading starts the trend.</span></div></div></div>
@@ -542,7 +542,7 @@ body{background:#08090d}
 <div class="notice">Interpretation note: Ray Peat-inspired temperature and pulse observations can be useful personal tracking variables, but they are not validated standalone tests of thyroid function, metabolic rate or “cellular energy.” Record conditions consistently and interpret patterns alongside symptoms and clinical context.</div>
 </section>
 
-<section class="view" id="daily">
+<section class="view" id="daily"><div id="dailyCore" class="workspace-panel">
 <div class="sectionhead"><div><div class="eyebrow">REPEATED OBSERVATIONS</div><h2>Daily temperature & pulse</h2><p>Use the same thermometer, site and resting conditions when possible.</p></div><span class="tag">DAILY LOG</span></div>
 <div class="card">
 <div class="two"><div><label class="q" for="logDate">Log date</label><input id="logDate" type="hidden"><button type="button" class="picker-trigger date-trigger" data-open-calendar="logDate"><span id="logDateLabel">Select date</span><b>▦</b></button></div><div><label class="q">Wake time</label><div id="wakeTimePicker"></div></div></div>
@@ -553,7 +553,34 @@ body{background:#08090d}
 <div class="btnrow"><button class="btn" onclick="saveDaily()">Save daily log</button><button class="btn secondary" onclick="clearDailyForm()">Clear form</button></div><div class="small" id="dailyStatus" aria-live="polite"></div>
 </div>
 <div class="card"><div class="sectionhead"><div><h3>Recent daily records</h3><p>Choose a date to load or edit its log.</p></div></div><div id="recentLogs" class="empty">No daily records yet.</div></div>
-</section>
+</div><div class="workspace-tabs"><button type="button" class="active" data-daily-tab="daily">Daily log</button><button type="button" data-daily-tab="healthdata">Health record</button></div><div class="workspace-panel" id="healthdata" hidden>
+<div class="sectionhead"><div><div class="eyebrow">LONGITUDINAL HEALTH RECORD</div><h2>Health data</h2><p>Track body weight, sleep, symptoms, food intake and laboratory results in one dated record.</p></div><span class="tag">PERSONAL DATA</span></div>
+<div class="card">
+ <div class="two">
+  <div class="field"><label class="q" for="hdDate">Record date</label><input id="hdDate" type="date"></div>
+  <div class="field"><label class="q" for="hdWeight">Body weight (kg)</label><input id="hdWeight" type="number" step="0.1" min="0" placeholder="e.g. 62.5"></div>
+ </div>
+ <h3>Sleep</h3>
+ <div class="two">
+  <div class="field"><label class="q" for="hdSleepHours">Sleep duration (hours)</label><input id="hdSleepHours" type="number" step="0.25" min="0" max="24" placeholder="e.g. 7.5"></div>
+  <div class="field"><label class="q" for="hdSleepQuality">Sleep quality</label><select id="hdSleepQuality"><option value="">Not recorded</option><option>Very poor</option><option>Poor</option><option>Fair</option><option>Good</option><option>Very good</option></select></div>
+ </div>
+ <div class="two">
+  <div class="field"><label class="q" for="hdBedtime">Bedtime</label><input id="hdBedtime" type="time"></div>
+  <div class="field"><label class="q" for="hdWake">Wake time</label><input id="hdWake" type="time"></div>
+ </div>
+ <h3>Symptoms</h3>
+ <div class="field"><label class="q" for="hdSymptoms">Symptoms, severity and timing</label><textarea id="hdSymptoms" rows="3" placeholder="Describe what happened, when it started, duration, severity (0–10), triggers and what relieved it."></textarea></div>
+ <h3>Food intake</h3>
+ <div class="field"><label class="q" for="hdFood">Meals, approximate quantities and reactions</label><textarea id="hdFood" rows="3" placeholder="Record foods, quantities, meal times, appetite, digestion and any reactions."></textarea></div>
+ <div class="field"><label class="q" for="hdNotes">Additional notes</label><textarea id="hdNotes" rows="2" placeholder="Activity, illness, medication changes, unusual stress or measurement context."></textarea></div>
+ <div class="btnrow"><button class="btn" onclick="saveHealthDay()">Save daily health record</button><button class="btn secondary" onclick="clearHealthDayForm()">Clear form</button></div>
+ <div id="hdStatus" class="small" aria-live="polite"></div>
+</div>
+<div class="card"><h3>Recent daily records</h3><p class="small">Select a date to edit its record. Weight and sleep charts use recorded values only; missing days are not imputed.</p><div id="hdDailyHistory" class="tablewrap"></div></div>
+<div class="card"><h3>Weight and sleep trends</h3><div class="two"><div><div class="small">Body weight (kg)</div><div class="chartbox"><canvas id="hdWeightChart"></canvas></div></div><div><div class="small">Sleep duration (hours)</div><div class="chartbox"><canvas id="hdSleepChart"></canvas></div></div></div></div>
+<div class="notice">This is a record-keeping tool, not a diagnostic engine. Do not change medication or supplements based on an isolated measurement or an app-generated trend. For laboratory interpretation, use the report's units, reference interval, symptoms and clinical context.</div>
+</div></section>
 
 <section class="view" id="questionnaire">
 <div class="sectionhead"><div><div class="eyebrow">INITIAL PROFILE</div><h2>Comprehensive assessment</h2><p>Save progressively. Skip anything you do not know or do not wish to answer.</p></div><span class="tag">11 MODULES</span></div>
@@ -583,36 +610,13 @@ body{background:#08090d}
 <div class="btnrow"><button class="btn secondary" onclick="addCustomSupplement()">Confirm &amp; Add</button></div></div>
 </section>
 
-<section class="view" id="healthdata">
-<div class="sectionhead"><div><div class="eyebrow">LONGITUDINAL HEALTH RECORD</div><h2>Health data</h2><p>Track body weight, sleep, symptoms, food intake and laboratory results in one dated record.</p></div><span class="tag">PERSONAL DATA</span></div>
-<div class="card">
- <div class="two">
-  <div class="field"><label class="q" for="hdDate">Record date</label><input id="hdDate" type="date"></div>
-  <div class="field"><label class="q" for="hdWeight">Body weight (kg)</label><input id="hdWeight" type="number" step="0.1" min="0" placeholder="e.g. 62.5"></div>
- </div>
- <h3>Sleep</h3>
- <div class="two">
-  <div class="field"><label class="q" for="hdSleepHours">Sleep duration (hours)</label><input id="hdSleepHours" type="number" step="0.25" min="0" max="24" placeholder="e.g. 7.5"></div>
-  <div class="field"><label class="q" for="hdSleepQuality">Sleep quality</label><select id="hdSleepQuality"><option value="">Not recorded</option><option>Very poor</option><option>Poor</option><option>Fair</option><option>Good</option><option>Very good</option></select></div>
- </div>
- <div class="two">
-  <div class="field"><label class="q" for="hdBedtime">Bedtime</label><input id="hdBedtime" type="time"></div>
-  <div class="field"><label class="q" for="hdWake">Wake time</label><input id="hdWake" type="time"></div>
- </div>
- <h3>Symptoms</h3>
- <div class="field"><label class="q" for="hdSymptoms">Symptoms, severity and timing</label><textarea id="hdSymptoms" rows="3" placeholder="Describe what happened, when it started, duration, severity (0–10), triggers and what relieved it."></textarea></div>
- <h3>Food intake</h3>
- <div class="field"><label class="q" for="hdFood">Meals, approximate quantities and reactions</label><textarea id="hdFood" rows="3" placeholder="Record foods, quantities, meal times, appetite, digestion and any reactions."></textarea></div>
- <div class="field"><label class="q" for="hdNotes">Additional notes</label><textarea id="hdNotes" rows="2" placeholder="Activity, illness, medication changes, unusual stress or measurement context."></textarea></div>
- <div class="btnrow"><button class="btn" onclick="saveHealthDay()">Save daily health record</button><button class="btn secondary" onclick="clearHealthDayForm()">Clear form</button></div>
- <div id="hdStatus" class="small" aria-live="polite"></div>
-</div>
-<div class="card"><h3>Recent daily records</h3><p class="small">Select a date to edit its record. Weight and sleep charts use recorded values only; missing days are not imputed.</p><div id="hdDailyHistory" class="tablewrap"></div></div>
-<div class="card"><h3>Weight and sleep trends</h3><div class="two"><div><div class="small">Body weight (kg)</div><div class="chartbox"><canvas id="hdWeightChart"></canvas></div></div><div><div class="small">Sleep duration (hours)</div><div class="chartbox"><canvas id="hdSleepChart"></canvas></div></div></div></div>
-<div class="notice">This is a record-keeping tool, not a diagnostic engine. Do not change medication or supplements based on an isolated measurement or an app-generated trend. For laboratory interpretation, use the report's units, reference interval, symptoms and clinical context.</div>
-</section>
 
-<section class="view" id="diagnostic">
+
+
+
+
+
+<section class="view" id="insights"><div class="sectionhead"><div><div class="eyebrow">ANALYSIS & REASONING</div><h2>Insights</h2><p>Review longitudinal patterns and compare possible explanations.</p></div></div><div class="workspace-tabs"><button type="button" class="active" data-insight-tab="diagnostic">DDX</button><button type="button" data-insight-tab="trends">Trends</button></div><div class="workspace-panel" id="diagnostic">
 <div class="sectionhead"><div><div class="eyebrow">D4.4 · DIFFERENTIAL WORKSPACE</div><h2>Diagnostic workspace</h2><p>Document competing explanations, evidence, confounders and what would change your mind.</p></div><span class="tag">USER-GUIDED</span></div>
 <div class="d44-card"><div class="d44-actions"><button class="btn" id="d44NewCase" type="button">New case</button><select id="d44CaseSelect" aria-label="Select case" style="flex:1;min-width:180px"></select><button class="btn secondary" id="d44Export" type="button">Export case JSON</button></div><div class="field"><label class="q" for="d44Question">Clinical question / problem representation</label><textarea id="d44Question" rows="2" placeholder="Describe the main problem, duration and context."></textarea></div><div class="field"><label class="q" for="d44Observations">Key observations (one per line)</label><textarea id="d44Observations" rows="3" placeholder="Separate measured findings from interpretations."></textarea></div><div class="d44-grid"><div class="field"><label class="q" for="d44RedFlags">Red flags / urgent concerns (one per line)</label><textarea id="d44RedFlags" placeholder="Record any concerning features already identified."></textarea></div><div class="field"><label class="q" for="d44SafetyNotes">Safety review notes</label><textarea id="d44SafetyNotes" placeholder="Clinical review, dates, unresolved concerns."></textarea></div></div><div class="d44-actions"><button class="btn" id="d44SaveMeta" type="button">Save case details</button></div></div>
 <div class="d44-card"><h3>Add a hypothesis</h3><p class="small">Keep mainstream clinical and bioenergetic interpretations distinct. An evidence label is a user-entered classification, not independently verified.</p><div class="field"><label class="q" for="d44HypTitle">Hypothesis title</label><input id="d44HypTitle" placeholder="A concise explanatory claim"></div><div class="field"><label class="q" for="d44Mechanism">Proposed mechanism and rationale</label><textarea id="d44Mechanism" rows="2"></textarea></div><div class="d44-grid"><div class="field"><label class="q" for="d44Perspective">Perspective</label><select id="d44Perspective"><option value="mainstream_clinical">Mainstream clinical</option><option value="bioenergetic_peat_ling">Bioenergetic · Peat / Ling</option><option value="other">Other</option></select></div><div class="field"><label class="q" for="d44Evidence">Evidence classification</label><select id="d44Evidence"><option value="unknown">Unknown / not assessed</option><option value="established_mechanism">Established mechanism</option><option value="supported_hypothesis">Supported hypothesis</option><option value="contested_claim">Contested claim</option><option value="speculation">Speculation</option></select></div></div><div class="d44-grid"><div class="field"><label class="q" for="d44Support">Supporting observations · one per line</label><textarea id="d44Support"></textarea></div><div class="field"><label class="q" for="d44Against">Contradicting observations · one per line</label><textarea id="d44Against"></textarea></div><div class="field"><label class="q" for="d44Confounders">Confounders / alternative explanations</label><textarea id="d44Confounders"></textarea></div><div class="field"><label class="q" for="d44Predictions">Testable predictions</label><textarea id="d44Predictions"></textarea></div><div class="field"><label class="q" for="d44Falsifiers">What would weaken or falsify it?</label><textarea id="d44Falsifiers"></textarea></div><div class="field"><label class="q" for="d44Missing">Missing information / data</label><textarea id="d44Missing"></textarea></div></div><div class="field"><label class="q" for="d44Sources">Source notes / citations</label><textarea id="d44Sources" rows="2"></textarea></div><div class="d44-actions"><button class="btn" id="d44AddHyp" type="button">Add hypothesis</button></div></div>
@@ -650,18 +654,14 @@ body{background:#08090d}
 
 <div class="d44-card"><h3>Hypotheses in this case</h3><div id="d44HypList"></div></div><div class="d44-card"><h3>Reasoning review & safety boundaries</h3><div id="d44Review"></div><div id="d44Status" class="small" aria-live="polite"></div></div>
 <div class="notice">This workspace organizes user-entered information. It does not diagnose, rank diseases, estimate probabilities, triage emergencies or recommend treatment. A blank red-flag list does not establish safety. Seek urgent medical assessment for potentially serious or rapidly worsening symptoms.</div>
-</section>
-
-<section class="view" id="trends">
+</div><div class="workspace-panel" id="trends" hidden>
 <div class="sectionhead"><div><div class="eyebrow">LONGITUDINAL VIEW</div><h2>Trends & reports</h2><p>Look for repeatable changes, not isolated readings.</p></div><span class="tag">7 / 30 / 90 DAYS</span></div>
 <div class="card"><div class="two"><div><label class="q" for="trendRange">Time range</label><select id="trendRange" onchange="renderTrends()"><option value="7">Last 7 days</option><option value="30" selected>Last 30 days</option><option value="90">Last 90 days</option><option value="365">Last 12 months</option><option value="all">All records</option></select></div><div><label class="q" for="trendMetric">Chart</label><select id="trendMetric" onchange="renderTrends()"><option value="temp">Morning temperature (°F)</option><option value="pulse">Morning resting pulse (BPM)</option></select></div></div><div class="chartbox"><canvas id="trendChart"></canvas></div><div id="trendSummary" class="small"></div></div>
 <div class="card"><h3>First-meal response</h3><p class="small">Compare the pre-meal reading with the reading 45–60 minutes after the first substantial meal. This is descriptive; meal timing, activity, caffeine and measurement conditions can confound the comparison.</p><div class="tablewrap" id="mealTable"></div></div>
 <div class="card" id="d4LongitudinalCard"><h3>Normalized longitudinal overview</h3><p class="small">Read-only summaries from existing daily logs and health records. Temperature is normalized to °C internally; original entries and units remain unchanged. These are descriptive statistics, not diagnoses or causal estimates.</p><div id="d4LongitudinalStatus" class="small" aria-live="polite"></div><div class="tablewrap" id="d4LongitudinalTable"></div></div>
 <div class="card"><h3>Assessment domain indicators</h3><p class="small">Scores reflect answer coverage and selected self-reported habits only. They are not medical risk scores or diagnoses.</p><div id="domainScores" class="scoregrid"></div></div>
 
-</section>
-
-<section class="view" id="settings">
+</div></section><section class="view" id="settings">
 <div class="sectionhead"><div><div class="eyebrow">CONTROL YOUR DATA</div><h2>Data & settings</h2><p>No account, analytics service or cloud sync is used by this file.</p></div></div>
 <div class="card"><h3>Local storage</h3><p class="small">Records are saved in this browser's local storage. Clearing browser data, using private browsing or changing devices can remove or separate your records. Export backups regularly.</p><div class="btnrow export-action-group"><button class="btn" onclick="exportJSON()">Export JSON</button><label class="btn secondary" for="importFile">Import backup</label><input class="hidden" id="importFile" type="file" accept="application/json" onchange="importJSON(event)"></div><div id="backupStatus" class="small"></div></div>
 <div class="card"><h3>Export your records</h3><p class="small">Create a printable report, export daily measurements as CSV, or save a complete JSON backup.</p><div class="btnrow export-action-group"><button class="btn" onclick="exportPDF()">Export PDF</button><button class="btn" onclick="exportCSV()">Export CSV</button><button class="btn" onclick="exportJSON()">Export JSON</button></div><div id="reportStatus" class="small" aria-live="polite"></div></div>
@@ -776,7 +776,9 @@ function latestLogs(){
 function saveDB(){localStorage.setItem(DBKEY,JSON.stringify(db))}
 function today(){let d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
 function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id));if(id==='dashboard')renderDashboard();if(id==='trends')renderTrends();if(id==='supplements'){renderSupplements();renderSupplementTracker();}if(id==='healthdata')renderHealthData();window.scrollTo({top:0,behavior:'smooth'})}
-document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showView(b.dataset.view)));document.querySelectorAll('[data-insight-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-insight-tab]').forEach(x=>x.classList.toggle('active',x===b));['diagnostic','trends'].forEach(id=>{const el=document.getElementById(id);if(el)el.hidden=id!==b.dataset.insightTab});if(b.dataset.insightTab==='trends')renderTrends()}));
+document.querySelectorAll('[data-daily-tab]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-daily-tab]').forEach(x=>x.classList.toggle('active',x===b));const core=document.getElementById('dailyCore'),health=document.getElementById('healthdata');if(core)core.hidden=b.dataset.dailyTab!=='daily';if(health)health.hidden=b.dataset.dailyTab!=='healthdata';if(b.dataset.dailyTab==='healthdata')renderHealthData()}));
+document.getElementById('openDiagnostic')?.addEventListener('click',()=>{showView('insights');document.querySelector('[data-insight-tab=diagnostic]')?.click()});
 document.getElementById('todayLabel').textContent=new Date().toLocaleDateString(undefined,{weekday:'long',year:'numeric',month:'long',day:'numeric'})+' · Your records are stored in this browser.';
 function formatPickerTime(minutes){
  const h=Math.floor(minutes/60),m=minutes%60;
