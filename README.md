@@ -1,9 +1,7 @@
-# 4DDX D4.1–D4.2 UI integration
+# 4DDX — D4.1 to D4.3
 
-This additive release wires the canonical questionnaire registry into field rendering and connects the longitudinal engine to the Trends view. It includes root GitHub Pages and app copies, both using the same engine files.
+This package includes the D4.1–D4.2 questionnaire/longitudinal UI integration and the additive D4.3 transparent diagnostic-reasoning engine.
 
-The current live questionnaire source was validated as 11 modules and 178 questions. Registry validation found no duplicate IDs or invalid definitions.
+D4.3 is engine-only: it does not alter app UI, localStorage, participant records, migrations, or JSON import/export. It supports competing hypotheses, explicit evidence labels and perspectives, supporting/contradicting observations, confounders, predictions, falsifiers, missing-data tracking, and a human-reviewed safety flag record. It does not diagnose or score disease probability.
 
-No localStorage schema migration is performed. Existing assessment values, daily logs, health records, supplements, and JSON import/export behavior remain in their existing structures. The longitudinal panel is read-only.
-
-Install by extracting the ZIP into the repository root and preserving paths. Android-only users can install the files through Gitling without running scripts.
+Preserve repository paths when extracting. Root and `app/` HTML copies are both included. Android users can replace the files through Gitling; no terminal or Node setup is required. Internal test scripts are included for maintainers.
