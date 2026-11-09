@@ -1,10 +1,9 @@
-# 4DDX D4.1 + D4.2
+# 4DDX D4.1–D4.2 UI integration
 
-Additive questionnaire registry and longitudinal data engine.
+This additive release wires the canonical questionnaire registry into field rendering and connects the longitudinal engine to the Trends view. It includes root GitHub Pages and app copies, both using the same engine files.
 
-- `engine/d4-questionnaire-registry.js`
-- `engine/d4-longitudinal.js`
-- `tests/node/d4.1-d4.2.test.js`
-- `docs/D4.1-D4.2.md`
+The current live questionnaire source was validated as 11 modules and 178 questions. Registry validation found no duplicate IDs or invalid definitions.
 
-No existing app file or participant data is modified in this package. See the documentation for API and Android installation.
+No localStorage schema migration is performed. Existing assessment values, daily logs, health records, supplements, and JSON import/export behavior remain in their existing structures. The longitudinal panel is read-only.
+
+Install by extracting the ZIP into the repository root and preserving paths. Android-only users can install the files through Gitling without running scripts.
